@@ -5,10 +5,24 @@
  */
 package Model.Client;
 
+import Model.Person;
+
 /**
  *
  * @author Bryan Hernandez
  */
 public class Client {
+    private Person personalData;
+    private String password;
+    private ShoppingCart cart;
+
+    public Client(Person personalData, String password) {
+        this.personalData = personalData;
+        this.password = password;
+        this.cart = new ShoppingCart();
+    }
+    
+    
+    
     
 }
