@@ -82,6 +82,7 @@ public class ClientLogin extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Corbel", 0, 16)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(51, 51, 51));
+        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -91,6 +92,7 @@ public class ClientLogin extends javax.swing.JFrame {
 
         jPasswordField1.setFont(new java.awt.Font("Corbel", 0, 16)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(51, 51, 51));
+        jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 220, 30));
 
         btnLogin.setBackground(new java.awt.Color(51, 51, 51));
@@ -108,7 +110,7 @@ public class ClientLogin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Corbel", 0, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("¿No tienes cuenta? Registrate gratis");
+        jLabel1.setText("¿No tienes cuenta? Regístrate gratis");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 380, 200, -1));
 
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background_login.png"))); // NOI18N
@@ -176,17 +178,17 @@ public class ClientLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnManager;
-    private javax.swing.JButton btnRegister;
+    public javax.swing.JButton btnLogin;
+    public javax.swing.JButton btnManager;
+    public javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
+    public javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_background;
     // End of variables declaration//GEN-END:variables
 }
