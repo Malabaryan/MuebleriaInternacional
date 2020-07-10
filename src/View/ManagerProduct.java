@@ -91,7 +91,7 @@ public class ManagerProduct extends javax.swing.JFrame {
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         btnProduct.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
-        btnProduct.setForeground(new java.awt.Color(53, 57, 65));
+        btnProduct.setForeground(new java.awt.Color(110, 190, 68));
         btnProduct.setText("Productos");
         btnProduct.setBorder(null);
         btnProduct.setBorderPainted(false);
