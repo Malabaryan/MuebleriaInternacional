@@ -21,11 +21,11 @@ public class ShoppingCart {
     }
 
     public void emptyCart(){
-        
+        this.products.clear();
     }
     
     public void addProduct(Product product){
-        
+        this.products.add(product);
     }
     
     public int getCost(){
@@ -37,6 +37,11 @@ public class ShoppingCart {
         }
         return  cost;
     }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+    
     
 }
 
