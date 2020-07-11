@@ -5,16 +5,20 @@
  */
 package Model.Admin;
 
+import Model.Person;
+
 /**
  *
- * @author Bryan Hernandez
+ * @author ariel
  */
 public class Employee {
+    private Person personalData;
+    private double minSalary;
+    private double maxSalary;
     private FurnitureStore store;
 
     public FurnitureStore getStore() {
         return store;
     }
-    
     
 }
