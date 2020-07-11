@@ -11,4 +11,11 @@ package Model.Products;
  */
 public class Product {
     
+    private int cost;
+
+    public int getCost() {
+        return cost;
+    }
+    
+    
 }
