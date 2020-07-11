@@ -44,7 +44,7 @@ public class ManagerProduct extends javax.swing.JFrame {
         btnProduct = new javax.swing.JButton();
         btnEmployee = new javax.swing.JButton();
         btnStats = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -117,15 +117,15 @@ public class ManagerProduct extends javax.swing.JFrame {
         btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
-        jButton7.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(113, 117, 125));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit.png"))); // NOI18N
-        jButton7.setToolTipText("Cerrar Sesión");
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
+        btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(113, 117, 125));
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit.png"))); // NOI18N
+        btnExit.setToolTipText("Cerrar Sesión");
+        btnExit.setBorder(null);
+        btnExit.setBorderPainted(false);
+        btnExit.setContentAreaFilled(false);
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel1.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(53, 57, 65));
@@ -235,12 +235,12 @@ public class ManagerProduct extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEmployee;
+    public javax.swing.JButton btnExit;
     public javax.swing.JButton btnInventory;
     public javax.swing.JButton btnMenu;
     public javax.swing.JButton btnOffers;
     public javax.swing.JButton btnProduct;
     public javax.swing.JButton btnStats;
-    public javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

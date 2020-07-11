@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import View.ManagerProduct;
+import View.ManagerRegisterEmployee;
 
 /**
  *
@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        ManagerProduct window = new ManagerProduct();
+        ManagerRegisterEmployee window = new ManagerRegisterEmployee();
         window.show();
     }
 }
