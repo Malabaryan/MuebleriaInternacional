@@ -15,4 +15,10 @@ public class Employee {
     private Person personalData;
     private double minSalary;
     private double maxSalary;
+    private FurnitureStore store;
+
+    public FurnitureStore getStore() {
+        return store;
+    }
+    
 }
