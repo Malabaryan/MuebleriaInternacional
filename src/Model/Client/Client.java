@@ -21,6 +21,10 @@ public class Client {
         this.password = password;
         this.cart = new ShoppingCart();
     }
+
+    public ShoppingCart getCart() {
+        return cart;
+    }
     
     
     
