@@ -12,4 +12,27 @@ package Model.Admin;
 public class Location {
     private State state;
     private String address;
+
+    public Location(State state, String address) {
+        this.state = state;
+        this.address = address;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
+    
 }
