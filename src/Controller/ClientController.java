@@ -32,8 +32,18 @@ public class ClientController {
         this.deliveryQueue = new DeliveryQueue();
     }
     
-    public void addNewClient(String fullName, Date birthDate, int tel, Location location, String email, String password){
-        clients.add(new Client(new Person(fullName, birthDate, tel ,location, email), password));
+    public Client login(String username, char[] password){
+        for(Client client: clients){
+            if(client.getUsername().equals(username)){
+                if(client.getPassword().equals(password))
+                    return client;
+            }
+        }
+        return null;
+    }
+    
+    public void addNewClient(String fullName, Date birthDate, int tel, Location location, String email, String password, String username){
+        clients.add(new Client(new Person(fullName, birthDate, tel ,location, email), password, username));
     }
     
     public void addNewOrder(ShoppingCart cart, Employee employee, Client client, boolean deliveryNeeded){
@@ -51,5 +61,11 @@ public class ClientController {
     public void addProductToCart(Product product){
         this.currentClient.getCart().addProduct(product);
     }
+
+    public void setCurrentClient(Client currentClient) {
+        this.currentClient = currentClient;
+    }
+    
+    
     
 }

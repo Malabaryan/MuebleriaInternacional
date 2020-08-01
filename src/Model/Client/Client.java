@@ -13,17 +13,31 @@ import Model.Person;
  */
 public class Client {
     private Person personalData;
-    private String password;
+    private String username;
+    private char[] password;
     private ShoppingCart cart;
 
-    public Client(Person personalData, String password) {
+    public Client(Person personalData, String password, String pUsername) {
         this.personalData = personalData;
-        this.password = password;
+        this.password = password.toCharArray();
         this.cart = new ShoppingCart();
+        this.username = pUsername;
     }
 
     public ShoppingCart getCart() {
         return cart;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public char[] getPassword() {
+        return password;
+    }
+
+    public String getName() {
+        return personalData.getFullName();
     }
     
     

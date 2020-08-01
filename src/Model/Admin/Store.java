@@ -5,11 +5,21 @@
  */
 package Model.Admin;
 
+import Model.Location;
+
 /**
  *
  * @author ariel
  */
-public class Store extends Location {
+public class Store {
     private Location location;
     private Employee manager;
+
+    public Store(Location location, Employee manager) {
+        this.location = location;
+        this.manager = manager;
+    }
+
+    
+    
 }

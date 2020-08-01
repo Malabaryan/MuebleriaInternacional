@@ -14,4 +14,10 @@ import java.util.ArrayList;
 public class Country {
     private String name;
     private ArrayList<State> states;
+
+    public Country(String name) {
+        this.name = name;
+    }
+    
+    
 }

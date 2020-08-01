@@ -15,22 +15,25 @@ import java.util.ArrayList;
 public class ProductController {
     
     private ArrayList<Product> inventory;
+    private ArrayList<Integer> amountOFProduct;
+
+    public ProductController() {
+        inventory = new ArrayList();
+        amountOFProduct = new ArrayList();
+    }
     
-    public boolean checkInventory(ArrayList<Product> products){
-        for(Product p : products){
-            if (!inventory.contains(p)){
-                return false;
-            }
+    public void addProduct(Product p, int amount){
+        if(inventory.contains(p)){
+            amountOFProduct.set(amountOFProduct.get(inventory.indexOf(p)), amountOFProduct.get(inventory.indexOf(p)) + amount);
         }
-        return true;
+        else{
+            inventory.add(p);
+            amountOFProduct.add(amount);
+        }
     }
+   
     
-    /**
-     * Use products to reduce the items from the inventory
-     * @param products 
-     */
-    public void sellProducts(ArrayList<Product> products){
-        /*TODO*/
-    }
+    
+
     
 }

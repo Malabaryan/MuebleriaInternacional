@@ -5,10 +5,16 @@
  */
 package Model.Admin;
 
+import Model.Location;
+
 /**
  *
  * @author Bryan Hernandez
  */
-public class FurnitureStore {
+public class FurnitureStore extends Store{
+    
+    public FurnitureStore(Location location, Employee manager) {
+        super(location, manager);
+    }
     
 }
