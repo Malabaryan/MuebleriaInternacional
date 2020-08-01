@@ -9,7 +9,7 @@ package Model;
  *
  * @author Bryan Hernandez
  */
-public enum Country {
+public enum CountryList {
     
 UnitedStatesofAmerica, Afghanistan, Albania, Algeria, Andorra, Angola, 
 AntiguaDeps, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahamas, 

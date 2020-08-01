@@ -5,11 +5,18 @@
  */
 package Model.Admin;
 
+import Model.Location;
+
 /**
  *
  * @author ariel
  */
-public class WorkShop extends Location {
-    private Location location;
-    private Employee manager;
+public class WorkShop extends Store{
+
+    public WorkShop(Location location, Employee manager) {
+        super(location, manager);
+    }
+
+
+    
 }
