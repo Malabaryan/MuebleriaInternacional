@@ -13,8 +13,8 @@ public class Store extends Location {
     private Location location;
     private Employee manager;
 
-    public Store(Location location, Employee manager, State state, String address) {
-        super(state, address);
+    public Store(Location location, Employee manager,Country country, State state, String address) {
+        super(country, state, address);
         this.location = location;
         this.manager = manager;
     }
