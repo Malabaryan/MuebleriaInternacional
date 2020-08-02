@@ -66,6 +66,9 @@ public class ClientController {
         this.currentClient = currentClient;
     }
     
-    
+    public void borrarDespues(){
+        
+    }
+           
     
 }
