@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.Admin.Employee;
 import Model.Client.Client;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -26,10 +27,9 @@ public class UIController {
     
     private  JDialog dialog;
     
-    private ClientController clientController;
 
-    public UIController(ClientController pClientController) {
-        this.clientController = pClientController;
+    public UIController() {
+
     }
     
     public void showDialog(String title, String text, JFrame frame){
@@ -45,11 +45,16 @@ public class UIController {
     }
     
     public Client login(String pUsername, char[] pPassword){
-        return this.clientController.login(pUsername, pPassword);
+        return MainController.getInstance().getClientController().login(pUsername, pPassword);
+    }
+    
+    public Employee loginManager(String pUsername, char[] pPassword){
+        //return MainController.getInstance().getClientController().login(pUsername, pPassword);
+        return null;
     }
 
     public void setCurrentClient(Client client) {
-        this.clientController.setCurrentClient(client);
+        MainController.getInstance().getClientController().setCurrentClient(client);
     }
     
     

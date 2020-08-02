@@ -11,10 +11,11 @@ import Model.Location;
  *
  * @author Bryan Hernandez
  */
-public class FurnitureStore extends Store{
+public class FurnitureStore extends Establishment{
     
     public FurnitureStore(Location location, Employee manager) {
         super(location, manager);
+        manager.setStore(this);
     }
     
 }

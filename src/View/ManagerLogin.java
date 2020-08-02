@@ -6,6 +6,7 @@
 package View;
 
 import Controller.UIController;
+import Model.Admin.Employee;
 import javax.swing.ImageIcon;
 
 /**
@@ -120,6 +121,14 @@ public class ManagerLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        Employee manager = this.uiController.loginManager(this.jTextField1.getText(), this.jPasswordField1.getPassword());
+        if(manager!= null){
+        }
+        else{
+            
+        }
+           
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

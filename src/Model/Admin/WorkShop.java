@@ -11,7 +11,7 @@ import Model.Location;
  *
  * @author ariel
  */
-public class WorkShop extends Store{
+public class WorkShop extends Establishment{
 
     public WorkShop(Location location, Employee manager) {
         super(location, manager);

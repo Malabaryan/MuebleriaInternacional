@@ -6,6 +6,7 @@
 package Controller;
 
 import View.ClientLogin;
+import View.ManagerLogin;
 
 /**
  *
@@ -17,12 +18,13 @@ public class MainController {
     
     private ClientController clientController;
     private ProductController productController;
+    private AdminController adminController;
     private UIController uiController;
 
     private MainController() {
         clientController = new ClientController();
         productController = new ProductController();
-        uiController = new UIController(clientController);
+        uiController = new UIController();
     }
     
     public static MainController getInstance(){
@@ -43,9 +45,17 @@ public class MainController {
     public UIController getUiController() {
         return uiController;
     }
+
+    public AdminController getAdminController() {
+        return adminController;
+    }
     
     public void startClient(){
         this.uiController.showWindow(ClientLogin.class);
+    }
+    
+    public void starAdmin(){
+        this.uiController.showWindow(ManagerLogin.class);
     }
     
     

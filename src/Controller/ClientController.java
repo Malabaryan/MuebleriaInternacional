@@ -42,8 +42,8 @@ public class ClientController {
         return null;
     }
     
-    public void addNewClient(String fullName, Date birthDate, int tel, Location location, String email, String password, String username){
-        clients.add(new Client(new Person(fullName, birthDate, tel ,location, email), password, username));
+    public void addNewClient(Person pers, String password, String username){
+        clients.add(new Client(pers, password, username));
     }
     
     public void addNewOrder(ShoppingCart cart, Employee employee, Client client, boolean deliveryNeeded){
