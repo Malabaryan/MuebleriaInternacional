@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.Admin;
-
-import Model.Location;
+package Model.Products;
 
 /**
  *
  * @author Bryan Hernandez
  */
-public class FurnitureStore extends Store{
-    
-    public FurnitureStore(Location location, Employee manager) {
-        super(location, manager);
-    }
+public class Promo {
     
 }

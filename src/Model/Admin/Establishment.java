@@ -6,15 +6,14 @@
 package Model.Admin;
 
 import Model.Location;
+import java.util.ArrayList;
 
 /**
  *
- * @author Bryan Hernandez
+ * @author ariel
  */
-public class FurnitureStore extends Store{
-    
-    public FurnitureStore(Location location, Employee manager) {
-        super(location, manager);
-    }
-    
+public class Establishment {
+    private Location location;
+    private Employee manager;
+    private ArrayList<Employee> employees;
 }

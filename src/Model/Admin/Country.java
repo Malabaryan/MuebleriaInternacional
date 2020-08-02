@@ -5,16 +5,19 @@
  */
 package Model.Admin;
 
-import Model.Location;
+import java.util.ArrayList;
 
 /**
  *
- * @author Bryan Hernandez
+ * @author ariel
  */
-public class FurnitureStore extends Store{
-    
-    public FurnitureStore(Location location, Employee manager) {
-        super(location, manager);
+public class Country {
+    private String name;
+    private ArrayList<State> states;
+
+    public Country(String name) {
+        this.name = name;
     }
+    
     
 }

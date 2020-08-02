@@ -9,24 +9,19 @@ package Model.Products;
  *
  * @author Bryan Hernandez
  */
-public class Product {
+public class Furniture extends Product{
     
-    private int cost;
-    private String name;
-
-    public Product(int cost, String name) {
-        this.cost = cost;
-        this.name = name;
-    }
+    private String type;
     
-    public int getCost() {
-        return cost;
+    public Furniture(int cost, String name, String pType) {
+        super(cost, name);
+        type = pType;
     }
 
-    public String getName() {
-        return name;
+    public String getType() {
+        return type;
     }
     
     
-
+    
 }

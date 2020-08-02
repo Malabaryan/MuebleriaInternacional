@@ -9,12 +9,14 @@ import Model.Location;
 
 /**
  *
- * @author Bryan Hernandez
+ * @author ariel
  */
-public class FurnitureStore extends Store{
-    
-    public FurnitureStore(Location location, Employee manager) {
+public class WorkShop extends Store{
+
+    public WorkShop(Location location, Employee manager) {
         super(location, manager);
     }
+
+
     
 }
