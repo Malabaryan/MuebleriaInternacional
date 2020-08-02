@@ -5,7 +5,6 @@
  */
 package View;
 
-import Controller.UIController;
 import javax.swing.ImageIcon;
 
 /**
@@ -14,9 +13,10 @@ import javax.swing.ImageIcon;
  */
 public class ManagerLogin extends javax.swing.JFrame {
 
-    private UIController uiController;
-    
-    public ManagerLogin(UIController pUiController) {
+    /**
+     * Creates new form ManagerLogin
+     */
+    public ManagerLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -152,7 +152,7 @@ public class ManagerLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerLogin(null).setVisible(true);
+                new ManagerLogin().setVisible(true);
             }
         });
     }

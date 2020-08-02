@@ -5,11 +5,7 @@
  */
 package Controller;
 
-import Model.Admin.Country;
-import Model.CountryList;
-import Model.Location;
-import View.ManagerProduct;
-import java.util.Date;
+import View.ManagerRegisterEmployee;
 
 /**
  *
@@ -18,16 +14,8 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[] args) {
-        
-        MainController controller = MainController.getInstance();
-        controller.startClient();
-        
-        controller.getClientController().addNewClient("Bryan Hernandez", 
-                new Date(), 
-                88888407, 
-                new Location(CountryList.CostaRica,"Cartago","Paraiso"), 
-                "hernandez.bryan.ho@gmail.com", 
-                "admin",
-                "malabaryan");
+        // TODO code application logic here
+        ManagerRegisterEmployee window = new ManagerRegisterEmployee();
+        window.show();
     }
 }
