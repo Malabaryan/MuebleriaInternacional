@@ -38,6 +38,6 @@ public class AdminController {
     
     public Employee addEmployee(Employee empl){
         employees.add(empl);
-        return empl;
+        return employees.get(employees.size()-1);
     }
 }

@@ -25,6 +25,7 @@ public class MainController {
         clientController = new ClientController();
         productController = new ProductController();
         uiController = new UIController();
+        adminController = new AdminController();
     }
     
     public static MainController getInstance(){
