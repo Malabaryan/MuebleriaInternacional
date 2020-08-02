@@ -21,11 +21,9 @@ public class DeliveryOrder {
         this.order = order;
         this.solitudeDate = new Date();
     }
-
-    public void setEvaluation(Evaluation evaluation) {
-        this.evaluation = evaluation;
-    }
   
-    
+    public void finishDelivery(Evaluation pEvaluation){
+        this.evaluation = pEvaluation;
+    }
     
 }

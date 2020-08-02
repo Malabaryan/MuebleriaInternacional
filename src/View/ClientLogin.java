@@ -5,7 +5,12 @@
  */
 package View;
 
+import Controller.ClientController;
+import Controller.UIController;
+import Model.Client.Client;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 
 /**
  *
@@ -16,11 +21,17 @@ public class ClientLogin extends javax.swing.JFrame {
     /**
      * Creates new form ClientLogin
      */
-    public ClientLogin() {
+    
+    private UIController uiController;
+    
+    public ClientLogin(UIController pUiController) {
         initComponents();
+        uiController = pUiController;
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
+        uiController = pUiController;
+        
     }
 
     /**
@@ -39,8 +50,8 @@ public class ClientLogin extends javax.swing.JFrame {
         btnRegister = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txt_user = new javax.swing.JTextField();
+        password_pass = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
@@ -60,14 +71,19 @@ public class ClientLogin extends javax.swing.JFrame {
         btnManager.setBorder(null);
         btnManager.setBorderPainted(false);
         btnManager.setContentAreaFilled(false);
-        btnManager.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnManager.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         btnRegister.setBackground(new java.awt.Color(180, 180, 180));
         btnRegister.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(51, 51, 51));
         btnRegister.setText("Registrarse");
-        btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 210, 40));
 
         jLabel2.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
@@ -80,26 +96,26 @@ public class ClientLogin extends javax.swing.JFrame {
         jLabel3.setText("Contraseña:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 130, -1));
 
-        jTextField1.setFont(new java.awt.Font("Corbel", 0, 16)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txt_user.setFont(new java.awt.Font("Corbel", 0, 16)); // NOI18N
+        txt_user.setForeground(new java.awt.Color(51, 51, 51));
+        txt_user.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txt_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txt_userActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 220, 30));
+        jPanel1.add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 220, 30));
 
-        jPasswordField1.setFont(new java.awt.Font("Corbel", 0, 16)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(51, 51, 51));
-        jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 220, 30));
+        password_pass.setFont(new java.awt.Font("Corbel", 0, 16)); // NOI18N
+        password_pass.setForeground(new java.awt.Color(51, 51, 51));
+        password_pass.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(password_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 220, 30));
 
         btnLogin.setBackground(new java.awt.Color(51, 51, 51));
         btnLogin.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Iniciar Sesión");
-        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -134,13 +150,30 @@ public class ClientLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txt_userActionPerformed
 
+    
+    
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        Client client = this.uiController.login(this.txt_user.getText(), this.password_pass.getPassword());
+        if(client!= null){
+            this.uiController.setCurrentClient(client);
+            this.uiController.showDialog("Iniciar sesión", "Usuario registrado. Bienvenido " + client.getName() + ".", this);
+        }
+        else{
+            this.uiController.showDialog("Iniciar sesión", "Datos incorrectos.\nPor favor inténtelo de nuevo.", this);
+        }
+            
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ClientRegister.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,7 +205,7 @@ public class ClientLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClientLogin().setVisible(true);
+                new ClientLogin(null).setVisible(true);
             }
         });
     }
@@ -185,10 +218,10 @@ public class ClientLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    public javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_background;
+    public javax.swing.JPasswordField password_pass;
+    public javax.swing.JTextField txt_user;
     // End of variables declaration//GEN-END:variables
 }

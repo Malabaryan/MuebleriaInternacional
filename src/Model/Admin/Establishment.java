@@ -5,6 +5,7 @@
  */
 package Model.Admin;
 
+import Model.Location;
 import java.util.ArrayList;
 
 /**

@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.UIController;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,11 +14,11 @@ import javax.swing.ImageIcon;
  */
 public class ManagerProduct extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ManagerProduct
-     */
-    public ManagerProduct() {
+    private UIController uiController;
+    
+    public ManagerProduct(UIController pUiController) {
         initComponents();
+        uiController = pUiController;
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
@@ -61,10 +62,15 @@ public class ManagerProduct extends javax.swing.JFrame {
         btnInventory.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
         btnInventory.setForeground(new java.awt.Color(255, 255, 255));
         btnInventory.setText("Inventario");
-        btnInventory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInventory.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInventory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnInventoryMouseEntered(evt);
+            }
+        });
+        btnInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInventoryActionPerformed(evt);
             }
         });
         jPanel1.add(btnInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 240, 40));
@@ -73,10 +79,15 @@ public class ManagerProduct extends javax.swing.JFrame {
         btnOffers.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
         btnOffers.setForeground(new java.awt.Color(255, 255, 255));
         btnOffers.setText("Promociones");
-        btnOffers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOffers.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnOffers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnOffersMouseEntered(evt);
+            }
+        });
+        btnOffers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOffersActionPerformed(evt);
             }
         });
         jPanel1.add(btnOffers, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 240, 40));
@@ -87,7 +98,12 @@ public class ManagerProduct extends javax.swing.JFrame {
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
-        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         btnProduct.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -96,7 +112,12 @@ public class ManagerProduct extends javax.swing.JFrame {
         btnProduct.setBorder(null);
         btnProduct.setBorderPainted(false);
         btnProduct.setContentAreaFilled(false);
-        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 70, -1));
 
         btnEmployee.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -105,7 +126,12 @@ public class ManagerProduct extends javax.swing.JFrame {
         btnEmployee.setBorder(null);
         btnEmployee.setBorderPainted(false);
         btnEmployee.setContentAreaFilled(false);
-        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmployeeActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 80, -1));
 
         btnStats.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -114,7 +140,12 @@ public class ManagerProduct extends javax.swing.JFrame {
         btnStats.setBorder(null);
         btnStats.setBorderPainted(false);
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnStats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStatsActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
         jButton7.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
@@ -124,7 +155,12 @@ public class ManagerProduct extends javax.swing.JFrame {
         jButton7.setBorder(null);
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel1.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -198,40 +234,34 @@ public class ManagerProduct extends javax.swing.JFrame {
         this.lblInstructions.setText(text);
     }//GEN-LAST:event_btnOffersMouseEntered
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagerProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagerProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagerProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagerProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInventoryActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ManagerProduct().setVisible(true);
-            }
-        });
-    }
+    private void btnOffersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOffersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOffersActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void btnStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStatsActionPerformed
+
+    private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEmployeeActionPerformed
+
+    private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProductActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEmployee;
