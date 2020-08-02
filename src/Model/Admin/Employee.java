@@ -5,7 +5,9 @@
  */
 package Model.Admin;
 
+import Model.Location;
 import Model.Person;
+import java.util.Date;
 
 /**
  *
@@ -17,39 +19,27 @@ public class Employee {
     private double maxSalary;
     private FurnitureStore store;
 
+    public Employee(Person pers,FurnitureStore store) {
+        personalData = pers;
+        this.store = store;
+    }
+    
+    public Employee(Person pers) {
+        personalData = pers;
+        this.store = store;
+    }
+
+    public void setStore(FurnitureStore store) {
+        this.store = store;
+    }
+    
+    public void setSalary(double pMinSalary, double pMaxSalary){
+        minSalary = pMinSalary;
+        maxSalary = pMaxSalary;
+    }
+
     public FurnitureStore getStore() {
         return store;
-    }
-
-    public Person getPersonalData() {
-        return personalData;
-    }
-
-    public void setPersonalData(Person personalData) {
-        this.personalData = personalData;
-    }
-
-    public double getMinSalary() {
-        return minSalary;
-    }
-
-    public void setMinSalary(double minSalary) {
-        this.minSalary = minSalary;
-    }
-
-    public double getMaxSalary() {
-        return maxSalary;
-    }
-
-    public void setMaxSalary(double maxSalary) {
-        this.maxSalary = maxSalary;
-    }
-
-    public Employee(Person personalData, double minSalary, double maxSalary, FurnitureStore store) {
-        this.personalData = personalData;
-        this.minSalary = minSalary;
-        this.maxSalary = maxSalary;
-        this.store = store;
     }
     
 }

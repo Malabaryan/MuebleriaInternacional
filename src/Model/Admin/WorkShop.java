@@ -5,34 +5,18 @@
  */
 package Model.Admin;
 
+import Model.Location;
+
 /**
  *
  * @author ariel
  */
-public class WorkShop {
-    private Location location;
-    private Employee manager;
+public class WorkShop extends Establishment{
 
     public WorkShop(Location location, Employee manager) {
-        this.location = location;
-        this.manager = manager;
-    }
-    
-    public Location getLocation() {
-        return location;
+        super(location, manager);
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
-    }
 
-    public Employee getManager() {
-        return manager;
-    }
-
-    public void setManager(Employee manager) {
-        this.manager = manager;
-    }
-    
     
 }
