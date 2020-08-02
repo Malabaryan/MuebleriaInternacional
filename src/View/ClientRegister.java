@@ -5,6 +5,8 @@
  */
 package View;
 
+import Controller.UIController;
+
 /**
  *
  * @author Yelson
@@ -14,8 +16,11 @@ public class ClientRegister extends javax.swing.JFrame {
     /**
      * Creates new form ClientRegister
      */
-    public ClientRegister() {
+    private UIController uiController;
+    
+    public ClientRegister(UIController puiController) {
         initComponents();
+        uiController = puiController;
     }
 
     /**
@@ -73,7 +78,7 @@ public class ClientRegister extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClientRegister().setVisible(true);
+                new ClientRegister(null).setVisible(true);
             }
         });
     }

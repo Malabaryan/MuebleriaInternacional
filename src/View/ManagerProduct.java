@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.UIController;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,10 +14,9 @@ import javax.swing.ImageIcon;
  */
 public class ManagerProduct extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ManagerProduct
-     */
-    public ManagerProduct() {
+    private UIController uiController;
+    
+    public ManagerProduct(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -228,7 +228,7 @@ public class ManagerProduct extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerProduct().setVisible(true);
+                new ManagerProduct(null).setVisible(true);
             }
         });
     }

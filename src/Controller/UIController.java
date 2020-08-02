@@ -75,6 +75,18 @@ public class UIController {
             this.managerProduct = new ManagerProduct(this);
             managerProduct.setVisible(true);
         }
+        else if(c.equals(ManagerEmployees.class)){
+            this.managerProduct = new ManagerProduct(this);
+            managerProduct.setVisible(true);
+        }
+        else if(c.equals(ManagerRegisterEmployee.class)){
+            this.managerProduct = new ManagerProduct(this);
+            managerProduct.setVisible(true);
+        }
+        else if(c.equals(ManagerStatistics.class)){
+            this.managerProduct = new ManagerProduct(this);
+            managerProduct.setVisible(true);
+        }
         
     }
     
