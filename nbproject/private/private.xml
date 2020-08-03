@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/WorkShop.java</file>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Products/Product.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Client/ShoppingCart.java</file>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/Employee.java</file>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Controller/MainController.java</file>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/MainPrueba.java</file>
@@ -12,6 +13,7 @@
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/State.java</file>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Controller/Main.java</file>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/FurnitureStore.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Client/Client.java</file>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Controller/ClientController.java</file>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Controller/AdminController.java</file>
             <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Client/Order.java</file>

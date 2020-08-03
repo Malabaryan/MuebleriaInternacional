@@ -25,7 +25,7 @@ public class Order {
         private Client client;
 
     public Order(ShoppingCart cart, Employee employee, Client client) {
-        this.shop = shop;
+        this.shop = employee.getStore();
         this.employee = employee;
         this.products = cart.getProducts();
         this.cost = cart.getCost();

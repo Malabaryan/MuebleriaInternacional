@@ -48,33 +48,39 @@ public class AdminController {
         int total = 0;
         for(Order o: MainController.getInstance().getClientController().getOrders()){
             if(o.getShop().equals(e.getStore())){
-                System.out.print("Esta Perro");
-                System.out.print(o.getClient().getName());
-                System.out.print(o.getCost());
+                System.out.print("Nombre Cliente: "+o.getClient().getName()+ "\n");
+                System.out.print("Costo: "+o.getCost()+ "\n");
                 total = total + o.getCost();
-                System.out.print(o.getDate());
-                System.out.print(o.getProducts());
+                System.out.print("Fecha: "+o.getDate().toString()+ "\n");
+                for(Product p:o.getProducts()){
+                    System.out.print("Nombre: "+p.getName());
+                    System.out.print(" Costo: "+p.getCost()+ "\n");
+                }
             }
         }
-        System.out.print("Total: "+total);
+        System.out.print("Total: "+total+"\n");
     }
     
     public void reportingSalesGeneral(){
         int total = 0;
         for(Order o: MainController.getInstance().getClientController().getOrders()){
-            System.out.print(o.getClient().getName());
-            System.out.print(o.getCost());
+            System.out.print("Nombre Cliente: "+o.getClient().getName()+ "\n");
+            System.out.print("Costo: "+o.getCost()+ "\n");
             total = total + o.getCost();
-            System.out.print(o.getDate());
-            System.out.print(o.getProducts());
+            System.out.print("Fecha: "+o.getDate().toString()+ "\n");
+            for(Product p:o.getProducts()){
+                System.out.print("Nombre: "+p.getName());
+                System.out.print(" Costo: "+p.getCost()+ "\n");
+            }
+            
         }
-        System.out.print("Total: "+total);
+        System.out.print("Total: "+total+"\n");
     }
     
     public void profit(FurnitureStore fstore, Date dateI, Date dateF, Product product,int expenses){
         int total = 0;
         for(Order o: MainController.getInstance().getClientController().getOrders()){
-            if(fstore.equals(null)){
+            if(fstore == null){
                 if(dateI == null && dateF==null){
                     if(product==null){
                         total=total+o.getCost();
@@ -133,8 +139,10 @@ public class AdminController {
                 }
             }
         }
+        System.out.print("Ventas: "+total+"\n");
+        System.out.print("Gastos: "+expenses+"\n");
         total=total-expenses;
-        System.out.print(total);
+        System.out.print("Total: "+total+"\n");
     }
     
 }
