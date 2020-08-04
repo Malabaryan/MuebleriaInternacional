@@ -5,6 +5,8 @@
  */
 package Model.Products;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Bryan Hernandez
@@ -13,12 +15,14 @@ public class Product {
     
     private int cost;
     private String name;
+    private ArrayList<Material> materialsNeeded;
 
-    public Product(int cost, String name) {
+    public Product(int cost, String name, ArrayList<Material> materialsNeeded) {
         this.cost = cost;
         this.name = name;
+        this.materialsNeeded = materialsNeeded;
     }
-    
+
     public int getCost() {
         return cost;
     }
@@ -26,6 +30,11 @@ public class Product {
     public String getName() {
         return name;
     }
+
+    public ArrayList<Material> getMaterialsNeeded() {
+        return materialsNeeded;
+    }
+
     
     
 

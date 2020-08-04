@@ -42,7 +42,18 @@ public class AdminController {
     public Employee addEmployee(Employee empl){
         employees.add(empl);
         return empl;
-        //return employees.get(employees.size()-1);
+    }
+    
+    public Employee addEmployee(Employee empl, FurnitureStore store){
+        empl.setStore(store);
+        employees.add(empl);
+        return empl;
+    }
+    
+    public Employee addEmployee(Employee empl, WorkShop store){
+        empl.setWorkshop(store);
+        employees.add(empl);
+        return empl;
     }
     
     public void reportingSalesFurniture(Employee e){

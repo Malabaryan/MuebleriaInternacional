@@ -6,6 +6,7 @@
 package Model.Products;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -14,10 +15,10 @@ import java.util.ArrayList;
 public class Combo extends Product{
     
     private ArrayList<Product> products; 
-   
-    public Combo(int cost, String name) {
-        super(cost, name);
-        products = new ArrayList();
+
+    public Combo(ArrayList<Product> products, int cost, String name, ArrayList<Material> materialsNeeded) {
+        super(cost, name, materialsNeeded);
+        this.products = products;
     }
     
     public void addProduct(Product product){

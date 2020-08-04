@@ -5,6 +5,8 @@
  */
 package Model.Products;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Bryan Hernandez
@@ -12,11 +14,12 @@ package Model.Products;
 public class Furniture extends Product{
     
     private String type;
-    
-    public Furniture(int cost, String name, String pType) {
-        super(cost, name);
-        type = pType;
+
+    public Furniture(String type, int cost, String name, ArrayList<Material> materialsNeeded) {
+        super(cost, name, materialsNeeded);
+        this.type = type;
     }
+    
 
     public String getType() {
         return type;

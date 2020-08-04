@@ -5,10 +5,23 @@
  */
 package Model.Products;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author Bryan Hernandez
  */
-public class Promo {
+public class Promo extends Combo{
+    
+    private Date deadline;
+
+    public Promo(Date deadline, ArrayList<Product> products, int cost, String name, ArrayList<Material> materialsNeeded) {
+        super(products, cost, name, materialsNeeded);
+        this.deadline = deadline;
+    }
+    
+    
+    
     
 }

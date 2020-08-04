@@ -26,11 +26,7 @@ public class DeliveryQueue {
     public Order sendNextDeliveryOrder(){
         return this.orders.poll();
     }
-    /**
-     * 
-     * @param order
-     * @param exist The store has all the products of the order
-     */
+
     public void addOrder(Order order, boolean exist){
         if(exist){
             orders.add(order);
