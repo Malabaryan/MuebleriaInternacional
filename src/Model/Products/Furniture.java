@@ -15,8 +15,8 @@ public class Furniture extends Product{
     
     private String type;
 
-    public Furniture(String type, int cost, String name, ArrayList<Material> materialsNeeded) {
-        super(cost, name, materialsNeeded);
+    public Furniture(String type, int cost, String name) {
+        super(cost, name);
         this.type = type;
     }
     

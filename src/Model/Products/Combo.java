@@ -16,8 +16,8 @@ public class Combo extends Product{
     
     private ArrayList<Product> products; 
 
-    public Combo(ArrayList<Product> products, int cost, String name, ArrayList<Material> materialsNeeded) {
-        super(cost, name, materialsNeeded);
+    public Combo(ArrayList<Product> products, int cost, String name) {
+        super(cost, name);
         this.products = products;
     }
     

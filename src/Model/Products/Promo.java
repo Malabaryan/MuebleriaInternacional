@@ -16,8 +16,8 @@ public class Promo extends Combo{
     
     private Date deadline;
 
-    public Promo(Date deadline, ArrayList<Product> products, int cost, String name, ArrayList<Material> materialsNeeded) {
-        super(products, cost, name, materialsNeeded);
+    public Promo(Date deadline, ArrayList<Product> products, int cost, String name) {
+        super(products, cost, name);
         this.deadline = deadline;
     }
     

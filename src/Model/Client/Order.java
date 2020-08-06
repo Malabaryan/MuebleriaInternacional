@@ -24,6 +24,7 @@ public class Order {
         private Date date;
         private boolean deliveryRequired;
         private Client client;
+        private PaymentMethod paymentMethod;
 
     public Order(ShoppingCart cart, Employee employee, Client client) {
         this.shop = employee.getStore();
@@ -33,6 +34,8 @@ public class Order {
         this.date = new Date();
         this.shop = employee.getStore();
         this.client = client;
+        this.paymentMethod = null;
+        
     }
 
     public ArrayList<Product> getProducts() {

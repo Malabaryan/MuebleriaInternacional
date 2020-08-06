@@ -23,6 +23,12 @@ public class Employee {
         this.personalData = personalData;
         this.employeeType = employeeType;
     }
+    
+    public Employee(Person personalData, EmployeeType employeeType,Establishment pStore) {
+        this.personalData = personalData;
+        this.employeeType = employeeType;
+        this.store = pStore;
+    }
 
     public void setStore(FurnitureStore store) {
         this.store = store;

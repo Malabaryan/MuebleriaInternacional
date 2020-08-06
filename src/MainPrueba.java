@@ -8,6 +8,7 @@ import Model.Client.ShoppingCart;
 import Model.CountryList;
 import Model.Location;
 import Model.Person;
+import Model.Admin.EmployeeType;
 import Model.Products.Product;
 import java.util.Date;
 
@@ -41,16 +42,19 @@ public class MainPrueba {
         MainController.getInstance().getClientController().addNewClient(b, "bryanpassword","bryanhernandez");
         MainController.getInstance().getClientController().addNewClient(a, "arielpassword","arielvalverde");
         
-        Employee manager = MainController.getInstance().getAdminController().addEmployee(new Employee(c));
+        EmployeeType managerType = new EmployeeType("Manager Type", 1000.0, 3000.0, 10.0, "Besto Manager"); 
+        EmployeeType salesMan = new EmployeeType("Sales Man Type", 500.0, 1500.0, 15.0, "Besto Sales Man"); 
+        
+        Employee manager = MainController.getInstance().getAdminController().addEmployee(new Employee(c,managerType));
         FurnitureStore fs = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager));
         manager.setStore(fs);
         
-        Employee manager2 = MainController.getInstance().getAdminController().addEmployee(new Employee(e));
+        Employee manager2 = MainController.getInstance().getAdminController().addEmployee(new Employee(e,managerType));
         FurnitureStore fs2 = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager2));
         manager2.setStore(fs2);
         
-        MainController.getInstance().getAdminController().addEmployee(new Employee(d,fs));
-        MainController.getInstance().getAdminController().addEmployee(new Employee(e,fs));
+        MainController.getInstance().getAdminController().addEmployee(new Employee(d,salesMan,fs));
+        MainController.getInstance().getAdminController().addEmployee(new Employee(e,salesMan,fs));
         
         ShoppingCart s1 = new ShoppingCart();
         ShoppingCart s2 = new ShoppingCart();
