@@ -3,21 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.Admin;
+package Model.Client;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author ariel
+ * @author Bryan Hernandez
  */
-public class Country {
-    private String name;
-    private ArrayList<State> states;
-
-    public Country(String name) {
-        this.name = name;
-    }
+public interface PaymentMethod {
     
+    
+    public boolean pay(float amount, ArrayList<String> arguments);
     
 }

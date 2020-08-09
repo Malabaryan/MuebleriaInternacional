@@ -5,6 +5,7 @@
  */
 package Model.Admin;
 
+import Controller.MainController;
 import Model.Location;
 
 /**
@@ -17,5 +18,4 @@ public class FurnitureStore extends Establishment{
         super(location, manager);
         manager.setStore(this);
     }
-    
 }

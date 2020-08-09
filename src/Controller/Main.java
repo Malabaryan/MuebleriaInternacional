@@ -7,6 +7,7 @@ package Controller;
 
 import Model.Admin.Country;
 import Model.Admin.Employee;
+import Model.Admin.EmployeeType;
 import Model.Admin.FurnitureStore;
 import Model.CountryList;
 import Model.Location;
@@ -32,14 +33,17 @@ public class Main {
 
         Location l = new Location(CountryList.CostaRica,"San Jose");
         
+        EmployeeType managerType = new EmployeeType("Manager", 1500, 3500, 10, "Administrate the store, the clients and employees");
+        EmployeeType salesMan = new EmployeeType("Sales Man", 1000, 2000, 15, "Take care of the clients and sale products.");
+        
         controller.getClientController().addNewClient(b, "bryanpassword","bryanhernandez");
         controller.getClientController().addNewClient(a, "arielpassword","arielvalverde");
         
-        Employee manager = controller.getAdminController().addEmployee(new Employee(c));
+        Employee manager = controller.getAdminController().addEmployee(new Employee(c,managerType));
         FurnitureStore fs = controller.getAdminController().addFurnitureStore(new FurnitureStore(l,manager));
         
-        controller.getAdminController().addEmployee(new Employee(d,fs));
-        controller.getAdminController().addEmployee(new Employee(e,fs));
+        controller.getAdminController().addEmployee(new Employee(d,salesMan),fs);
+        controller.getAdminController().addEmployee(new Employee(e,salesMan),fs);
         
         controller.startClient();
     }

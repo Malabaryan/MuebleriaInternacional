@@ -3,12 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/Users/Yelson/Desktop/Proyecto%20Diseño/MuebleriaInternacional/src/View/ClientLogin.java</file>
             <file>file:/D:/Users/Yelson/Desktop/Proyecto%20Diseño/MuebleriaInternacional/src/View/ManagerEmployees.java</file>
             <file>file:/D:/Users/Yelson/Desktop/Proyecto%20Diseño/MuebleriaInternacional/src/Controller/MainController.java</file>
             <file>file:/D:/Users/Yelson/Desktop/Proyecto%20Diseño/MuebleriaInternacional/src/Controller/Main.java</file>
             <file>file:/D:/Users/Yelson/Desktop/Proyecto%20Diseño/MuebleriaInternacional/src/Controller/UIController.java</file>
             <file>file:/D:/Users/Yelson/Desktop/Proyecto%20Diseño/MuebleriaInternacional/src/View/ClientRegister.java</file>
+=======
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/WorkShop.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Products/Product.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Client/ShoppingCart.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/Employee.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Controller/MainController.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/MainPrueba.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/Location.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/State.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Controller/Main.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/FurnitureStore.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Client/Client.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Controller/ClientController.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Controller/AdminController.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Client/Order.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/Country.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/MuebleriaInternacional/src/Model/Admin/Establishment.java</file>
+>>>>>>> fb70bf6c6f6afb5c30d90698b66455ebcf8001b9
         </group>
     </open-files>
 </project-private>
