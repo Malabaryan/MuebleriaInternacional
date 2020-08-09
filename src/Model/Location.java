@@ -10,17 +10,17 @@ package Model;
  * @author Bryan Hernandez
  */
 public class Location {
-    private CountryList country;
+    private String country;
     private String state;
     private String address;
 
-    public Location(CountryList country, String state, String address) {
+    public Location(String country, String state, String address) {
         this.country = country;
         this.state = state;
         this.address = address;
     }
 
-    public Location(CountryList country, String state) {
+    public Location(String country, String state) {
         this.country = country;
         this.state = state;
     }

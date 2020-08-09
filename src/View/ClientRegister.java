@@ -5,7 +5,12 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
+import Model.CountryList;
+import Model.Location;
+import Model.Person;
+import java.util.Date;
 import javax.swing.ImageIcon;
 
 /**
@@ -45,7 +50,6 @@ public class ClientRegister extends javax.swing.JFrame {
         jPanelUser = new javax.swing.JPanel();
         txtLastName = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
-        jDateChooser = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -61,7 +65,6 @@ public class ClientRegister extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         btnBack2 = new javax.swing.JButton();
         btnContinue2 = new javax.swing.JButton();
-        txtPhoneNumber = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtConfirmPassword = new javax.swing.JPasswordField();
@@ -69,14 +72,13 @@ public class ClientRegister extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         jLabel12 = new javax.swing.JLabel();
         txtEmail1 = new javax.swing.JTextField();
+        spin_telephone = new javax.swing.JSpinner();
         jPanelPay = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         btnBack3 = new javax.swing.JButton();
         btnContinue3 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         txtCardNumber = new javax.swing.JTextField();
-        jMonthChooser1 = new com.toedter.calendar.JMonthChooser();
-        jYearChooser1 = new com.toedter.calendar.JYearChooser();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         txtCVV = new javax.swing.JTextField();
@@ -115,8 +117,6 @@ public class ClientRegister extends javax.swing.JFrame {
         jPanelUser.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 170, 30));
         txtName.getAccessibleContext().setAccessibleName("");
 
-        jPanelUser.add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 200, 30));
-
         jLabel3.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -145,7 +145,12 @@ public class ClientRegister extends javax.swing.JFrame {
         btnContinue1.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnContinue1.setForeground(new java.awt.Color(242, 244, 247));
         btnContinue1.setText("CONTINUAR");
-        btnContinue1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnContinue1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnContinue1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinue1ActionPerformed(evt);
+            }
+        });
         jPanelUser.add(btnContinue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 180, 40));
 
         jLabel19.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
@@ -186,16 +191,20 @@ public class ClientRegister extends javax.swing.JFrame {
         btnBack2.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnBack2.setForeground(new java.awt.Color(51, 51, 51));
         btnBack2.setText("REGRESAR");
-        btnBack2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanelService.add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 180, 40));
 
         btnContinue2.setBackground(new java.awt.Color(110, 190, 68));
         btnContinue2.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnContinue2.setForeground(new java.awt.Color(242, 244, 247));
         btnContinue2.setText("CONTINUAR");
-        btnContinue2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnContinue2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnContinue2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinue2ActionPerformed(evt);
+            }
+        });
         jPanelService.add(btnContinue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 180, 40));
-        jPanelService.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 180, 30));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
@@ -223,6 +232,7 @@ public class ClientRegister extends javax.swing.JFrame {
         jLabel12.setText("Correo Electrónico:");
         jPanelService.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 30));
         jPanelService.add(txtEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 380, 30));
+        jPanelService.add(spin_telephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 200, 30));
 
         jTabbedPane.addTab("Paso 2 ", jPanelService);
 
@@ -239,14 +249,19 @@ public class ClientRegister extends javax.swing.JFrame {
         btnBack3.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnBack3.setForeground(new java.awt.Color(51, 51, 51));
         btnBack3.setText("REGRESAR");
-        btnBack3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanelPay.add(btnBack3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 180, 40));
 
         btnContinue3.setBackground(new java.awt.Color(110, 190, 68));
         btnContinue3.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnContinue3.setForeground(new java.awt.Color(242, 244, 247));
         btnContinue3.setText("CONTINUAR");
-        btnContinue3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnContinue3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnContinue3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinue3ActionPerformed(evt);
+            }
+        });
         jPanelPay.add(btnContinue3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 180, 40));
 
         jLabel16.setFont(new java.awt.Font("Corbel", 0, 18)); // NOI18N
@@ -261,8 +276,6 @@ public class ClientRegister extends javax.swing.JFrame {
             }
         });
         jPanelPay.add(txtCardNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 380, 30));
-        jPanelPay.add(jMonthChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, 30));
-        jPanelPay.add(jYearChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 60, 30));
 
         jLabel17.setFont(new java.awt.Font("Corbel", 0, 18)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -293,7 +306,7 @@ public class ClientRegister extends javax.swing.JFrame {
         btnBack.setBorder(null);
         btnBack.setBorderPainted(false);
         btnBack.setContentAreaFilled(false);
-        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBack.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         btnBack.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 40, -1));
@@ -310,7 +323,7 @@ public class ClientRegister extends javax.swing.JFrame {
         btnQuestions.setBorder(null);
         btnQuestions.setBorderPainted(false);
         btnQuestions.setContentAreaFilled(false);
-        btnQuestions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnQuestions.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnQuestions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuestionsActionPerformed(evt);
@@ -356,6 +369,29 @@ public class ClientRegister extends javax.swing.JFrame {
     private void btnQuestionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestionsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnQuestionsActionPerformed
+
+    private void btnContinue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinue1ActionPerformed
+        // TODO add your handling code here:
+        this.jTabbedPane.setEnabledAt(1, true);
+    }//GEN-LAST:event_btnContinue1ActionPerformed
+
+    private void btnContinue3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinue3ActionPerformed
+        // TODO add your handling code here:
+        MainController.getInstance().getClientController().addNewClient(
+                new Person(this.txtName.getText(), this.txtLastName.getText(), 
+                        new Date(), 
+                        (int)this.spin_telephone.getValue(),
+                        new Location(this.cmbCountry.getSelectedItem().toString(), 
+                                this.txtState.getText(), this.txtState1.getText()), 
+                        this.txtEmail1.getText()), 
+                this.txtPassword.getPassword().toString(), 
+                this.txtEmail1.getText());
+    }//GEN-LAST:event_btnContinue3ActionPerformed
+
+    private void btnContinue2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinue2ActionPerformed
+        // TODO add your handling code here:
+        this.jTabbedPane.setEnabledAt(2, true);
+    }//GEN-LAST:event_btnContinue2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,7 +441,6 @@ public class ClientRegister extends javax.swing.JFrame {
     public javax.swing.JButton btnQuestions;
     private javax.swing.JComboBox<String> cmbCountry;
     private javax.swing.JButton jButton2;
-    public com.toedter.calendar.JDateChooser jDateChooser;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -424,14 +459,13 @@ public class ClientRegister extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    public com.toedter.calendar.JMonthChooser jMonthChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelPay;
     private javax.swing.JPanel jPanelService;
     private javax.swing.JPanel jPanelUser;
     public javax.swing.JTabbedPane jTabbedPane;
-    public com.toedter.calendar.JYearChooser jYearChooser1;
     private javax.swing.JLabel label_background;
+    private javax.swing.JSpinner spin_telephone;
     public javax.swing.JTextField txtCVV;
     public javax.swing.JTextField txtCardNumber;
     public javax.swing.JPasswordField txtConfirmPassword;
@@ -439,7 +473,6 @@ public class ClientRegister extends javax.swing.JFrame {
     public javax.swing.JTextField txtLastName;
     public javax.swing.JTextField txtName;
     public javax.swing.JPasswordField txtPassword;
-    public javax.swing.JTextField txtPhoneNumber;
     public javax.swing.JTextField txtState;
     public javax.swing.JTextField txtState1;
     // End of variables declaration//GEN-END:variables

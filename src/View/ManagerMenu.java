@@ -47,19 +47,34 @@ public class ManagerMenu extends javax.swing.JFrame {
         btnEmployees.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/employee.png"))); // NOI18N
         btnEmployees.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEmployees.setContentAreaFilled(false);
-        btnEmployees.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEmployees.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEmployees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmployeesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEmployees, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, 350));
 
         btnProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/product.png"))); // NOI18N
         btnProducts.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnProducts.setContentAreaFilled(false);
-        btnProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductsActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 200, 350));
 
         btnStats.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/statistics.png"))); // NOI18N
         btnStats.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnStats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStatsActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, -1, 350));
 
         btnSignOut.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
@@ -68,7 +83,7 @@ public class ManagerMenu extends javax.swing.JFrame {
         btnSignOut.setBorder(null);
         btnSignOut.setBorderPainted(false);
         btnSignOut.setContentAreaFilled(false);
-        btnSignOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSignOut.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnSignOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 100, -1));
 
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bakground_manager.png"))); // NOI18N
@@ -87,6 +102,24 @@ public class ManagerMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeesActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerEmployees.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnEmployeesActionPerformed
+
+    private void btnProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductsActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerProduct.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnProductsActionPerformed
+
+    private void btnStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatsActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerStatistics.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnStatsActionPerformed
 
     /**
      * @param args the command line arguments

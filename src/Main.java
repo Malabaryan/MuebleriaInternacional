@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+
 
 import Model.Admin.Country;
 import Model.Admin.Employee;
@@ -25,13 +25,13 @@ public class Main {
         
         MainController controller = MainController.getInstance();
         
-        Person a = new Person("Ariel Valverde" ,new Date(),61035439,  new Location(CountryList.Germany,"Stranza","Rohmoser"), "valverde.ariel@gmail.com");
-        Person b = new Person("Bryan Hernandez",new Date(), 88888407, new Location(CountryList.CostaRica,"Cartago","Paraiso"), "hernandez.bryan@gmail.com");
-        Person c = new Person("Carlos Gomez Manager",new Date(), 89898754, new Location(CountryList.CostaRica,"San Jose","Desampa"), "gomez.carlos@gmail.com");
-        Person d = new Person("Daniel Delgado",new Date(), 65659898, new Location(CountryList.CostaRica,"Alajuela","Poas"), "delgado.daniel@gmail.com");
-        Person e = new Person("Esteban Arias",new Date(), 86865151, new Location(CountryList.CostaRica,"Puntarenas","Esparza"), "arias.esteban@gmail.com");
+        Person a = new Person("Ariel Valverde" ,new Date(),61035439,  new Location(CountryList.Germany.toString(),"Stranza","Rohmoser"), "valverde.ariel@gmail.com");
+        Person b = new Person("Bryan Hernandez",new Date(), 88888407, new Location(CountryList.CostaRica.toString(),"Cartago","Paraiso"), "hernandez.bryan@gmail.com");
+        Person c = new Person("Carlos Gomez Manager",new Date(), 89898754, new Location(CountryList.CostaRica.toString(),"San Jose","Desampa"), "gomez.carlos@gmail.com");
+        Person d = new Person("Daniel Delgado",new Date(), 65659898, new Location(CountryList.CostaRica.toString(),"Alajuela","Poas"), "delgado.daniel@gmail.com");
+        Person e = new Person("Esteban Arias",new Date(), 86865151, new Location(CountryList.CostaRica.toString(),"Puntarenas","Esparza"), "arias.esteban@gmail.com");
 
-        Location l = new Location(CountryList.CostaRica,"San Jose");
+        Location l = new Location(CountryList.CostaRica.toString(),"San Jose");
         
         EmployeeType managerType = new EmployeeType("Manager", 1500, 3500, 10, "Administrate the store, the clients and employees");
         EmployeeType salesMan = new EmployeeType("Sales Man", 1000, 2000, 15, "Take care of the clients and sale products.");
