@@ -69,6 +69,22 @@ public class ClientController {
     public void borrarDespues(){
         
     }
-           
+
+    public ArrayList<Client> getClients() {
+        return clients;
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+    public DeliveryQueue getDeliveryQueue() {
+        return deliveryQueue;
+    }
+
+    public Client getCurrentClient() {
+        return currentClient;
+    }
+    
     
 }

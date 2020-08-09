@@ -38,5 +38,4 @@ public class Establishment {
         return employees;
     }
     
-    
 }
