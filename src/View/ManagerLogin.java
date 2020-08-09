@@ -123,9 +123,11 @@ public class ManagerLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         Employee manager = this.uiController.loginManager(this.jTextField1.getText(), this.jPasswordField1.getPassword());
         if(manager!= null){
+            this.uiController.showWindow(ManagerMenu.class);
+            this.setVisible(false);
         }
         else{
-            
+            this.uiController.showDialog("Login Fallido", "Los datos ingresados son incorrectos, por favor vuelva a intentarlo.", this);
         }
            
         
