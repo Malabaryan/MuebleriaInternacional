@@ -10,8 +10,8 @@ import Model.Location;
 import Model.Person;
 import Model.Admin.EmployeeType;
 import Model.Products.Product;
-import View.ClientRegister;
-import View.ManagerLogin;
+import View.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
 /*
@@ -111,7 +111,12 @@ public class MainPrueba {
         System.out.println(manager.getPassword());
         System.out.println(manager.getUsername());
         
+        try{
         MainController.getInstance().getUiController().showWindow(ManagerLogin.class);
+        }
+        catch(Exception ex){
+            System.out.println(ex.toString());
+        }
     }
     
 }

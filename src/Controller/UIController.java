@@ -11,6 +11,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import View.*;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -21,14 +22,21 @@ public class UIController {
     
     private ClientLogin clientLogin;
     private ClientRegister clientRegister;
+    private ManagerEmployees managerEmployees;
     private ManagerLogin managerLogin;
     private ManagerMenu managerMenu;
     private ManagerProduct managerProduct;
+    private ManagerProductInventory managerProductInventory;
+    private ManagerRegisterEmployee managerRegisterEmployee;
+    private ManagerSalaries managerSalaries;
+    private ManagerStatistics managerStatistics;
+    private ManagerViewEmployee managerViewEmployee;
     
     private  JDialog dialog;
     
 
     public UIController() {
+
 
     }
     
@@ -58,6 +66,7 @@ public class UIController {
     
     public void showWindow(Class c){
         System.out.println(c.toString());
+        
         if(c.equals(View.ClientLogin.class)){
             this.clientLogin = new ClientLogin(this);
             clientLogin.setVisible(true);
@@ -65,6 +74,10 @@ public class UIController {
         else if(c.equals(ClientRegister.class)){
             this.clientRegister = new ClientRegister(this);
             clientRegister.setVisible(true);
+        }
+        else if(c.equals(ManagerEmployees.class)){
+            this.managerEmployees = new ManagerEmployees(this);
+            managerEmployees.setVisible(true);
         }
         else if(c.equals(ManagerLogin.class)){
             this.managerLogin = new ManagerLogin(this);
@@ -78,17 +91,29 @@ public class UIController {
             this.managerProduct = new ManagerProduct(this);
             managerProduct.setVisible(true);
         }
-        else if(c.equals(ManagerEmployees.class)){
-            this.managerProduct = new ManagerProduct(this);
-            managerProduct.setVisible(true);
+        else if(c.equals(ManagerProductInventory.class)){
+            this.managerProductInventory = new ManagerProductInventory(this);
+            managerProductInventory.setVisible(true);
+        }
+        else if(c.equals(ManagerProductInventory.class)){
+            this.managerProductInventory = new ManagerProductInventory(this);
+            managerProductInventory.setVisible(true);
         }
         else if(c.equals(ManagerRegisterEmployee.class)){
-            this.managerProduct = new ManagerProduct(this);
-            managerProduct.setVisible(true);
+            this.managerRegisterEmployee = new ManagerRegisterEmployee(this);
+            managerRegisterEmployee.setVisible(true);
+        }
+        else if(c.equals(ManagerSalaries.class)){
+            this.managerSalaries = new ManagerSalaries(this);
+            managerSalaries.setVisible(true);
         }
         else if(c.equals(ManagerStatistics.class)){
-            this.managerProduct = new ManagerProduct(this);
-            managerProduct.setVisible(true);
+            this.managerStatistics = new ManagerStatistics(this);
+            managerStatistics.setVisible(true);
+        }
+        else if(c.equals(ManagerViewEmployee.class)){
+            this.managerViewEmployee = new ManagerViewEmployee(this);
+            managerViewEmployee.setVisible(true);
         }
         
     }
