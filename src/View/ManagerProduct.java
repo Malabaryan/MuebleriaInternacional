@@ -222,6 +222,8 @@ public class ManagerProduct extends javax.swing.JFrame {
 
     private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
         // TODO add your handling code here:
+        this.uiController.showWindow(ManagerProductInventory.class);
+        this.setVisible(false);
     }//GEN-LAST:event_btnInventoryActionPerformed
 
     private void btnOffersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOffersActionPerformed

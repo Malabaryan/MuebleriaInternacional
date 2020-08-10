@@ -163,6 +163,11 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnViewEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_expand.png"))); // NOI18N
         btnViewEmp.setToolTipText("Ver Empleado");
         btnViewEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnViewEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewEmpActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnViewEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 40, 30));
 
         btnAddEmp.setBackground(new java.awt.Color(53, 57, 65));
@@ -183,6 +188,11 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnSalaries.setForeground(new java.awt.Color(255, 255, 255));
         btnSalaries.setText("Administrar Salarios");
         btnSalaries.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSalaries.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalariesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSalaries, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
 
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager_background.png"))); // NOI18N
@@ -212,6 +222,8 @@ public class ManagerEmployees extends javax.swing.JFrame {
 
     private void btnAddEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmpActionPerformed
         // TODO add your handling code here:
+        this.uiController.showWindow(ManagerRegisterEmployee.class);
+        this.setVisible(false);
     }//GEN-LAST:event_btnAddEmpActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -219,6 +231,18 @@ public class ManagerEmployees extends javax.swing.JFrame {
         this.uiController.showWindow(ManagerLogin.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnSalariesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalariesActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerSalaries.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSalariesActionPerformed
+
+    private void btnViewEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEmpActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerViewEmployee.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnViewEmpActionPerformed
 
     /**
      * @param args the command line arguments
