@@ -26,6 +26,7 @@ public class ManagerProduct extends javax.swing.JFrame {
                 + " el inventario, y además, administrar las promociones que quieras"
                 + " ofrecer a tus clientes</p></html>";
         this.lblInstructions.setText(text);
+        uiController = pUiController;
     }
 
     /**

@@ -17,17 +17,20 @@ public class Employee {
     private Person personalData;
     private EmployeeType employeeType;
     private Establishment store;
+    private char[] password;
 
 
-    public Employee(Person personalData, EmployeeType employeeType) {
+    public Employee(Person personalData, EmployeeType employeeType, String pPassword) {
         this.personalData = personalData;
         this.employeeType = employeeType;
+        this.password = pPassword.toCharArray();
     }
     
-    public Employee(Person personalData, EmployeeType employeeType,Establishment pStore) {
+    public Employee(Person personalData, EmployeeType employeeType,Establishment pStore, String pPassword) {
         this.personalData = personalData;
         this.employeeType = employeeType;
         this.store = pStore;
+        this.password = pPassword.toCharArray();
     }
 
     public void setStore(FurnitureStore store) {
@@ -41,5 +44,19 @@ public class Employee {
     public Establishment getStore() {
         return store;
     }
+
+    public EmployeeType getEmployeeType() {
+        return employeeType;
+    }
+    
+    public String getUsername() {
+        return this.personalData.getEmail();
+    }
+
+    public char[] getPassword() {
+        return password;
+    }
+    
+    
     
 }

@@ -156,5 +156,17 @@ public class AdminController {
         total=total-expenses;
         System.out.print("Total: "+total+"\n");
     }
+
+    public Employee loginManager(String pUsername, char[] pPassword) {
+        System.out.println("Manager Received");
+        System.out.println(pUsername);
+        System.out.println(pPassword);
+        for(Employee emp: this.employees){
+            if (emp.getUsername().equals(pUsername)){// && emp.getPassword() == (pPassword)){
+                return emp;
+            }
+        }
+        return null;
+    }
     
 }

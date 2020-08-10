@@ -48,8 +48,7 @@ public class UIController {
     }
     
     public Employee loginManager(String pUsername, char[] pPassword){
-        //return MainController.getInstance().getClientController().login(pUsername, pPassword);
-        return null;
+        return MainController.getInstance().getAdminController().loginManager(pUsername, pPassword);
     }
 
     public void setCurrentClient(Client client) {

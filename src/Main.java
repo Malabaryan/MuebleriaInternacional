@@ -40,11 +40,11 @@ public class Main {
         controller.getClientController().addNewClient(b, "bryanpassword","bryanhernandez");
         controller.getClientController().addNewClient(a, "arielpassword","arielvalverde");
         
-        Employee manager = controller.getAdminController().addEmployee(new Employee(c,managerType));
+        Employee manager = controller.getAdminController().addEmployee(new Employee(c,managerType,"admin123"));
         FurnitureStore fs = controller.getAdminController().addFurnitureStore(new FurnitureStore(l,manager));
         
-        controller.getAdminController().addEmployee(new Employee(d,salesMan),fs);
-        controller.getAdminController().addEmployee(new Employee(e,salesMan),fs);
+        controller.getAdminController().addEmployee(new Employee(d,salesMan,"admin123"),fs);
+        controller.getAdminController().addEmployee(new Employee(e,salesMan,"admin123"),fs);
         
         controller.startClient();
     }

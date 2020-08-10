@@ -21,6 +21,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
+        uiController = pUiController;
     }
 
     /**
