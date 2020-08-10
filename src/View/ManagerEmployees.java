@@ -47,6 +47,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnEditEmp = new javax.swing.JButton();
         btnViewEmp = new javax.swing.JButton();
         btnAddEmp = new javax.swing.JButton();
         btnSalaries = new javax.swing.JButton();
@@ -151,6 +152,14 @@ public class ManagerEmployees extends javax.swing.JFrame {
         jLabel4.setText("Lista de Empleados");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
+        btnEditEmp.setBackground(new java.awt.Color(53, 57, 65));
+        btnEditEmp.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnEditEmp.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_edit.png"))); // NOI18N
+        btnEditEmp.setToolTipText("Editar Empleado");
+        btnEditEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnEditEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 40, 30));
+
         btnViewEmp.setBackground(new java.awt.Color(53, 57, 65));
         btnViewEmp.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnViewEmp.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,6 +254,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEmp;
+    private javax.swing.JButton btnEditEmp;
     private javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
     private javax.swing.JButton btnMenu;

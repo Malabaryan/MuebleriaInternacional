@@ -12,11 +12,11 @@ import javax.swing.ImageIcon;
  *
  * @author Yelson
  */
-public class ManagerViewEmployee extends javax.swing.JFrame {
+public class ManagerEditEmployee extends javax.swing.JFrame {
 
     private UIController uiController;
     
-    public ManagerViewEmployee(UIController pUiController) {
+    public ManagerEditEmployee(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -50,18 +50,18 @@ public class ManagerViewEmployee extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
-        txtBirthDate = new javax.swing.JTextField();
-        txtPosition = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        txtSalary = new javax.swing.JTextField();
         txtLastName1 = new javax.swing.JTextField();
         txtCountry = new javax.swing.JTextField();
         txtState = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        txtSalary = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        btnCancel = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         label_Opaque = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
@@ -141,12 +141,12 @@ public class ManagerViewEmployee extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nacimiento:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(110, 190, 68));
-        jLabel4.setText("Datos del Empleado");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 300, -1));
+        jLabel4.setText("Editar Empleado");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 260, -1));
 
         jLabel6.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,24 +181,10 @@ public class ManagerViewEmployee extends javax.swing.JFrame {
         txtPhoneNumber.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
         jPanel1.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 140, 30));
 
-        txtBirthDate.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtBirthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 180, 30));
-
-        txtPosition.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
-
         jLabel12.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Correo:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, 30));
-
-        jLabel13.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Salario:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, 30));
-
-        txtSalary.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 150, 30));
 
         txtLastName1.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
         jPanel1.add(txtLastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 280, 30));
@@ -215,23 +201,30 @@ public class ManagerViewEmployee extends javax.swing.JFrame {
         txtLastName.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
         jPanel1.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 200, 30));
 
-        btnBack.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(53, 57, 65));
-        btnBack.setText("Regresar");
-        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 150, -1));
+        jLabel13.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Salario:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, 30));
 
-        btnEdit.setBackground(new java.awt.Color(53, 57, 65));
-        btnEdit.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit.setText("Editar");
-        btnEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 140, -1));
+        txtSalary.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 150, 30));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, 30));
+
+        btnCancel.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(53, 57, 65));
+        btnCancel.setText("Cancelar");
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 150, -1));
+
+        btnSave.setBackground(new java.awt.Color(53, 57, 65));
+        btnSave.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Guardar");
+        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 140, -1));
 
         label_Opaque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
         jPanel1.add(label_Opaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 710, 380));
@@ -261,10 +254,6 @@ public class ManagerViewEmployee extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductActionPerformed
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -282,13 +271,13 @@ public class ManagerViewEmployee extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagerViewEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerEditEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagerViewEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerEditEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagerViewEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerEditEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagerViewEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerEditEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -296,19 +285,21 @@ public class ManagerViewEmployee extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerViewEmployee(null).setVisible(true);
+                new ManagerEditEmployee(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnProduct;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnStats;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -325,13 +316,11 @@ public class ManagerViewEmployee extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_Opaque;
     private javax.swing.JLabel label_background;
-    private javax.swing.JTextField txtBirthDate;
     private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtLastName1;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNumber;
-    private javax.swing.JTextField txtPosition;
     private javax.swing.JTextField txtSalary;
     private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables

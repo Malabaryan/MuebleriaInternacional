@@ -38,18 +38,20 @@ public class ManagerProductInventory extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnInventory = new javax.swing.JButton();
-        btnOffers = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         btnProduct = new javax.swing.JButton();
         btnEmployee = new javax.swing.JButton();
         btnStats = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnEditProduct = new javax.swing.JButton();
+        btnViewProduct = new javax.swing.JButton();
+        btnAddProduct = new javax.swing.JButton();
         lblInstructions = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
@@ -57,30 +59,6 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnInventory.setBackground(new java.awt.Color(151, 151, 151));
-        btnInventory.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
-        btnInventory.setForeground(new java.awt.Color(255, 255, 255));
-        btnInventory.setText("Inventario");
-        btnInventory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnInventory.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnInventoryMouseEntered(evt);
-            }
-        });
-        jPanel1.add(btnInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 240, 40));
-
-        btnOffers.setBackground(new java.awt.Color(151, 151, 151));
-        btnOffers.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
-        btnOffers.setForeground(new java.awt.Color(255, 255, 255));
-        btnOffers.setText("Promociones");
-        btnOffers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnOffers.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnOffersMouseEntered(evt);
-            }
-        });
-        jPanel1.add(btnOffers, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 240, 40));
 
         btnMenu.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(53, 57, 65));
@@ -128,20 +106,22 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
+        jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(53, 57, 65));
+        jLabel4.setText("Lista de Productos");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo", "Nombre", "Precio"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 170, 660, 290));
 
         jLabel1.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(53, 57, 65));
@@ -160,6 +140,35 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("|");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 20, 20));
+
+        btnEditProduct.setBackground(new java.awt.Color(53, 57, 65));
+        btnEditProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnEditProduct.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_edit.png"))); // NOI18N
+        btnEditProduct.setToolTipText("Editar Producto");
+        btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnEditProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 40, 30));
+
+        btnViewProduct.setBackground(new java.awt.Color(53, 57, 65));
+        btnViewProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnViewProduct.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_expand.png"))); // NOI18N
+        btnViewProduct.setToolTipText("Ver Producto");
+        btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnViewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 40, 30));
+
+        btnAddProduct.setBackground(new java.awt.Color(53, 57, 65));
+        btnAddProduct.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_plus.png"))); // NOI18N
+        btnAddProduct.setToolTipText("Agregar Producto");
+        btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAddProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, 40, 30));
 
         lblInstructions.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         lblInstructions.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,13 +198,9 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnInventoryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventoryMouseEntered
-       
-    }//GEN-LAST:event_btnInventoryMouseEntered
-
-    private void btnOffersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOffersMouseEntered
-      
-    }//GEN-LAST:event_btnOffersMouseEntered
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddProductActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,16 +239,18 @@ public class ManagerProductInventory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddProduct;
+    private javax.swing.JButton btnEditProduct;
     public javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
-    public javax.swing.JButton btnInventory;
     public javax.swing.JButton btnMenu;
-    public javax.swing.JButton btnOffers;
     public javax.swing.JButton btnProduct;
     public javax.swing.JButton btnStats;
+    private javax.swing.JButton btnViewProduct;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
