@@ -6,20 +6,17 @@
 package View;
 
 import Controller.UIController;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
-import javax.swing.JScrollPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Yelson
  */
-public class ManagerEmployees extends javax.swing.JFrame {
+public class ManagerViewEmployee extends javax.swing.JFrame {
 
     private UIController uiController;
     
-    public ManagerEmployees(UIController pUiController) {
+    public ManagerViewEmployee(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -36,46 +33,39 @@ public class ManagerEmployees extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         btnMenu = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnProduct = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnEmployee = new javax.swing.JButton();
-        btnStats = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnStats = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnViewEmp = new javax.swing.JButton();
-        btnAddEmp = new javax.swing.JButton();
-        btnSalaries = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtPhoneNumber = new javax.swing.JTextField();
+        txtBirthDate = new javax.swing.JTextField();
+        txtPosition = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtLastName1 = new javax.swing.JTextField();
+        txtCountry = new javax.swing.JTextField();
+        txtState = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        txtLastName = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
+        btnAccept = new javax.swing.JButton();
+        label_Opaque = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre", "Apellido", "Edad", "Puesto"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 680, 350));
 
         btnMenu.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(53, 57, 65));
@@ -121,6 +111,12 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 80, -1));
 
+        jLabel2.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(53, 57, 65));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("|");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 20, 20));
+
         btnStats.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         btnStats.setForeground(new java.awt.Color(53, 57, 65));
         btnStats.setText("Estadísticas");
@@ -129,12 +125,6 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnStats.setContentAreaFilled(false);
         btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
-
-        jLabel2.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(53, 57, 65));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("|");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 20, 20));
 
         btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
         btnExit.setForeground(new java.awt.Color(113, 117, 125));
@@ -146,38 +136,90 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
+        jLabel5.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Nacimiento:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, 30));
+
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(53, 57, 65));
-        jLabel4.setText("Lista de Empleados");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        jLabel4.setForeground(new java.awt.Color(110, 190, 68));
+        jLabel4.setText("Datos del Empleado");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 300, -1));
 
-        btnViewEmp.setBackground(new java.awt.Color(53, 57, 65));
-        btnViewEmp.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnViewEmp.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_expand.png"))); // NOI18N
-        btnViewEmp.setToolTipText("Ver Empleado");
-        btnViewEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnViewEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 40, 30));
+        jLabel6.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Apellido:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, 30));
 
-        btnAddEmp.setBackground(new java.awt.Color(53, 57, 65));
-        btnAddEmp.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        btnAddEmp.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_add.png"))); // NOI18N
-        btnAddEmp.setToolTipText("Agregar Empleado");
-        btnAddEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAddEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddEmpActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAddEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 40, 30));
+        jLabel7.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("País:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, 30));
 
-        btnSalaries.setBackground(new java.awt.Color(53, 57, 65));
-        btnSalaries.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnSalaries.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalaries.setText("Administrar Salarios");
-        btnSalaries.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnSalaries, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
+        jLabel8.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Estado:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, 30));
+
+        jLabel9.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Puesto:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, -1, 30));
+
+        jLabel10.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Nombre:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, 30));
+
+        jLabel11.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Teléfono:");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, 30));
+
+        txtPhoneNumber.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 140, 30));
+
+        txtBirthDate.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtBirthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 180, 30));
+
+        txtPosition.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
+
+        jLabel12.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Correo:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, 30));
+
+        txtLastName1.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtLastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 280, 30));
+
+        txtCountry.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 200, 30));
+
+        txtState.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtState, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 200, 30));
+
+        txtName.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 200, 30));
+
+        txtLastName.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 200, 30));
+
+        btnBack.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(53, 57, 65));
+        btnBack.setText("Regresar");
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 150, -1));
+
+        btnAccept.setBackground(new java.awt.Color(53, 57, 65));
+        btnAccept.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        btnAccept.setForeground(new java.awt.Color(255, 255, 255));
+        btnAccept.setText("Aceptar");
+        btnAccept.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 140, -1));
+
+        label_Opaque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
+        jPanel1.add(label_Opaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 710, 380));
 
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager_background.png"))); // NOI18N
         jPanel1.add(label_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 550));
@@ -204,10 +246,6 @@ public class ManagerEmployees extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductActionPerformed
 
-    private void btnAddEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddEmpActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -225,40 +263,55 @@ public class ManagerEmployees extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagerEmployees.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagerEmployees.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagerEmployees.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagerEmployees.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerEmployees(null).setVisible(true);
+                new ManagerViewEmployee(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddEmp;
+    private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnProduct;
-    private javax.swing.JButton btnSalaries;
     private javax.swing.JButton btnStats;
-    private javax.swing.JButton btnViewEmp;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel label_Opaque;
     private javax.swing.JLabel label_background;
+    private javax.swing.JTextField txtBirthDate;
+    private javax.swing.JTextField txtCountry;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtLastName1;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JTextField txtPosition;
+    private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables
 }
