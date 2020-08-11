@@ -38,6 +38,11 @@ public class Product {
     public void setMaterialsNeeded(ArrayList<Material> materialsNeeded) {
         this.materialsNeeded = materialsNeeded;
     }
+    
+    @Override
+    public String toString(){
+        return name;
+    }
 
     
     

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 
 /**
@@ -23,6 +24,7 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
 
     private UIController uiController;
     private Set<String> arrayString;
+    
     
     public ManagerCreateProduct(UIController pUiController) {
         initComponents();
