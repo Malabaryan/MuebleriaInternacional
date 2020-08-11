@@ -64,7 +64,12 @@
               <Color id="Default Cursor"/>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
               <Color id="Cursor de Mano"/>
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -113,7 +118,12 @@
               <Color id="Default Cursor"/>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
               <Color id="Cursor de Mano"/>
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -165,7 +175,12 @@
               <Color id="Default Cursor"/>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor Por defecto"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
               <Color id="Cursor Por defecto"/>
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -214,7 +229,12 @@
               <Color id="Default Cursor"/>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
               <Color id="Cursor de Mano"/>
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -249,7 +269,12 @@
               <Color id="Default Cursor"/>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
               <Color id="Cursor de Mano"/>
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -532,7 +557,10 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
         <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -541,6 +569,9 @@
           </Constraints>
         </Component>
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+<<<<<<< HEAD
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
+=======
 >>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
         <Component class="javax.swing.JButton" name="btnCancel">
           <Properties>
@@ -556,7 +587,12 @@
               <Color id="Default Cursor"/>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
               <Color id="Cursor de Mano"/>
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -586,7 +622,12 @@
               <Color id="Default Cursor"/>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
               <Color id="Cursor de Mano"/>
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30

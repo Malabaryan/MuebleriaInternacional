@@ -76,6 +76,11 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -99,7 +104,12 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
         btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -122,7 +132,12 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
         btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -165,7 +180,12 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
         btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -183,7 +203,12 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -266,6 +291,11 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, 30));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
         jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, 30));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -278,7 +308,12 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
         btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -291,6 +326,7 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnSave.setText("Guardar");
 <<<<<<< HEAD
         btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+<<<<<<< HEAD
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -299,6 +335,11 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
 =======
 <<<<<<< HEAD
         btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
+=======
 =======
         btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -390,6 +431,11 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
     private com.toedter.calendar.JDateChooser jDateChooser1;
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30

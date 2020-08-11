@@ -107,7 +107,12 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -156,6 +161,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnEditProduct.setToolTipText("Editar Producto");
 <<<<<<< HEAD
         btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+<<<<<<< HEAD
         btnEditProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditProductActionPerformed(evt);
@@ -164,6 +170,11 @@ public class ManagerProductInventory extends javax.swing.JFrame {
 =======
 <<<<<<< HEAD
         btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
+=======
 =======
         btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -177,6 +188,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnViewProduct.setToolTipText("Ver Producto");
 <<<<<<< HEAD
         btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+<<<<<<< HEAD
         btnViewProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewProductActionPerformed(evt);
@@ -185,6 +197,11 @@ public class ManagerProductInventory extends javax.swing.JFrame {
 =======
 <<<<<<< HEAD
         btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
+=======
 =======
         btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
@@ -200,7 +217,12 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+        btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
 =======
         btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 >>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
