@@ -66,7 +66,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
-        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         btnProduct.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -84,7 +84,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnEmployee.setBorder(null);
         btnEmployee.setBorderPainted(false);
         btnEmployee.setContentAreaFilled(false);
-        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 80, -1));
 
         btnStats.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -93,7 +93,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnStats.setBorder(null);
         btnStats.setBorderPainted(false);
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
         btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
@@ -103,7 +103,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
@@ -146,7 +146,12 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnEditProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnEditProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_edit.png"))); // NOI18N
         btnEditProduct.setToolTipText("Editar Producto");
-        btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEditProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditProductActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEditProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 40, 30));
 
         btnViewProduct.setBackground(new java.awt.Color(53, 57, 65));
@@ -154,7 +159,12 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnViewProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnViewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_expand.png"))); // NOI18N
         btnViewProduct.setToolTipText("Ver Producto");
-        btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnViewProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewProductActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnViewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 40, 30));
 
         btnAddProduct.setBackground(new java.awt.Color(53, 57, 65));
@@ -162,7 +172,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_plus.png"))); // NOI18N
         btnAddProduct.setToolTipText("Agregar Producto");
-        btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddProductActionPerformed(evt);
@@ -201,6 +211,14 @@ public class ManagerProductInventory extends javax.swing.JFrame {
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddProductActionPerformed
+
+    private void btnEditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditProductActionPerformed
+
+    private void btnViewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewProductActionPerformed
 
     /**
      * @param args the command line arguments

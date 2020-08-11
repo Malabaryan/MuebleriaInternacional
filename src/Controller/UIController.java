@@ -11,6 +11,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import View.*;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -26,9 +27,11 @@ public class UIController {
     private ManagerProduct managerProduct;
     
     private  JDialog dialog;
+    private ArrayList<Object> parameters;
     
 
     public UIController() {
+        parameters = new ArrayList();
 
     }
     
@@ -41,6 +44,10 @@ public class UIController {
         dialog.setSize(400, 100);
         dialog.setLocation(400, 250);
         dialog.setVisible(true);
+    }
+    
+    public void addParameters(Object obj){
+        parameters.add(obj);
     }
     
     public Client login(String pUsername, char[] pPassword){
@@ -91,7 +98,13 @@ public class UIController {
             this.managerProduct = new ManagerProduct(this);
             managerProduct.setVisible(true);
         }
-        
+        parameters.clear();
     }
+
+    public ArrayList<Object> getParameters() {
+        return parameters;
+    }
+    
+    
     
 }

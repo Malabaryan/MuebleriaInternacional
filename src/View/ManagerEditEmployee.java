@@ -6,6 +6,7 @@
 package View;
 
 import Controller.UIController;
+import Model.Admin.Employee;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,12 +16,25 @@ import javax.swing.ImageIcon;
 public class ManagerEditEmployee extends javax.swing.JFrame {
 
     private UIController uiController;
+    private Employee employee;
     
     public ManagerEditEmployee(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
+        employee = (Employee)this.uiController.getParameters().get(0);
+    }
+    
+    public void setTextBox(){
+        this.txtCountry.setText("   ");
+        this.txtLastName.setText("  ");
+        this.txtLastName1.setText("  ");
+        this.txtName.setText("  ");
+        this.txtPhoneNumber.setText("  ");
+        this.txtSalary.setText("  ");
+        this.txtState.setText("  ");
+        
     }
 
     /**
@@ -59,7 +73,6 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtSalary = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         label_Opaque = new javax.swing.JLabel();
@@ -75,7 +88,7 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
-        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         jLabel3.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -90,7 +103,7 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnProduct.setBorder(null);
         btnProduct.setBorderPainted(false);
         btnProduct.setContentAreaFilled(false);
-        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductActionPerformed(evt);
@@ -125,7 +138,7 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnStats.setBorder(null);
         btnStats.setBorderPainted(false);
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
         btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
@@ -135,7 +148,7 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel5.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
@@ -211,19 +224,23 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, 30));
 
         btnCancel.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnCancel.setForeground(new java.awt.Color(53, 57, 65));
         btnCancel.setText("Cancelar");
-        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 150, -1));
 
         btnSave.setBackground(new java.awt.Color(53, 57, 65));
         btnSave.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Guardar");
-        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 140, -1));
 
         label_Opaque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
@@ -253,6 +270,10 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,7 +320,6 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnStats;
     private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

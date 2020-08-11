@@ -6,6 +6,7 @@
 package View;
 
 import Controller.UIController;
+import Model.Admin.Employee;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
@@ -24,6 +25,10 @@ public class ManagerEmployees extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
+    }
+    
+    public void addEmployee(Employee emp){
+        this.uiController.addParameters(emp);
     }
 
     /**
