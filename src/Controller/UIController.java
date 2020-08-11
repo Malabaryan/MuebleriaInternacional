@@ -25,6 +25,7 @@ public class UIController {
     private ManagerLogin managerLogin;
     private ManagerMenu managerMenu;
     private ManagerProduct managerProduct;
+    private ManagerOffers managerOffers;
     
     private  JDialog dialog;
     private ArrayList<Object> parameters;
@@ -83,6 +84,10 @@ public class UIController {
         else if(c.equals(ManagerMenu.class)){
             this.managerMenu = new ManagerMenu(this);
             managerMenu.setVisible(true);
+        }
+        else if(c.equals(ManagerOffers.class)){
+            this.managerOffers = new ManagerOffers(this);
+            managerOffers.setVisible(true);
         }
         else if(c.equals(ManagerProduct.class)){
             this.managerProduct = new ManagerProduct(this);
