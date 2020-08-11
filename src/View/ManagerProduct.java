@@ -39,6 +39,7 @@ public class ManagerProduct extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnInventory = new javax.swing.JButton();
+        btnCreateOffer = new javax.swing.JButton();
         btnOffers = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         btnProduct = new javax.swing.JButton();
@@ -67,7 +68,19 @@ public class ManagerProduct extends javax.swing.JFrame {
                 btnInventoryMouseEntered(evt);
             }
         });
-        jPanel1.add(btnInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 240, 40));
+        jPanel1.add(btnInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 240, 40));
+
+        btnCreateOffer.setBackground(new java.awt.Color(151, 151, 151));
+        btnCreateOffer.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
+        btnCreateOffer.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateOffer.setText("Crear Promocion");
+        btnCreateOffer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCreateOffer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCreateOfferMouseEntered(evt);
+            }
+        });
+        jPanel1.add(btnCreateOffer, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 240, 40));
 
         btnOffers.setBackground(new java.awt.Color(151, 151, 151));
         btnOffers.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
@@ -79,7 +92,7 @@ public class ManagerProduct extends javax.swing.JFrame {
                 btnOffersMouseEntered(evt);
             }
         });
-        jPanel1.add(btnOffers, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 240, 40));
+        jPanel1.add(btnOffers, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 240, 40));
 
         btnMenu.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(53, 57, 65));
@@ -198,6 +211,15 @@ public class ManagerProduct extends javax.swing.JFrame {
         this.lblInstructions.setText(text);
     }//GEN-LAST:event_btnOffersMouseEntered
 
+    private void btnCreateOfferMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateOfferMouseEntered
+        // TODO add your handling code here:
+        this.lblInstructionsTitle.setText("Creación de Promociones");
+         String text = "<html><p>Permite crear las ofertas y promociones que"
+                 + "estarán disponibles paras los clientes de todas las sedes"
+                 + "de la empresa</p></html>";
+        this.lblInstructions.setText(text);
+    }//GEN-LAST:event_btnCreateOfferMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -234,6 +256,7 @@ public class ManagerProduct extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnCreateOffer;
     public javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
     public javax.swing.JButton btnInventory;

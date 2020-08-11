@@ -12,11 +12,11 @@ import javax.swing.ImageIcon;
  *
  * @author Yelson
  */
-public class ManagerProductInventory extends javax.swing.JFrame {
+public class ManagerViewOffers extends javax.swing.JFrame {
 
     private UIController uiController;
     
-    public ManagerProductInventory(UIController pUiController) {
+    public ManagerViewOffers(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -44,7 +44,6 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnEditProduct = new javax.swing.JButton();
         btnViewProduct = new javax.swing.JButton();
         btnAddProduct = new javax.swing.JButton();
         lblInstructions = new javax.swing.JLabel();
@@ -103,7 +102,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(53, 57, 65));
-        jLabel4.setText("Lista de Productos");
+        jLabel4.setText("Lista de Promociones");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -136,21 +135,13 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         jLabel3.setText("|");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 20, 20));
 
-        btnEditProduct.setBackground(new java.awt.Color(53, 57, 65));
-        btnEditProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnEditProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_edit.png"))); // NOI18N
-        btnEditProduct.setToolTipText("Editar Producto");
-        btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnEditProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 40, 30));
-
         btnViewProduct.setBackground(new java.awt.Color(53, 57, 65));
         btnViewProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnViewProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_expand.png"))); // NOI18N
-        btnViewProduct.setToolTipText("Ver Producto");
+        btnViewProduct.setText("Eliminar");
+        btnViewProduct.setToolTipText("");
         btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnViewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 40, 30));
+        jPanel1.add(btnViewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 100, 30));
 
         btnAddProduct.setBackground(new java.awt.Color(53, 57, 65));
         btnAddProduct.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
@@ -214,28 +205,29 @@ public class ManagerProductInventory extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewOffers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewOffers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewOffers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewOffers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerProductInventory(null).setVisible(true);
+                new ManagerViewOffers(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddProduct;
-    private javax.swing.JButton btnEditProduct;
     public javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
     public javax.swing.JButton btnMenu;
