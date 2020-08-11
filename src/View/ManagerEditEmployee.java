@@ -6,6 +6,7 @@
 package View;
 
 import Controller.UIController;
+import Model.Admin.Employee;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,12 +16,20 @@ import javax.swing.ImageIcon;
 public class ManagerEditEmployee extends javax.swing.JFrame {
 
     private UIController uiController;
+    private Employee employee;
     
     public ManagerEditEmployee(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
+        employee = (Employee)uiController.getParameters().get(0);
+        
+        this.txtCountry.setText(" ");
+        this.txtLastName.setText(" ");
+        this.txtLastName1.setText(" ");
+        this.txtName.setText(" ");
+        this.txtState.setText(" ");
     }
 
     /**
@@ -49,7 +58,6 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtPhoneNumber = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtLastName1 = new javax.swing.JTextField();
         txtCountry = new javax.swing.JTextField();
@@ -57,10 +65,11 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        txtSalary = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
+        spinTel = new javax.swing.JSpinner();
+        spinSalario = new javax.swing.JSpinner();
         label_Opaque = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
@@ -177,9 +186,6 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         jLabel11.setText("Teléfono:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, 30));
 
-        txtPhoneNumber.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 140, 30));
-
         jLabel12.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Correo:");
@@ -205,9 +211,6 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         jLabel13.setText("Salario:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, 30));
 
-        txtSalary.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 150, 30));
-
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
 
@@ -223,6 +226,8 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnSave.setText("Guardar");
         btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 140, -1));
+        jPanel1.add(spinTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 110, 30));
+        jPanel1.add(spinSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 120, 30));
 
         label_Opaque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
         jPanel1.add(label_Opaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 710, 380));
@@ -313,12 +318,12 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_Opaque;
     private javax.swing.JLabel label_background;
+    private javax.swing.JSpinner spinSalario;
+    private javax.swing.JSpinner spinTel;
     private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtLastName1;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPhoneNumber;
-    private javax.swing.JTextField txtSalary;
     private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables
 }

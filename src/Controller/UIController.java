@@ -44,10 +44,12 @@ public class UIController {
         dialog.setSize(400, 100);
         dialog.setLocation(400, 250);
         dialog.setVisible(true);
+        System.out.println("Mostrando JDialog");
     }
     
     public void addParameters(Object obj){
         parameters.add(obj);
+        System.out.println("Parametro Agregado");
     }
     
     public Client login(String pUsername, char[] pPassword){
@@ -99,6 +101,7 @@ public class UIController {
             managerProduct.setVisible(true);
         }
         parameters.clear();
+        System.out.println("Mostrando ventana " + c.toString());
     }
 
     public ArrayList<Object> getParameters() {

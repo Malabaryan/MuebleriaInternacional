@@ -5,31 +5,22 @@
  */
 package View;
 
-import Controller.MainController;
 import Controller.UIController;
-import Model.Products.Material;
-import Model.Products.Product;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author Yelson
  */
-public class ManagerCreateProduct extends javax.swing.JFrame {
+public class ManagerViewOffers extends javax.swing.JFrame {
 
     private UIController uiController;
-    private Set<String> arrayString;
     
-    public ManagerCreateProduct(UIController pUiController) {
+    public ManagerViewOffers(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
-        arrayString = new HashSet<String>();
     }
 
     /**
@@ -47,24 +38,15 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
         btnEmployee = new javax.swing.JButton();
         btnStats = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
-        txtName = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        spinCantidad = new javax.swing.JSpinner();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        textBoxMaterials = new javax.swing.JTextPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        btnSave = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
-        spinCost = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        btnViewProduct = new javax.swing.JButton();
+        btnAddProduct = new javax.swing.JButton();
+        lblInstructions = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,7 +60,7 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
-        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         btnProduct.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -96,7 +78,7 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
         btnEmployee.setBorder(null);
         btnEmployee.setBorderPainted(false);
         btnEmployee.setContentAreaFilled(false);
-        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 80, -1));
 
         btnStats.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -105,7 +87,7 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
         btnStats.setBorder(null);
         btnStats.setBorderPainted(false);
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
         btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
@@ -115,79 +97,25 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
-
-        txtName.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 200, 30));
-
-        jLabel10.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Nombre:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, 30));
-
-        jLabel6.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Cantidad:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, -1, 30));
-
-        jLabel8.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Materiales:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, 30));
-
-        jLabel7.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Precio:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, 30));
-        jPanel1.add(spinCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 40, 20));
-
-        jScrollPane2.setViewportView(textBoxMaterials);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 360, 160));
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Madera", "Tela", "Cuero", "Hierro", "Metal", "Plastico", "Espuma", "Algodon" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jList1ValueChanged(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jList1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 170, 160));
-
-        btnSave.setBackground(new java.awt.Color(53, 57, 65));
-        btnSave.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("Guardar");
-        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 140, -1));
-
-        btnCancel.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        btnCancel.setForeground(new java.awt.Color(53, 57, 65));
-        btnCancel.setText("Cancelar");
-        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 460, 150, -1));
-        jPanel1.add(spinCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(53, 57, 65));
-        jLabel4.setText("Registrar Producto");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 250, 30));
+        jLabel4.setText("Lista de Promociones");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Nombre", "Precio"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 170, 660, 300));
 
         jLabel1.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(53, 57, 65));
@@ -207,8 +135,32 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
         jLabel3.setText("|");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 20, 20));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 710, 380));
+        btnViewProduct.setBackground(new java.awt.Color(53, 57, 65));
+        btnViewProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnViewProduct.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewProduct.setText("Eliminar");
+        btnViewProduct.setToolTipText("");
+        btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnViewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 100, 30));
+
+        btnAddProduct.setBackground(new java.awt.Color(53, 57, 65));
+        btnAddProduct.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_plus.png"))); // NOI18N
+        btnAddProduct.setToolTipText("Agregar Producto");
+        btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAddProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, 40, 30));
+
+        lblInstructions.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
+        lblInstructions.setForeground(new java.awt.Color(255, 255, 255));
+        lblInstructions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstructions.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(lblInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 330, 190));
 
         label_background.setForeground(new java.awt.Color(53, 57, 65));
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager_background.png"))); // NOI18N
@@ -232,44 +184,9 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
         // TODO add your handling code here:
-        
-        MainController.getInstance().getProductController().addProduct(
-                new Product(
-                        (int)this.spinCost.getValue(),
-                        this.txtName.getText()), 
-                (int)this.spinCantidad.getValue(), 
-                null);
-        
-        String s = "";
-        Iterator iterator = arrayString.iterator();
-        ArrayList<Material> materials = new ArrayList();
-        while(iterator.hasNext()){
-            s = (String)iterator.next();
-            if(!s.equals("")){
-                materials.add(MainController.getInstance().getProductController().getMaterial(s));
-            }
-        }
-    }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExitActionPerformed
-
-    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        // TODO add your handling code here:
-        arrayString.add(this.jList1.getSelectedValue());
-
-        String s = "";
-        String toPrint = "";
-        Iterator iterator = arrayString.iterator();
-        while(iterator.hasNext()){
-            s = (String)iterator.next();
-            toPrint = toPrint + s + ",";
-        }
-        this.textBoxMaterials.setText(toPrint);
-    }//GEN-LAST:event_jList1ValueChanged
+    }//GEN-LAST:event_btnAddProductActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,13 +205,13 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagerCreateProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewOffers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagerCreateProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewOffers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagerCreateProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewOffers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagerCreateProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerViewOffers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -304,36 +221,27 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerCreateProduct(null).setVisible(true);
+                new ManagerViewOffers(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnAddProduct;
     public javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
     public javax.swing.JButton btnMenu;
     public javax.swing.JButton btnProduct;
-    private javax.swing.JButton btnSave;
     public javax.swing.JButton btnStats;
+    private javax.swing.JButton btnViewProduct;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel label_background;
-    private javax.swing.JSpinner spinCantidad;
-    private javax.swing.JSpinner spinCost;
-    private javax.swing.JTextPane textBoxMaterials;
-    private javax.swing.JTextField txtName;
+    private javax.swing.JLabel lblInstructions;
     // End of variables declaration//GEN-END:variables
 }

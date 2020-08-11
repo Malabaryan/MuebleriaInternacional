@@ -9,6 +9,7 @@ import Model.CountryList;
 import Model.Location;
 import Model.Person;
 import Model.Admin.EmployeeType;
+import Model.Products.Material;
 import Model.Products.Product;
 import View.ClientRegister;
 import java.util.Date;
@@ -61,6 +62,15 @@ public class MainPrueba {
         ShoppingCart s2 = new ShoppingCart();
         ShoppingCart s3 = new ShoppingCart();
         
+        MainController.getInstance().getProductController().addMaterial(new Material("Madera", "Madera", 50));
+        MainController.getInstance().getProductController().addMaterial(new Material("Tela", "Tela", 60));
+        MainController.getInstance().getProductController().addMaterial(new Material("Cuero", "Cuero", 80));
+        MainController.getInstance().getProductController().addMaterial(new Material("Hierro", "Hierro", 100));
+        MainController.getInstance().getProductController().addMaterial(new Material("Metal", "Metal", 120));
+        MainController.getInstance().getProductController().addMaterial(new Material("Plastico", "Plastico", 30));
+        MainController.getInstance().getProductController().addMaterial(new Material("Espuma", "Espuma", 10));
+        MainController.getInstance().getProductController().addMaterial(new Material("Algodon", "Algodon", 20));
+        
         Product p1 = new Product(1000,"P1");
         Product p2 = new Product(2000,"P2");
         Product p3 = new Product(3000,"P3");
@@ -105,6 +115,8 @@ public class MainPrueba {
         MainController.getInstance().getAdminController().profit(fs2, null, null, p3, 1000);
         System.out.print("-------- \n");
         System.out.print("\n");
+        
+        
         
         MainController.getInstance().getUiController().showWindow(ClientRegister.class);
     }
