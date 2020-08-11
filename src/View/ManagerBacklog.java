@@ -12,11 +12,11 @@ import javax.swing.ImageIcon;
  *
  * @author Yelson
  */
-public class ManagerProductInventory extends javax.swing.JFrame {
+public class ManagerBacklog extends javax.swing.JFrame {
 
     private UIController uiController;
     
-    public ManagerProductInventory(UIController pUiController) {
+    public ManagerBacklog(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -37,16 +37,16 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnProduct = new javax.swing.JButton();
         btnEmployee = new javax.swing.JButton();
         btnStats = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         btnExit = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnEditProduct = new javax.swing.JButton();
-        btnViewProduct = new javax.swing.JButton();
-        btnAddProduct = new javax.swing.JButton();
+        btnOrderMaterials = new javax.swing.JButton();
         label_background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,6 +90,10 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
+        jComboBox1.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Madera", "Tela", "Cuero", "Hierro", "Metal", "Plastico", "Espuma", "Algodon" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 130, 30));
+
         btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
         btnExit.setForeground(new java.awt.Color(113, 117, 125));
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit.png"))); // NOI18N
@@ -107,20 +111,28 @@ public class ManagerProductInventory extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(53, 57, 65));
-        jLabel4.setText("Lista de Productos");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        jLabel4.setText("Pedidos en Espera");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 130, 250, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Precio"
+                "Pedido", "Cliente", "Precio"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 170, 660, 300));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 170, 660, 260));
+
+        btnCancel.setBackground(new java.awt.Color(180, 180, 180));
+        btnCancel.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(53, 57, 65));
+        btnCancel.setText("Volver");
+        btnCancel.setToolTipText("Ver Producto");
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(53, 57, 65));
@@ -140,34 +152,13 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         jLabel3.setText("|");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 20, 20));
 
-        btnEditProduct.setBackground(new java.awt.Color(53, 57, 65));
-        btnEditProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnEditProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_edit.png"))); // NOI18N
-        btnEditProduct.setToolTipText("Editar Producto");
-        btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(btnEditProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 40, 30));
-
-        btnViewProduct.setBackground(new java.awt.Color(53, 57, 65));
-        btnViewProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnViewProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_expand.png"))); // NOI18N
-        btnViewProduct.setToolTipText("Ver Producto");
-        btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(btnViewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 40, 30));
-
-        btnAddProduct.setBackground(new java.awt.Color(53, 57, 65));
-        btnAddProduct.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_plus.png"))); // NOI18N
-        btnAddProduct.setToolTipText("Agregar Producto");
-        btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddProductActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAddProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, 40, 30));
+        btnOrderMaterials.setBackground(new java.awt.Color(53, 57, 65));
+        btnOrderMaterials.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnOrderMaterials.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrderMaterials.setText("Solicitar");
+        btnOrderMaterials.setToolTipText("Editar Producto");
+        btnOrderMaterials.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(btnOrderMaterials, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 100, 30));
 
         label_background.setForeground(new java.awt.Color(53, 57, 65));
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager_background.png"))); // NOI18N
@@ -190,10 +181,6 @@ public class ManagerProductInventory extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddProductActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
@@ -218,34 +205,36 @@ public class ManagerProductInventory extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerBacklog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerBacklog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerBacklog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerBacklog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerProductInventory(null).setVisible(true);
+                new ManagerBacklog(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddProduct;
-    private javax.swing.JButton btnEditProduct;
+    private javax.swing.JButton btnCancel;
     public javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
     public javax.swing.JButton btnMenu;
+    private javax.swing.JButton btnOrderMaterials;
     public javax.swing.JButton btnProduct;
     public javax.swing.JButton btnStats;
-    private javax.swing.JButton btnViewProduct;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
