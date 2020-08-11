@@ -12,20 +12,15 @@ import javax.swing.ImageIcon;
  *
  * @author Yelson
  */
-public class ManagerProductInventory extends javax.swing.JFrame {
+public class ManagerEditProduct extends javax.swing.JFrame {
 
     private UIController uiController;
     
-    public ManagerProductInventory(UIController pUiController) {
+    public ManagerEditProduct(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
-        String text = "<html><p>Permite tener un control absoluto de los productos"
-                + " y promociones de la compañía. En esta sección podrás gestionar"
-                + " el inventario, y además, administrar las promociones que quieras"
-                + " ofrecer a tus clientes</p></html>";
-        this.lblInstructions.setText(text);
     }
 
     /**
@@ -43,16 +38,22 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnEmployee = new javax.swing.JButton();
         btnStats = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        txtName = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        txtCost = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        btnRequest = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnEditProduct = new javax.swing.JButton();
-        btnViewProduct = new javax.swing.JButton();
-        btnAddProduct = new javax.swing.JButton();
-        lblInstructions = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,22 +107,60 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
+        txtName.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 200, 30));
+
+        jLabel10.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Nombre:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, 30));
+
+        jLabel6.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Cantidad:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, -1, 30));
+
+        jLabel8.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Solicitar Materiales:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, 30));
+
+        jLabel7.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Precio:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, 30));
+        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 50, 30));
+
+        txtCost.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 90, 30));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Madera", "Tela", "Cuero", "Hierro", "Metal", "Plastico", "Espuma", "Algodon" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 160, 30));
+
+        btnRequest.setBackground(new java.awt.Color(53, 57, 65));
+        btnRequest.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        btnRequest.setForeground(new java.awt.Color(255, 255, 255));
+        btnRequest.setText("Solicitar");
+        btnRequest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 140, -1));
+
+        btnSave.setBackground(new java.awt.Color(53, 57, 65));
+        btnSave.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Guardar");
+        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 140, -1));
+
+        btnCancel.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(53, 57, 65));
+        btnCancel.setText("Cancelar");
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 150, -1));
+
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(53, 57, 65));
-        jLabel4.setText("Lista de Productos");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Nombre", "Precio"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 170, 660, 300));
+        jLabel4.setText("Editar Producto");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 250, 30));
 
         jLabel1.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(53, 57, 65));
@@ -141,40 +180,8 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         jLabel3.setText("|");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 20, 20));
 
-        btnEditProduct.setBackground(new java.awt.Color(53, 57, 65));
-        btnEditProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnEditProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_edit.png"))); // NOI18N
-        btnEditProduct.setToolTipText("Editar Producto");
-        btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnEditProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 40, 30));
-
-        btnViewProduct.setBackground(new java.awt.Color(53, 57, 65));
-        btnViewProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnViewProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_expand.png"))); // NOI18N
-        btnViewProduct.setToolTipText("Ver Producto");
-        btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnViewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 40, 30));
-
-        btnAddProduct.setBackground(new java.awt.Color(53, 57, 65));
-        btnAddProduct.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_plus.png"))); // NOI18N
-        btnAddProduct.setToolTipText("Agregar Producto");
-        btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddProductActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAddProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, 40, 30));
-
-        lblInstructions.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
-        lblInstructions.setForeground(new java.awt.Color(255, 255, 255));
-        lblInstructions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInstructions.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel1.add(lblInstructions, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 330, 190));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 710, 380));
 
         label_background.setForeground(new java.awt.Color(53, 57, 65));
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager_background.png"))); // NOI18N
@@ -198,10 +205,6 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddProductActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -219,42 +222,54 @@ public class ManagerProductInventory extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerEditProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerEditProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerEditProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagerProductInventory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerEditProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerProductInventory(null).setVisible(true);
+                new ManagerEditProduct(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddProduct;
-    private javax.swing.JButton btnEditProduct;
+    private javax.swing.JButton btnCancel;
     public javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
     public javax.swing.JButton btnMenu;
     public javax.swing.JButton btnProduct;
+    private javax.swing.JButton btnRequest;
+    private javax.swing.JButton btnSave;
     public javax.swing.JButton btnStats;
-    private javax.swing.JButton btnViewProduct;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel label_background;
-    private javax.swing.JLabel lblInstructions;
+    private javax.swing.JTextField txtCost;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }
