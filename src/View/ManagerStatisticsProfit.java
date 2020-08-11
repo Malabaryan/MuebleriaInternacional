@@ -12,11 +12,11 @@ import javax.swing.ImageIcon;
  *
  * @author Yelson
  */
-public class ManagerStatistics extends javax.swing.JFrame {
+public class ManagerStatisticsProfit extends javax.swing.JFrame {
 
     private UIController uiController;
     
-    public ManagerStatistics(UIController pUiController) {
+    public ManagerStatisticsProfit(UIController pUiController) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -32,9 +32,6 @@ public class ManagerStatistics extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnInventory = new javax.swing.JButton();
-        btnOffers = new javax.swing.JButton();
-        lblInstructionsTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnMenu = new javax.swing.JButton();
         btnProduct = new javax.swing.JButton();
@@ -44,39 +41,18 @@ public class ManagerStatistics extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
-        btnInventory1 = new javax.swing.JButton();
-        btnOffers1 = new javax.swing.JButton();
-        lblInstructionsTitle1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnSave = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
-        btnInventory2 = new javax.swing.JButton();
-
-        btnInventory.setBackground(new java.awt.Color(151, 151, 151));
-        btnInventory.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
-        btnInventory.setForeground(new java.awt.Color(255, 255, 255));
-        btnInventory.setText("Inventario");
-        btnInventory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnInventory.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnInventoryMouseEntered(evt);
-            }
-        });
-
-        btnOffers.setBackground(new java.awt.Color(151, 151, 151));
-        btnOffers.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
-        btnOffers.setForeground(new java.awt.Color(255, 255, 255));
-        btnOffers.setText("Promociones");
-        btnOffers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnOffers.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnOffersMouseEntered(evt);
-            }
-        });
-
-        lblInstructionsTitle.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
-        lblInstructionsTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblInstructionsTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblInstructionsTitle.setText("Administración de Productos");
-        lblInstructionsTitle.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -152,52 +128,72 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
-        btnInventory1.setBackground(new java.awt.Color(151, 151, 151));
-        btnInventory1.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
-        btnInventory1.setForeground(new java.awt.Color(255, 255, 255));
-        btnInventory1.setText("Ventas");
-        btnInventory1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnInventory1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnInventory1MouseEntered(evt);
+        jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(53, 57, 65));
+        jLabel4.setText("Ganancias");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cliente", "Fecha", "Costo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jPanel1.add(btnInventory1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 240, 40));
+        jScrollPane1.setViewportView(jTable1);
 
-        btnOffers1.setBackground(new java.awt.Color(151, 151, 151));
-        btnOffers1.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
-        btnOffers1.setForeground(new java.awt.Color(255, 255, 255));
-        btnOffers1.setText("Ganancias");
-        btnOffers1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnOffers1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnOffers1MouseEntered(evt);
-            }
-        });
-        jPanel1.add(btnOffers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 240, 40));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 730, 330));
 
-        lblInstructionsTitle1.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
-        lblInstructionsTitle1.setForeground(new java.awt.Color(255, 255, 255));
-        lblInstructionsTitle1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblInstructionsTitle1.setText("Estadísticas de la empresa");
-        lblInstructionsTitle1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel1.add(lblInstructionsTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 250, 30));
+        btnSave.setBackground(new java.awt.Color(53, 57, 65));
+        btnSave.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Generar");
+        btnSave.setActionCommand("");
+        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, -1, -1));
 
-        label_background.setForeground(new java.awt.Color(53, 57, 65));
-        label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background_manager_2.png"))); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Fecha Final:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, 30));
+
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sucursal", "General" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 70, 30));
+
+        jLabel11.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Tienda:");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, 30));
+
+        jLabel12.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Fecha Inicial:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, 30));
+
+        jLabel13.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Producto:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, -1, 30));
+
+        jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sucursal", "General" }));
+        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 70, 30));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 710, 380));
+
+        label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager_background.png"))); // NOI18N
         jPanel1.add(label_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 550));
-
-        btnInventory2.setBackground(new java.awt.Color(151, 151, 151));
-        btnInventory2.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
-        btnInventory2.setForeground(new java.awt.Color(255, 255, 255));
-        btnInventory2.setText("Inventario");
-        btnInventory2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnInventory2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnInventory2MouseEntered(evt);
-            }
-        });
-        jPanel1.add(btnInventory2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 240, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -220,46 +216,6 @@ public class ManagerStatistics extends javax.swing.JFrame {
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductActionPerformed
-
-    private void btnInventoryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventoryMouseEntered
-        // TODO add your handling code here:
-        this.lblInstructionsTitle.setText("Administración del Inventario");
-        String text = "<html><p>Permite tener un control total de los productos"
-        + " alamcenados en las establecimientos, además de de los muebles"
-        + " producidos en cada taller.</p></html>";
-        //this.lblInstructions.setText(text);
-    }//GEN-LAST:event_btnInventoryMouseEntered
-
-    private void btnOffersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOffersMouseEntered
-        // TODO add your handling code here:
-        this.lblInstructionsTitle.setText("Administración de Promociones");
-        String text = "<html><p>Permite la gestión de las ofertas y promociones"
-        + "que estarán disponibles paras los clientes de todas las sedes"
-        + "de la empresa</p></html>";
-        //this.lblInstructions.setText(text);
-    }//GEN-LAST:event_btnOffersMouseEntered
-
-    private void btnInventory1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventory1MouseEntered
-        // TODO add your handling code here:
-        this.lblInstructionsTitle.setText("Administración del Inventario");
-        String text = "<html><p>Permite tener un control total de los productos"
-        + " alamcenados en las establecimientos, además de de los muebles"
-        + " producidos en cada taller.</p></html>";
-        //this.lblInstructions.setText(text);
-    }//GEN-LAST:event_btnInventory1MouseEntered
-
-    private void btnOffers1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOffers1MouseEntered
-        // TODO add your handling code here:
-        this.lblInstructionsTitle.setText("Administración de Promociones");
-        String text = "<html><p>Permite la gestión de las ofertas y promociones"
-        + "que estarán disponibles paras los clientes de todas las sedes"
-        + "de la empresa</p></html>";
-        //this.lblInstructions.setText(text);
-    }//GEN-LAST:event_btnOffers1MouseEntered
-
-    private void btnInventory2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventory2MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnInventory2MouseEntered
 
     /**
      * @param args the command line arguments
@@ -299,20 +255,24 @@ public class ManagerStatistics extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
-    public javax.swing.JButton btnInventory;
-    public javax.swing.JButton btnInventory1;
-    public javax.swing.JButton btnInventory2;
     private javax.swing.JButton btnMenu;
-    public javax.swing.JButton btnOffers;
-    public javax.swing.JButton btnOffers1;
     private javax.swing.JButton btnProduct;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnStats;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel label_background;
-    private javax.swing.JLabel lblInstructionsTitle;
-    private javax.swing.JLabel lblInstructionsTitle1;
     // End of variables declaration//GEN-END:variables
 }
