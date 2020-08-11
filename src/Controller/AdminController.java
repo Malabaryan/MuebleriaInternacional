@@ -44,6 +44,18 @@ public class AdminController {
         return empl;
     }
     
+    public Employee addEmployee(Employee empl, FurnitureStore store){
+        empl.setStore(store);
+        employees.add(empl);
+        return empl;
+    }
+    
+    public Employee addEmployee(Employee empl, WorkShop store){
+        empl.setWorkshop(store);
+        employees.add(empl);
+        return empl;
+    }
+    
     public void reportingSalesFurniture(Employee e){
         int total = 0;
         for(Order o: MainController.getInstance().getClientController().getOrders()){

@@ -33,7 +33,6 @@ public class UIController {
     }
     
     public void showDialog(String title, String text, JFrame frame){
-        System.out.println("Hiiiiiiiii");
         dialog = new JDialog(frame, "\t"); 
         dialog.setTitle(text);
         JPanel panel = new JPanel(); 

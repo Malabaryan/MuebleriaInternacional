@@ -27,6 +27,7 @@ public class Person {
         this.location = location;
         this.email = email;
     }
+    
 
     public Person(String fullName, Date birthDate, int tel, Location location, String email) {
         String parts[] = fullName.split(" ",2);

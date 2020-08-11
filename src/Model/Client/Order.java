@@ -6,6 +6,7 @@
 package Model.Client;
 
 import Model.Admin.Employee;
+import Model.Admin.Establishment;
 import Model.Admin.FurnitureStore;
 import Model.Products.Product;
 import java.util.ArrayList;
@@ -18,11 +19,12 @@ import java.util.Date;
 public class Order {
         private ArrayList<Product> products;
         private int cost;
-        private FurnitureStore shop;
+        private Establishment shop;
         private Employee employee;
         private Date date;
         private boolean deliveryRequired;
         private Client client;
+        private PaymentMethod paymentMethod;
 
     public Order(ShoppingCart cart, Employee employee, Client client) {
         this.shop = employee.getStore();
@@ -32,6 +34,8 @@ public class Order {
         this.date = new Date();
         this.shop = employee.getStore();
         this.client = client;
+        this.paymentMethod = null;
+        
     }
 
     public ArrayList<Product> getProducts() {
@@ -50,7 +54,7 @@ public class Order {
         this.cost = cost;
     }
 
-    public FurnitureStore getShop() {
+    public Establishment getShop() {
         return shop;
     }
 

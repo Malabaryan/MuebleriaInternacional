@@ -15,30 +15,30 @@ import java.util.Date;
  */
 public class Employee {
     private Person personalData;
-    private double minSalary;
-    private double maxSalary;
-    private FurnitureStore store;
+    private EmployeeType employeeType;
+    private Establishment store;
 
-    public Employee(Person pers,FurnitureStore store) {
-        personalData = pers;
-        this.store = store;
+
+    public Employee(Person personalData, EmployeeType employeeType) {
+        this.personalData = personalData;
+        this.employeeType = employeeType;
     }
     
-    public Employee(Person pers) {
-        personalData = pers;
-        this.store = store;
+    public Employee(Person personalData, EmployeeType employeeType,Establishment pStore) {
+        this.personalData = personalData;
+        this.employeeType = employeeType;
+        this.store = pStore;
     }
 
     public void setStore(FurnitureStore store) {
         this.store = store;
     }
     
-    public void setSalary(double pMinSalary, double pMaxSalary){
-        minSalary = pMinSalary;
-        maxSalary = pMaxSalary;
+    public void setWorkshop(WorkShop store) {
+        this.store = store;
     }
 
-    public FurnitureStore getStore() {
+    public Establishment getStore() {
         return store;
     }
     
