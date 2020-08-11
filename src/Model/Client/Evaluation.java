@@ -15,16 +15,19 @@ public class Evaluation {
     private int service;
     private Date deliverDate;
     private int quality;
-    private String comments;
+    private int esthetic;
+    private int completition;
     private boolean signature;
 
-    public Evaluation(int service, int quality, String comments, boolean signature) {
+    public Evaluation(int service, int quality, int esthetic, int completition, boolean signature) {
         this.service = service;
         this.quality = quality;
-        this.comments = comments;
+        this.esthetic = esthetic;
+        this.completition = completition;
         this.signature = signature;
-        this.deliverDate = new Date();
     }
+
+    
     
     
     

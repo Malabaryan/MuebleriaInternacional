@@ -13,9 +13,11 @@ import Model.Location;
  */
 public class WorkShop extends Establishment{
 
-    public WorkShop(Location location, Employee manager) {
-        super(location, manager);
+    public WorkShop(Location location, Employee manager, String pname) {
+        super(location, manager, pname);
     }
+
+    
 
 
     
