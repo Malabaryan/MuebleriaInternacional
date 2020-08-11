@@ -41,5 +41,23 @@ public class Employee {
     public Establishment getStore() {
         return store;
     }
+
+    public Person getPersonalData() {
+        return personalData;
+    }
+
+    public void setPersonalData(Person personalData) {
+        this.personalData = personalData;
+    }
+
+    public EmployeeType getEmployeeType() {
+        return employeeType;
+    }
+
+    public void setEmployeeType(EmployeeType employeeType) {
+        this.employeeType = employeeType;
+    }
+    
+    
     
 }
