@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.Admin.Employee;
+import Model.Admin.EmployeeType;
 import Model.Admin.Establishment;
 import Model.Admin.FurnitureStore;
 import Model.Admin.WorkShop;
@@ -23,11 +24,15 @@ public class AdminController {
     private ArrayList<FurnitureStore> furnitureStores;
     private ArrayList<WorkShop> workshops;
     private ArrayList<Employee> employees;
+    private ArrayList<EmployeeType> employeeTypes;
+    
+    private Employee currentManager; 
 
     public AdminController() {
         furnitureStores = new ArrayList();
         workshops = new ArrayList();
         employees = new ArrayList();
+        employeeTypes = new ArrayList();
     }
 
     public FurnitureStore addFurnitureStore(FurnitureStore furnitureStore){
@@ -37,6 +42,11 @@ public class AdminController {
     
     public void addWorkshops(WorkShop e){
         workshops.add(e);
+    }
+    
+    public EmployeeType addEmployeeType(EmployeeType e){
+        employeeTypes.add(e);
+        return e;
     }
     
     public Employee addEmployee(Employee empl){
@@ -156,5 +166,59 @@ public class AdminController {
         total=total-expenses;
         System.out.print("Total: "+total+"\n");
     }
+
+    public ArrayList<FurnitureStore> getFurnitureStores() {
+        return furnitureStores;
+    }
+
+    public ArrayList<WorkShop> getWorkshops() {
+        return workshops;
+    }
+
+    public ArrayList<Employee> getEmployees() {
+        return employees;
+    }
+
+    public ArrayList<EmployeeType> getEmployeeTypes() {
+        return employeeTypes;
+    }
+
+    public Employee loginManager(String pUsername, char[] pPassword) {
+        Employee empl = getEmployee(pUsername);
+        if(empl!=null){
+            //if(empl.getPassword().equals(pPassword)){
+                return empl;
+            //}
+        }
+        return null;
+    }
+    
+    public Employee getEmployee(String pUsername){
+        for(Employee emp: employees){
+            if(emp.getPersonalData().getEmail().equals(pUsername)){
+                return emp;
+            }
+        }
+        return null;
+    }
+    
+    public EmployeeType getEmployeeType(String name){
+        for(EmployeeType emp: employeeTypes){
+            if(emp.toString().equals(name)){
+                return emp;
+            }
+        }
+        return null;
+    }
+
+    public Employee getCurrentManager() {
+        return currentManager;
+    }
+
+    public void setCurrentManager(Employee currentManager) {
+        this.currentManager = currentManager;
+    }
+    
+    
     
 }

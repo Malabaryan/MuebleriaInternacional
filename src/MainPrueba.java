@@ -11,8 +11,14 @@ import Model.Person;
 import Model.Admin.EmployeeType;
 import Model.Products.Material;
 import Model.Products.Product;
+import Model.Products.Promo;
 import View.ClientRegister;
+import View.ManagerEmployees;
 import View.ManagerOffers;
+import View.ManagerProduct;
+import View.ManagerSalaries;
+import View.ManagerViewOffers;
+import java.util.ArrayList;
 import java.util.Date;
 
 /*
@@ -45,19 +51,21 @@ public class MainPrueba {
         MainController.getInstance().getClientController().addNewClient(b, "bryanpassword","bryanhernandez");
         MainController.getInstance().getClientController().addNewClient(a, "arielpassword","arielvalverde");
         
-        EmployeeType managerType = new EmployeeType("Manager Type", 1000.0, 3000.0, 10.0, "Besto Manager"); 
-        EmployeeType salesMan = new EmployeeType("Sales Man Type", 500.0, 1500.0, 15.0, "Besto Sales Man"); 
+        EmployeeType managerType = MainController.getInstance().getAdminController().addEmployeeType(new EmployeeType("Manager Type", 1000.0, 3000.0, 10.0, "Besto Manager")); 
+        EmployeeType salesMan = MainController.getInstance().getAdminController().addEmployeeType(new EmployeeType("SalesMan Type", 500.0, 1500.0, 15.0, "Besto Sales Man")); 
         
-        Employee manager = MainController.getInstance().getAdminController().addEmployee(new Employee(c,managerType));
+        Employee manager = MainController.getInstance().getAdminController().addEmployee(new Employee(c,managerType,900000));
+        manager.setPassword("admin");
         FurnitureStore fs = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager));
         manager.setStore(fs);
         
-        Employee manager2 = MainController.getInstance().getAdminController().addEmployee(new Employee(e,managerType));
+        Employee manager2 = MainController.getInstance().getAdminController().addEmployee(new Employee(e,managerType,750000));
+        manager2.setPassword("admin");
         FurnitureStore fs2 = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager2));
         manager2.setStore(fs2);
         
-        MainController.getInstance().getAdminController().addEmployee(new Employee(d,salesMan,fs));
-        MainController.getInstance().getAdminController().addEmployee(new Employee(e,salesMan,fs));
+        MainController.getInstance().getAdminController().addEmployee(new Employee(d,salesMan,fs,500000));
+        MainController.getInstance().getAdminController().addEmployee(new Employee(e,salesMan,fs,450000));
         
         ShoppingCart s1 = new ShoppingCart();
         ShoppingCart s2 = new ShoppingCart();
@@ -85,6 +93,9 @@ public class MainPrueba {
         MainController.getInstance().getProductController().addProduct(p4, 5, null);
         MainController.getInstance().getProductController().addProduct(p5, 5, null);
         MainController.getInstance().getProductController().addProduct(p6, 5, null);
+        
+        MainController.getInstance().getProductController().addPromo(new Promo(new Date(), null, 60000, "Juego de 4 sillas"));
+        MainController.getInstance().getProductController().addPromo(new Promo(new Date(), null, 100000, "Juego de Comedor"));
         
         s1.addProduct(p1);
         s1.addProduct(p1);
@@ -126,7 +137,7 @@ public class MainPrueba {
         
         
         
-        MainController.getInstance().getUiController().showWindow(ManagerOffers.class);
+        MainController.getInstance().getUiController().showWindow(ManagerProduct.class);
     }
     
 }

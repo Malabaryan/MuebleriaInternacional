@@ -50,6 +50,10 @@ public class Person {
     public String getEmail() {
         return email;
     }
+    
+    public void setEmail(String pemail) {
+        email = pemail;
+    }
 
     public String getName() {
         return name;
@@ -82,5 +86,7 @@ public class Person {
     public void setTel(int tel) {
         this.tel = tel;
     }
+    
+    
     
 }

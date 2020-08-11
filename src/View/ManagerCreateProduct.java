@@ -257,6 +257,8 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged

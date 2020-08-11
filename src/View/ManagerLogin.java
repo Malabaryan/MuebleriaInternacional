@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
 import Model.Admin.Employee;
 import javax.swing.ImageIcon;
@@ -125,6 +126,7 @@ public class ManagerLogin extends javax.swing.JFrame {
         if(manager!= null){
             this.uiController.showWindow(ManagerMenu.class);
             this.setVisible(false);
+            MainController.getInstance().getAdminController().setCurrentManager(manager);
         }
         else{
             this.uiController.showDialog("Login Fallido", "Los datos ingresados son incorrectos, por favor vuelva a intentarlo.", this);

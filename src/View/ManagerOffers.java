@@ -130,6 +130,11 @@ public class ManagerOffers extends javax.swing.JFrame {
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         txtName.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
@@ -283,6 +288,12 @@ public class ManagerOffers extends javax.swing.JFrame {
         System.out.println("Promo agregada");
         
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments

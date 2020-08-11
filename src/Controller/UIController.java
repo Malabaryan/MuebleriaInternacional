@@ -22,10 +22,19 @@ public class UIController {
     
     private ClientLogin clientLogin;
     private ClientRegister clientRegister;
+    private ManagerCreateProduct managerCreateProduct;
+    private ManagerEditEmployee managerEditEmployee;
+    private ManagerEditProduct managerEditProduct;
+    private ManagerEmployees managerEmployees;
     private ManagerLogin managerLogin;
     private ManagerMenu managerMenu;
-    private ManagerProduct managerProduct;
     private ManagerOffers managerOffers;
+    private ManagerProduct managerProduct;
+    private ManagerProductInventory managerProductInventory;
+    private ManagerRegisterEmployee managerRegisterEmployee;
+    private ManagerSalaries managerSalaries;
+    private ManagerStatistics managerStatistics;
+    private ManagerViewOffers managerViewOffers;
     
     private  JDialog dialog;
     private ArrayList<Object> parameters;
@@ -58,8 +67,7 @@ public class UIController {
     }
     
     public Employee loginManager(String pUsername, char[] pPassword){
-        //return MainController.getInstance().getClientController().login(pUsername, pPassword);
-        return null;
+        return MainController.getInstance().getAdminController().loginManager(pUsername,pPassword );
     }
 
     public void setCurrentClient(Client client) {
@@ -77,6 +85,23 @@ public class UIController {
             this.clientRegister = new ClientRegister(this);
             clientRegister.setVisible(true);
         }
+        
+        else if(c.equals(ManagerCreateProduct.class)){
+            this.managerCreateProduct = new ManagerCreateProduct(this);
+            managerCreateProduct.setVisible(true);
+        }
+        else if(c.equals(ManagerEditEmployee.class)){
+            this.managerEditEmployee = new ManagerEditEmployee(this);
+            managerEditEmployee.setVisible(true);
+        }
+        else if(c.equals(ManagerEditProduct.class)){
+            this.managerEditProduct = new ManagerEditProduct(this);
+            managerEditProduct.setVisible(true);
+        }
+        else if(c.equals(ManagerEmployees.class)){
+            this.managerEmployees = new ManagerEmployees(this);
+            managerEmployees.setVisible(true);
+        }
         else if(c.equals(ManagerLogin.class)){
             this.managerLogin = new ManagerLogin(this);
             managerLogin.setVisible(true);
@@ -93,6 +118,10 @@ public class UIController {
             this.managerProduct = new ManagerProduct(this);
             managerProduct.setVisible(true);
         }
+        else if(c.equals(ManagerProductInventory.class)){
+            this.managerProductInventory = new ManagerProductInventory(this);
+            managerProductInventory.setVisible(true);
+        }
         else if(c.equals(ManagerEmployees.class)){
             this.managerProduct = new ManagerProduct(this);
             managerProduct.setVisible(true);
@@ -101,9 +130,17 @@ public class UIController {
             this.managerProduct = new ManagerProduct(this);
             managerProduct.setVisible(true);
         }
+        else if(c.equals(ManagerSalaries.class)){
+            this.managerSalaries = new ManagerSalaries(this);
+            managerSalaries.setVisible(true);
+        }
         else if(c.equals(ManagerStatistics.class)){
             this.managerProduct = new ManagerProduct(this);
             managerProduct.setVisible(true);
+        }
+        else if(c.equals(ManagerViewOffers.class)){
+            this.managerViewOffers = new ManagerViewOffers(this);
+            managerViewOffers.setVisible(true);
         }
         parameters.clear();
         System.out.println("Mostrando ventana " + c.toString());
