@@ -5,7 +5,18 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
+import Model.Products.Material;
+import Model.Products.Product;
+import Model.Products.Promo;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,12 +26,22 @@ import javax.swing.ImageIcon;
 public class ManagerOffers extends javax.swing.JFrame {
 
     private UIController uiController;
+    private Set<String> arrayString;
+    private DefaultListModel listModel;
     
     public ManagerOffers(UIController pUiController) {
-        initComponents();
+        
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
+        listModel = new DefaultListModel();
+        arrayString = new HashSet<String>();
+        
+        for(Product p: MainController.getInstance().getProductController().getInventory()){
+            listModel.addElement(p.toString());
+        }
+        
+        initComponents();
     }
 
     /**
@@ -46,11 +67,13 @@ public class ManagerOffers extends javax.swing.JFrame {
         spinnerPrice = new javax.swing.JSpinner();
         spinnerQuantity = new javax.swing.JSpinner();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        textBox = new javax.swing.JTextPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<>(listModel);
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        spinDays = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -69,7 +92,7 @@ public class ManagerOffers extends javax.swing.JFrame {
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
-        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         btnProduct.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -87,7 +110,7 @@ public class ManagerOffers extends javax.swing.JFrame {
         btnEmployee.setBorder(null);
         btnEmployee.setBorderPainted(false);
         btnEmployee.setContentAreaFilled(false);
-        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 80, -1));
 
         btnStats.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -96,7 +119,7 @@ public class ManagerOffers extends javax.swing.JFrame {
         btnStats.setBorder(null);
         btnStats.setBorderPainted(false);
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
         btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
@@ -106,7 +129,12 @@ public class ManagerOffers extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         txtName.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
@@ -134,10 +162,15 @@ public class ManagerOffers extends javax.swing.JFrame {
         jPanel1.add(spinnerPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 110, 30));
         jPanel1.add(spinnerQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 40, 30));
 
-        jScrollPane2.setViewportView(jTextPane1);
+        jScrollPane2.setViewportView(textBox);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 360, 160));
 
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 170, 160));
@@ -146,18 +179,29 @@ public class ManagerOffers extends javax.swing.JFrame {
         btnSave.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Guardar");
-        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 140, -1));
 
         btnCancel.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnCancel.setForeground(new java.awt.Color(53, 57, 65));
         btnCancel.setText("Cancelar");
-        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 460, 150, -1));
+
+        jLabel9.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Dias");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, -1, 30));
+        jPanel1.add(spinDays, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 110, 30));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(53, 57, 65));
-        jLabel4.setText("Crear Combo");
+        jLabel4.setText("Crear Promo");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 250, 30));
 
         jLabel1.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -202,6 +246,54 @@ public class ManagerOffers extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        // TODO add your handling code here:
+        arrayString.add(this.jList1.getSelectedValue());
+
+        String s = "";
+        String toPrint = "";
+        Iterator iterator = arrayString.iterator();
+        while(iterator.hasNext()){
+            s = (String)iterator.next();
+            toPrint = toPrint + s + ",";
+        }
+        this.textBox.setText(toPrint);
+    }//GEN-LAST:event_jList1ValueChanged
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        //     public Promo(Date deadline, ArrayList<Product> products, int cost, String name) {
+
+        String s = "";
+        Iterator iterator = arrayString.iterator();
+        ArrayList<Product> productss = new ArrayList();
+        while(iterator.hasNext()){
+            s = (String)iterator.next();
+            if(!s.equals("")){
+                productss.add(MainController.getInstance().getProductController().getProduct(s));
+            }
+        }
+        
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DATE, (int)this.spinDays.getValue()); //minus number would decrement the days
+        
+        MainController.getInstance().getProductController().addPromo(
+                new Promo(cal.getTime(),
+                        productss,
+                        (int)this.spinnerPrice.getValue(),
+                        this.txtName.getText())
+                 );
+        System.out.println("Promo agregada");
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,14 +354,16 @@ public class ManagerOffers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel label_background;
+    private javax.swing.JSpinner spinDays;
     private javax.swing.JSpinner spinnerPrice;
     private javax.swing.JSpinner spinnerQuantity;
+    private javax.swing.JTextPane textBox;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

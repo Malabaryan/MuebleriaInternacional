@@ -9,8 +9,10 @@ import Model.CountryList;
 import Model.Location;
 import Model.Person;
 import Model.Admin.EmployeeType;
+import Model.Products.Material;
 import Model.Products.Product;
 import View.ClientRegister;
+import View.ManagerOffers;
 import java.util.Date;
 
 /*
@@ -61,12 +63,28 @@ public class MainPrueba {
         ShoppingCart s2 = new ShoppingCart();
         ShoppingCart s3 = new ShoppingCart();
         
-        Product p1 = new Product(1000,"P1");
-        Product p2 = new Product(2000,"P2");
-        Product p3 = new Product(3000,"P3");
-        Product p4 = new Product(4000,"P4");
-        Product p5 = new Product(5000,"P5");
-        Product p6 = new Product(6000,"P6");
+        MainController.getInstance().getProductController().addMaterial(new Material("Madera", "Madera", 50));
+        MainController.getInstance().getProductController().addMaterial(new Material("Tela", "Tela", 60));
+        MainController.getInstance().getProductController().addMaterial(new Material("Cuero", "Cuero", 80));
+        MainController.getInstance().getProductController().addMaterial(new Material("Hierro", "Hierro", 100));
+        MainController.getInstance().getProductController().addMaterial(new Material("Metal", "Metal", 120));
+        MainController.getInstance().getProductController().addMaterial(new Material("Plastico", "Plastico", 30));
+        MainController.getInstance().getProductController().addMaterial(new Material("Espuma", "Espuma", 10));
+        MainController.getInstance().getProductController().addMaterial(new Material("Algodon", "Algodon", 20));
+        
+        Product p1 = new Product(1000,"Mesa de madera");
+        Product p2 = new Product(2000,"Silla de Plastico");
+        Product p3 = new Product(3000,"Cajones");
+        Product p4 = new Product(4000,"Sillon");
+        Product p5 = new Product(5000,"Escritorio");
+        Product p6 = new Product(6000,"Fregadero");
+        
+        MainController.getInstance().getProductController().addProduct(p1, 5, null);
+        MainController.getInstance().getProductController().addProduct(p2, 5, null);
+        MainController.getInstance().getProductController().addProduct(p3, 5, null);
+        MainController.getInstance().getProductController().addProduct(p4, 5, null);
+        MainController.getInstance().getProductController().addProduct(p5, 5, null);
+        MainController.getInstance().getProductController().addProduct(p6, 5, null);
         
         s1.addProduct(p1);
         s1.addProduct(p1);
@@ -106,7 +124,9 @@ public class MainPrueba {
         System.out.print("-------- \n");
         System.out.print("\n");
         
-        MainController.getInstance().getUiController().showWindow(ClientRegister.class);
+        
+        
+        MainController.getInstance().getUiController().showWindow(ManagerOffers.class);
     }
     
 }
