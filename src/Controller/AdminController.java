@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.Admin.Employee;
-import Model.Admin.EmployeeType;
 import Model.Admin.Establishment;
 import Model.Admin.FurnitureStore;
 import Model.Admin.WorkShop;
@@ -24,13 +23,11 @@ public class AdminController {
     private ArrayList<FurnitureStore> furnitureStores;
     private ArrayList<WorkShop> workshops;
     private ArrayList<Employee> employees;
-    private ArrayList<EmployeeType> employeeTypes;
 
     public AdminController() {
         furnitureStores = new ArrayList();
         workshops = new ArrayList();
         employees = new ArrayList();
-        employeeTypes = new ArrayList();
     }
 
     public FurnitureStore addFurnitureStore(FurnitureStore furnitureStore){
@@ -47,11 +44,6 @@ public class AdminController {
         return empl;
     }
     
-    public EmployeeType addEmployeeType(EmployeeType emplT){
-        employeeTypes.add(emplT);
-        return emplT;
-    }
-    
     public Employee addEmployee(Employee empl, FurnitureStore store){
         empl.setStore(store);
         employees.add(empl);
@@ -62,10 +54,6 @@ public class AdminController {
         empl.setWorkshop(store);
         employees.add(empl);
         return empl;
-    }
-    
-    public void setSalaryRange(EmployeeType type, double min, double max){
-        
     }
     
     public void reportingSalesFurniture(Employee e){
@@ -167,18 +155,6 @@ public class AdminController {
         System.out.print("Gastos: "+expenses+"\n");
         total=total-expenses;
         System.out.print("Total: "+total+"\n");
-    }
-
-    public Employee loginManager(String pUsername, char[] pPassword) {
-        System.out.println("Manager Received");
-        System.out.println(pUsername);
-        System.out.println(pPassword);
-        for(Employee emp: this.employees){
-            if (emp.getUsername().equals(pUsername)){// && emp.getPassword() == (pPassword)){
-                return emp;
-            }
-        }
-        return null;
     }
     
 }

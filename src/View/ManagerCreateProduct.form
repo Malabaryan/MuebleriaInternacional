@@ -61,7 +61,11 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
             </Property>
           </Properties>
           <AuxValues>
@@ -88,7 +92,11 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor Por defecto"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
             </Property>
           </Properties>
           <AuxValues>
@@ -115,7 +123,11 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
             </Property>
           </Properties>
           <AuxValues>
@@ -142,7 +154,11 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
             </Property>
           </Properties>
           <AuxValues>
@@ -172,7 +188,11 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
             </Property>
           </Properties>
           <AuxValues>
@@ -292,7 +312,11 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Editar Producto"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
             </Property>
           </Properties>
           <Constraints>
@@ -317,7 +341,11 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Ver Producto"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
             </Property>
           </Properties>
           <Constraints>
@@ -342,7 +370,11 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Agregar Producto"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
             </Property>
           </Properties>
           <Events>

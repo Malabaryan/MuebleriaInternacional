@@ -22,7 +22,6 @@ public class ManagerLogin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
-        uiController = pUiController;
     }
 
     /**
@@ -122,13 +121,8 @@ public class ManagerLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        
-        Employee manager = 
-                this.uiController.
-                        loginManager(this.jTextField1.getText(), 
-                                this.jPasswordField1.getPassword());
+        Employee manager = this.uiController.loginManager(this.jTextField1.getText(), this.jPasswordField1.getPassword());
         if(manager!= null){
-            this.uiController.showDialog("Iniciar sesión", "Usuario registrado. Bienvenido " + manager.getUsername() + ".", this);
             this.uiController.showWindow(ManagerMenu.class);
             this.setVisible(false);
         }
