@@ -5,7 +5,13 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
+import Model.Admin.Employee;
+import Model.Admin.EmployeeType;
+import Model.Location;
+import Model.Person;
+import java.util.Date;
 import javax.swing.ImageIcon;
 
 /**
@@ -50,9 +56,8 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtPhoneNumber = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtLastName1 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtCountry = new javax.swing.JTextField();
         txtState = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
@@ -60,6 +65,7 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         btnBack = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
+        spinTelephone = new javax.swing.JSpinner();
         label_Opaque = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
@@ -181,16 +187,13 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         jLabel11.setText("Teléfono:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, 30));
 
-        txtPhoneNumber.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 140, 30));
-
         jLabel12.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Correo:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, 30));
 
-        txtLastName1.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtLastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 280, 30));
+        txtEmail.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 280, 30));
 
         txtCountry.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
         jPanel1.add(txtCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 200, 30));
@@ -211,6 +214,11 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         btnBack.setForeground(new java.awt.Color(53, 57, 65));
         btnBack.setText("Regresar");
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 150, -1));
 
         btnAccept.setBackground(new java.awt.Color(53, 57, 65));
@@ -218,7 +226,13 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setText("Aceptar");
         btnAccept.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 140, -1));
+        jPanel1.add(spinTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 170, 30));
 
         label_Opaque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
         jPanel1.add(label_Opaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 710, 380));
@@ -253,6 +267,31 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         this.uiController.showWindow(ManagerLogin.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerEmployees.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+        // TODO add your handling code here:
+        MainController.getInstance().getAdminController().addEmployee(
+                new Employee(
+                        new Person(
+                                this.txtName.getText(), 
+                                this.txtLastName.getText(), 
+                                new Date(), 
+                                (int)this.spinTelephone.getValue(), 
+                                new Location(
+                                    this.txtCountry.getText(),
+                                    this.txtState.getText()
+                                ), 
+                                this.txtEmail.getText()
+                        ),
+                        null, 
+                null));
+    }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,11 +352,11 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_Opaque;
     private javax.swing.JLabel label_background;
+    private javax.swing.JSpinner spinTelephone;
     private javax.swing.JTextField txtCountry;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtLastName;
-    private javax.swing.JTextField txtLastName1;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPhoneNumber;
     private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables
 }

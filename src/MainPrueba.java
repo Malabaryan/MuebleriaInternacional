@@ -44,19 +44,21 @@ public class MainPrueba {
         MainController.getInstance().getClientController().addNewClient(b, "bryanpassword","bryanhernandez");
         MainController.getInstance().getClientController().addNewClient(a, "arielpassword","arielvalverde");
         
-        EmployeeType managerType = new EmployeeType("Manager Type", 1000.0, 3000.0, 10.0, "Besto Manager"); 
-        EmployeeType salesMan = new EmployeeType("Sales Man Type", 500.0, 1500.0, 15.0, "Besto Sales Man"); 
+        EmployeeType managerType = MainController.getInstance().getAdminController().addEmployeeType(new EmployeeType("Manager Type", 1000.0, 3000.0, 10.0, "Besto Manager"));// ; 
+        EmployeeType salesMan = MainController.getInstance().getAdminController().addEmployeeType(new EmployeeType("Sales Man Type", 500.0, 1500.0, 15.0, "Besto Sales Man")); 
         
-        Employee manager = MainController.getInstance().getAdminController().addEmployee(new Employee(c,managerType,"admin123"));
+        Employee manager = MainController.getInstance().getAdminController().addEmployee(new Employee(c,managerType));
+        manager.setPassword("admin123");
         FurnitureStore fs = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager));
         manager.setStore(fs);
         
-        Employee manager2 = MainController.getInstance().getAdminController().addEmployee(new Employee(e,managerType,"admin123"));
+        Employee manager2 = MainController.getInstance().getAdminController().addEmployee(new Employee(e,managerType));
+        manager2.setPassword("admin123");
         FurnitureStore fs2 = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager2));
         manager2.setStore(fs2);
         
-        MainController.getInstance().getAdminController().addEmployee(new Employee(d,salesMan,fs,"admin123"));
-        MainController.getInstance().getAdminController().addEmployee(new Employee(e,salesMan,fs,"admin123"));
+        MainController.getInstance().getAdminController().addEmployee(new Employee(d,salesMan,fs));
+        MainController.getInstance().getAdminController().addEmployee(new Employee(e,salesMan,fs));
         
         ShoppingCart s1 = new ShoppingCart();
         ShoppingCart s2 = new ShoppingCart();
