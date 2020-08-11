@@ -21,7 +21,6 @@ public class ManagerStatistics extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
-        uiController = pUiController;
     }
 
     /**
@@ -55,7 +54,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
-        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         btnProduct.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -64,7 +63,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnProduct.setBorder(null);
         btnProduct.setBorderPainted(false);
         btnProduct.setContentAreaFilled(false);
-        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductActionPerformed(evt);
@@ -78,7 +77,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnEmployee.setBorder(null);
         btnEmployee.setBorderPainted(false);
         btnEmployee.setContentAreaFilled(false);
-        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 80, -1));
 
         btnStats.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -87,7 +86,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnStats.setBorder(null);
         btnStats.setBorderPainted(false);
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -115,12 +114,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager_background.png"))); // NOI18N
@@ -147,13 +141,6 @@ public class ManagerStatistics extends javax.swing.JFrame {
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
-        this.uiController.showWindow(ManagerLogin.class);
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments

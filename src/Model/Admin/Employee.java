@@ -17,7 +17,6 @@ public class Employee {
     private Person personalData;
     private EmployeeType employeeType;
     private Establishment store;
-    private char[] password;
 
 
     public Employee(Person personalData, EmployeeType employeeType) {
@@ -42,23 +41,5 @@ public class Employee {
     public Establishment getStore() {
         return store;
     }
-
-    public EmployeeType getEmployeeType() {
-        return employeeType;
-    }
-    
-    public String getUsername() {
-        return this.personalData.getEmail();
-    }
-
-    public char[] getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password.toCharArray();
-    }
-    
-    
     
 }

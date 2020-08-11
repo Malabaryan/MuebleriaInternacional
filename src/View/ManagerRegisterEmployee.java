@@ -5,13 +5,7 @@
  */
 package View;
 
-import Controller.MainController;
 import Controller.UIController;
-import Model.Admin.Employee;
-import Model.Admin.EmployeeType;
-import Model.Location;
-import Model.Person;
-import java.util.Date;
 import javax.swing.ImageIcon;
 
 /**
@@ -27,7 +21,6 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
-        uiController = pUiController;
     }
 
     /**
@@ -56,16 +49,19 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        txtPhoneNumber = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
+        txtLastName1 = new javax.swing.JTextField();
         txtCountry = new javax.swing.JTextField();
         txtState = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
+        txtSalary = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         btnBack = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
-        spinTelephone = new javax.swing.JSpinner();
         label_Opaque = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
@@ -79,7 +75,7 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
-        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         jLabel3.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -94,7 +90,7 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         btnProduct.setBorder(null);
         btnProduct.setBorderPainted(false);
         btnProduct.setContentAreaFilled(false);
-        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductActionPerformed(evt);
@@ -129,7 +125,7 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         btnStats.setBorder(null);
         btnStats.setBorderPainted(false);
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
         btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
@@ -139,12 +135,7 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel5.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
@@ -187,13 +178,16 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         jLabel11.setText("Teléfono:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, 30));
 
+        txtPhoneNumber.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 140, 30));
+
         jLabel12.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Correo:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, 30));
 
-        txtEmail.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 280, 30));
+        txtLastName1.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtLastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 280, 30));
 
         txtCountry.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
         jPanel1.add(txtCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 200, 30));
@@ -210,29 +204,27 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
 
+        txtSalary.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jPanel1.add(txtSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 150, 30));
+
+        jLabel13.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Salario:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, 30));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, 30));
+
         btnBack.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(53, 57, 65));
         btnBack.setText("Regresar");
-        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 150, -1));
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, 150, -1));
 
         btnAccept.setBackground(new java.awt.Color(53, 57, 65));
         btnAccept.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setText("Aceptar");
-        btnAccept.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAccept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 140, -1));
-        jPanel1.add(spinTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 170, 30));
+        btnAccept.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 140, -1));
 
         label_Opaque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
         jPanel1.add(label_Opaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 710, 380));
@@ -261,37 +253,6 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
-        this.uiController.showWindow(ManagerLogin.class);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnExitActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        this.uiController.showWindow(ManagerEmployees.class);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
-        // TODO add your handling code here:
-        MainController.getInstance().getAdminController().addEmployee(
-                new Employee(
-                        new Person(
-                                this.txtName.getText(), 
-                                this.txtLastName.getText(), 
-                                new Date(), 
-                                (int)this.spinTelephone.getValue(), 
-                                new Location(
-                                    this.txtCountry.getText(),
-                                    this.txtState.getText()
-                                ), 
-                                this.txtEmail.getText()
-                        ),
-                        null, 
-                null));
-    }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,10 +298,12 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
     private javax.swing.JButton btnProduct;
     private javax.swing.JButton btnStats;
     private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -352,11 +315,12 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_Opaque;
     private javax.swing.JLabel label_background;
-    private javax.swing.JSpinner spinTelephone;
     private javax.swing.JTextField txtCountry;
-    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtLastName1;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JTextField txtSalary;
     private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables
 }
