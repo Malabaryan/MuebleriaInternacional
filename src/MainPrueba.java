@@ -113,12 +113,12 @@ public class MainPrueba {
         System.out.println(manager.getPassword());
         System.out.println(manager.getUsername());
         
-        try{
+        
         MainController.getInstance().getUiController().showWindow(ManagerLogin.class);
-        }
-        catch(Exception ex){
-            System.out.println(ex.toString());
-        }
+        
     }
+    
+    
+            
     
 }
