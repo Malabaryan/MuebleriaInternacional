@@ -60,7 +60,15 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <Constraints>
@@ -101,7 +109,15 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <Events>
@@ -145,7 +161,15 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor Por defecto"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <Constraints>
@@ -186,7 +210,15 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <Constraints>
@@ -213,7 +245,15 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <AuxValues>
@@ -489,6 +529,19 @@
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="220" y="300" width="170" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
         <Component class="javax.swing.JButton" name="btnCancel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -499,7 +552,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <Constraints>
@@ -521,7 +582,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <Events>

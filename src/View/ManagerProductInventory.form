@@ -292,7 +292,15 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Editar Producto"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <Events>
@@ -320,7 +328,15 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Ver Producto"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <Events>
@@ -348,7 +364,15 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Agregar Producto"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+<<<<<<< HEAD
               <Color id="Default Cursor"/>
+=======
+<<<<<<< HEAD
+              <Color id="Default Cursor"/>
+=======
+              <Color id="Cursor de Mano"/>
+>>>>>>> 3eb8454d17ea851236c4f87872474513e1cd2a30
+>>>>>>> 664b7c64ab94b0fc7b3312c3b1048ef5f7c32651
             </Property>
           </Properties>
           <Events>
