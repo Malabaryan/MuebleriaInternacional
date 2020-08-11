@@ -5,8 +5,10 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
 import Model.Admin.Employee;
+import Model.Products.Product;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
@@ -19,12 +21,27 @@ import javax.swing.table.DefaultTableModel;
 public class ManagerEmployees extends javax.swing.JFrame {
 
     private UIController uiController;
+    private DefaultTableModel tableModel;
     
     public ManagerEmployees(UIController pUiController) {
-        initComponents();
+        uiController = pUiController;
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
+        
+        String col[] = {"Name","Lastname","Email", "EmployeeType"};
+        tableModel = new DefaultTableModel(col, 0);
+        
+        for(Employee p: MainController.getInstance().getAdminController().getEmployees()){
+            Object[] objs = {
+                p.getPersonalData().getName(),
+                p.getPersonalData().getLastname(),
+                p.getPersonalData().getEmail(),
+                p.getEmployeeType().toString()};
+            tableModel.addRow(objs);
+        }
+        
+        initComponents();
     }
     
     public void addEmployee(Employee emp){
@@ -42,7 +59,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable(tableModel);
         btnMenu = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnProduct = new javax.swing.JButton();
@@ -63,6 +80,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        /*
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -79,6 +97,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        */
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 680, 350));
@@ -89,7 +108,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
-        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         jLabel3.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -104,7 +123,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnProduct.setBorder(null);
         btnProduct.setBorderPainted(false);
         btnProduct.setContentAreaFilled(false);
-        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductActionPerformed(evt);
@@ -133,7 +152,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnStats.setBorder(null);
         btnStats.setBorderPainted(false);
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -149,7 +168,12 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
@@ -162,7 +186,12 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnEditEmp.setForeground(new java.awt.Color(255, 255, 255));
         btnEditEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_edit.png"))); // NOI18N
         btnEditEmp.setToolTipText("Editar Empleado");
-        btnEditEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEditEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditEmpActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEditEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 40, 30));
 
         btnViewEmp.setBackground(new java.awt.Color(53, 57, 65));
@@ -170,7 +199,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnViewEmp.setForeground(new java.awt.Color(255, 255, 255));
         btnViewEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_expand.png"))); // NOI18N
         btnViewEmp.setToolTipText("Ver Empleado");
-        btnViewEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnViewEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnViewEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 40, 30));
 
         btnAddEmp.setBackground(new java.awt.Color(53, 57, 65));
@@ -178,7 +207,7 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnAddEmp.setForeground(new java.awt.Color(255, 255, 255));
         btnAddEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_add.png"))); // NOI18N
         btnAddEmp.setToolTipText("Agregar Empleado");
-        btnAddEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAddEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddEmpActionPerformed(evt);
@@ -190,7 +219,12 @@ public class ManagerEmployees extends javax.swing.JFrame {
         btnSalaries.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnSalaries.setForeground(new java.awt.Color(255, 255, 255));
         btnSalaries.setText("Administrar Salarios");
-        btnSalaries.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalaries.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSalaries.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalariesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSalaries, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
 
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager_background.png"))); // NOI18N
@@ -220,7 +254,32 @@ public class ManagerEmployees extends javax.swing.JFrame {
 
     private void btnAddEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmpActionPerformed
         // TODO add your handling code here:
+        uiController.showWindow(ManagerRegisterEmployee.class);
+        this.setVisible(false);
     }//GEN-LAST:event_btnAddEmpActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnSalariesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalariesActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerSalaries.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSalariesActionPerformed
+
+    private void btnEditEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditEmpActionPerformed
+        // TODO add your handling code here:
+        
+        
+        uiController.addParameters(
+                MainController.getInstance().getAdminController().getEmployee(
+                        (String)this.jTable1.getValueAt(this.jTable1.getSelectedRow(), 2)));
+        uiController.showWindow(ManagerEditEmployee.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnEditEmpActionPerformed
 
     /**
      * @param args the command line arguments

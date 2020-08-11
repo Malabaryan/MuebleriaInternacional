@@ -5,8 +5,12 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
+import Model.Products.Product;
+import Model.Products.Promo;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,9 +19,22 @@ import javax.swing.ImageIcon;
 public class ManagerProductInventory extends javax.swing.JFrame {
 
     private UIController uiController;
+    private DefaultTableModel tableModel;
     
     public ManagerProductInventory(UIController pUiController) {
-        initComponents();
+        uiController = pUiController;
+        String col[] = {"Cod","Nombre","Costo"};
+        tableModel = new DefaultTableModel(col, 0);
+        int cont = 0;
+        for(Product p: MainController.getInstance().getProductController().getInventory()){
+            Object[] objs = {
+                cont,
+                p.getName(),
+                p.getCost()};
+            tableModel.addRow(objs);
+            cont++;
+        }
+        
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
@@ -25,6 +42,10 @@ public class ManagerProductInventory extends javax.swing.JFrame {
                 + " y promociones de la compañía. En esta sección podrás gestionar"
                 + " el inventario, y además, administrar las promociones que quieras"
                 + " ofrecer a tus clientes</p></html>";
+        
+        
+        
+        initComponents();
         this.lblInstructions.setText(text);
     }
 
@@ -45,7 +66,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable(tableModel);
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -66,7 +87,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
-        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 40, -1));
 
         btnProduct.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -84,7 +105,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnEmployee.setBorder(null);
         btnEmployee.setBorderPainted(false);
         btnEmployee.setContentAreaFilled(false);
-        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 80, -1));
 
         btnStats.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
@@ -93,7 +114,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnStats.setBorder(null);
         btnStats.setBorderPainted(false);
         btnStats.setContentAreaFilled(false);
-        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
         btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
@@ -103,7 +124,12 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
@@ -111,6 +137,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         jLabel4.setText("Lista de Productos");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
+        /*
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -119,6 +146,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
                 "Codigo", "Nombre", "Precio"
             }
         ));
+        */
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 170, 660, 300));
@@ -146,7 +174,12 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnEditProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnEditProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_edit.png"))); // NOI18N
         btnEditProduct.setToolTipText("Editar Producto");
-        btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEditProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditProductActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEditProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 40, 30));
 
         btnViewProduct.setBackground(new java.awt.Color(53, 57, 65));
@@ -154,7 +187,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnViewProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnViewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_expand.png"))); // NOI18N
         btnViewProduct.setToolTipText("Ver Producto");
-        btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnViewProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnViewProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 40, 30));
 
         btnAddProduct.setBackground(new java.awt.Color(53, 57, 65));
@@ -162,7 +195,7 @@ public class ManagerProductInventory extends javax.swing.JFrame {
         btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_plus.png"))); // NOI18N
         btnAddProduct.setToolTipText("Agregar Producto");
-        btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddProductActionPerformed(evt);
@@ -200,7 +233,21 @@ public class ManagerProductInventory extends javax.swing.JFrame {
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
         // TODO add your handling code here:
+        uiController.showWindow(ManagerCreateProduct.class);
+        this.setVisible(false);
     }//GEN-LAST:event_btnAddProductActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnEditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProductActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerEditProduct.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnEditProductActionPerformed
 
     /**
      * @param args the command line arguments

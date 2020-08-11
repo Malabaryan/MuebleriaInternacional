@@ -24,5 +24,15 @@ public class Combo extends Product{
     public void addProduct(Product product){
         products.add(product);
     }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
+    }
+    
+    
     
 }

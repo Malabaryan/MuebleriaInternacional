@@ -5,8 +5,11 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
 import Model.Admin.Employee;
+import Model.Admin.EmployeeType;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 
 /**
@@ -17,19 +20,30 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
 
     private UIController uiController;
     private Employee employee;
+    private DefaultComboBoxModel  listModel;
     
     public ManagerEditEmployee(UIController pUiController) {
+        uiController = pUiController;
+        listModel = new DefaultComboBoxModel ();
+        
+        for(EmployeeType p: MainController.getInstance().getAdminController().getEmployeeTypes()){
+            listModel.addElement(p.toString());
+        }
+        
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
         employee = (Employee)uiController.getParameters().get(0);
         
-        this.txtCountry.setText(" ");
-        this.txtLastName.setText(" ");
-        this.txtLastName1.setText(" ");
-        this.txtName.setText(" ");
-        this.txtState.setText(" ");
+        this.txtCountry.setText(employee.getPersonalData().getLocation().getCountry());
+        this.txtLastName.setText(employee.getPersonalData().getLastname());
+        this.txtLastName1.setText(employee.getPersonalData().getEmail());
+        this.txtName.setText(employee.getPersonalData().getName());
+        this.txtState.setText(employee.getPersonalData().getLocation().getState());
+        
+        this.spinSalario.setValue(employee.getSalario());
+        this.spinTel.setValue(employee.getPersonalData().getTel());
     }
 
     /**
@@ -65,7 +79,7 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>(listModel);
         btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         spinTel = new javax.swing.JSpinner();
@@ -144,6 +158,11 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel5.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
@@ -211,7 +230,9 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         jLabel13.setText("Salario:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, 30));
 
+        /*
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        */
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
 
         btnCancel.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
@@ -225,6 +246,11 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Guardar");
         btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 140, -1));
         jPanel1.add(spinTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 110, 30));
         jPanel1.add(spinSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 120, 30));
@@ -256,6 +282,27 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        employee.getPersonalData().getLocation().setCountry(this.txtCountry.getText());//this.txtCountry.setText(employee.getPersonalData().getLocation().getCountry());
+        employee.getPersonalData().setLastname(this.txtLastName.getText());//this.txtLastName.setText(employee.getPersonalData().getLastname());
+        employee.getPersonalData().setEmail(this.txtLastName1.getText());//this.txtLastName1.setText(employee.getPersonalData().getEmail());
+        employee.getPersonalData().setName(this.txtName.getText());//this.txtName.setText(employee.getPersonalData().getName());
+        employee.getPersonalData().getLocation().setState(this.txtState.getText());//this.txtState.setText(employee.getPersonalData().getLocation().getState());
+        
+        employee.setSalario((int)this.spinSalario.getValue());//this.spinSalario.setValue(employee.getSalario());
+        employee.getPersonalData().setTel((int)this.spinTel.getValue());//this.spinTel.setValue(employee.getPersonalData().getTel());
+        
+        uiController.showWindow(ManagerEmployees.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments

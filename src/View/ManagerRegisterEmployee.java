@@ -9,8 +9,10 @@ import Controller.MainController;
 import Controller.UIController;
 import Model.Admin.Employee;
 import Model.*;
+import Model.Admin.EmployeeType;
 import javax.swing.ImageIcon;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 
 
 /**
@@ -20,8 +22,15 @@ import java.util.Date;
 public class ManagerRegisterEmployee extends javax.swing.JFrame {
 
     private UIController uiController;
+    private DefaultComboBoxModel  listModel;
     
     public ManagerRegisterEmployee(UIController pUiController) {
+        listModel = new DefaultComboBoxModel ();
+        
+        for(EmployeeType p: MainController.getInstance().getAdminController().getEmployeeTypes()){
+            listModel.addElement(p.toString());
+        }
+        
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -61,11 +70,11 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        txtSalary = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
         spinTelephone = new javax.swing.JSpinner();
+        spinSalario = new javax.swing.JSpinner();
         label_Opaque = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
@@ -140,6 +149,11 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel5.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
@@ -205,9 +219,6 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
 
-        txtSalary.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jPanel1.add(txtSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 150, 30));
-
         jLabel13.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Salario:");
@@ -236,6 +247,7 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         });
         jPanel1.add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 140, -1));
         jPanel1.add(spinTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 130, 30));
+        jPanel1.add(spinSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 130, 30));
 
         label_Opaque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
         jPanel1.add(label_Opaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 710, 380));
@@ -281,8 +293,9 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
                                 ), 
                                 this.txtEmail.getText()
                         ),
-                        null, 
-                null));
+                        MainController.getInstance().getAdminController().getEmployeeType((String)this.jComboBox1.getSelectedItem()), 
+                MainController.getInstance().getAdminController().getCurrentManager().getStore(),
+                (int)this.spinSalario.getValue()));
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -290,6 +303,12 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         this.uiController.showWindow(ManagerEmployees.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,12 +370,12 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_Opaque;
     private javax.swing.JLabel label_background;
+    private javax.swing.JSpinner spinSalario;
     private javax.swing.JSpinner spinTelephone;
     private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtSalary;
     private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables
 }

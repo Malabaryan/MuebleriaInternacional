@@ -30,4 +30,9 @@ public class EmployeeType {
         maxSalary = pMaxSalary;
     }
     
+    @Override
+    public String toString(){
+        return typeName;
+    }
+    
 }

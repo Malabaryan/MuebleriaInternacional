@@ -17,17 +17,20 @@ public class Employee {
     private Person personalData;
     private EmployeeType employeeType;
     private Establishment store;
+    private char[] password;
+    private int salario;
 
-
-    public Employee(Person personalData, EmployeeType employeeType) {
+    public Employee(Person personalData, EmployeeType employeeType, int psalario) {
         this.personalData = personalData;
         this.employeeType = employeeType;
+        this.salario = psalario;
     }
     
-    public Employee(Person personalData, EmployeeType employeeType,Establishment pStore) {
+    public Employee(Person personalData, EmployeeType employeeType,Establishment pStore, int psalario) {
         this.personalData = personalData;
         this.employeeType = employeeType;
         this.store = pStore;
+        this.salario = psalario;
     }
 
     public void setStore(FurnitureStore store) {
@@ -57,6 +60,24 @@ public class Employee {
     public void setEmployeeType(EmployeeType employeeType) {
         this.employeeType = employeeType;
     }
+
+    public char[] getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password.toCharArray();
+    }
+
+    public int getSalario() {
+        return salario;
+    }
+
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
+    
+    
     
     
     

@@ -20,6 +20,14 @@ public class Promo extends Combo{
         super(products, cost, name);
         this.deadline = deadline;
     }
+
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
+    }
     
     
     
