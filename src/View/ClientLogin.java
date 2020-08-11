@@ -162,6 +162,8 @@ public class ClientLogin extends javax.swing.JFrame {
         if(client!= null){
             this.uiController.setCurrentClient(client);
             this.uiController.showDialog("Iniciar sesión", "Usuario registrado. Bienvenido " + client.getName() + ".", this);
+            this.uiController.showWindow(ClientPrincipal.class);
+            this.setVisible(false);
         }
         else{
             this.uiController.showDialog("Iniciar sesión", "Datos incorrectos.\nPor favor inténtelo de nuevo.", this);

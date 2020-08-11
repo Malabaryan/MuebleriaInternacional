@@ -6,6 +6,7 @@
 package Model.Client;
 
 import Model.Person;
+import Model.Products.Product;
 
 /**
  *
@@ -26,6 +27,11 @@ public class Client {
 
     public ShoppingCart getCart() {
         return cart;
+    }
+    
+    public void addToCart(Product p){
+        cart.addProduct(p);
+        System.out.println("Producto agregado al carrito");
     }
 
     public String getUsername() {

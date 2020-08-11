@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 public class UIController {
     
     private ClientLogin clientLogin;
+    private ClientPrincipal clientPrincipal;
     private ClientRegister clientRegister;
     private ManagerCreateProduct managerCreateProduct;
     private ManagerEditEmployee managerEditEmployee;
@@ -74,12 +75,20 @@ public class UIController {
         MainController.getInstance().getClientController().setCurrentClient(client);
     }
     
+    public Client getCurrentClient() {
+        return MainController.getInstance().getClientController().getCurrentClient();
+    }
+    
     
     public void showWindow(Class c){
         System.out.println(c.toString());
         if(c.equals(View.ClientLogin.class)){
             this.clientLogin = new ClientLogin(this);
             clientLogin.setVisible(true);
+        }
+        else if(c.equals(ClientPrincipal.class)){
+            this.clientPrincipal = new ClientPrincipal(this);
+            clientPrincipal.setVisible(true);
         }
         else if(c.equals(ClientRegister.class)){
             this.clientRegister = new ClientRegister(this);

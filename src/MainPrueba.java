@@ -12,6 +12,7 @@ import Model.Admin.EmployeeType;
 import Model.Products.Material;
 import Model.Products.Product;
 import Model.Products.Promo;
+import View.ClientPrincipal;
 import View.ClientRegister;
 import View.ManagerEmployees;
 import View.ManagerOffers;
@@ -136,8 +137,8 @@ public class MainPrueba {
         System.out.print("\n");
         
         
-        
-        MainController.getInstance().getUiController().showWindow(ManagerProduct.class);
+        MainController.getInstance().getUiController().setCurrentClient(cliente);
+        MainController.getInstance().getUiController().showWindow(ClientPrincipal.class);
     }
     
 }

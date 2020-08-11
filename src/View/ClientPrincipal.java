@@ -10,8 +10,11 @@ import Controller.UIController;
 import Model.CountryList;
 import Model.Location;
 import Model.Person;
+import Model.Products.Product;
+import Model.Products.Promo;
 import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,10 +23,38 @@ import javax.swing.ImageIcon;
 public class ClientPrincipal extends javax.swing.JFrame {
 
     private UIController uiController;
+    private DefaultTableModel tableModel;
+    private DefaultTableModel tableModel2;
     
     public ClientPrincipal(UIController pUiController) {
-        initComponents();
         uiController = pUiController;
+        String col[] = {"Cod","Nombre","Costo","Deadline"};
+        tableModel = new DefaultTableModel(col, 0);
+        
+        int cont = 0;
+        for(Promo p: MainController.getInstance().getProductController().getPromos()){
+            Object[] objs = {
+                cont,
+                p.getName(),
+                p.getCost(),
+                p.getDeadline().toString()};
+            tableModel.addRow(objs);
+            cont++;
+        }
+        
+        String col2[] = {"Cod","Nombre","Costo"};
+        tableModel2 = new DefaultTableModel(col2, 0);
+        int cont2 = 0;
+        for(Product p: MainController.getInstance().getProductController().getInventory()){
+            Object[] objs = {
+                cont2,
+                p.getName(),
+                p.getCost()};
+            tableModel2.addRow(objs);
+            cont2++;
+        }
+        
+        initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
@@ -47,13 +78,14 @@ public class ClientPrincipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnAddToCart = new javax.swing.JButton();
+        btnAddToCartProduct = new javax.swing.JButton();
         btnCart = new javax.swing.JButton();
         btnQuestions = new javax.swing.JButton();
+        btnAddToCartPromo = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableOffers = new javax.swing.JTable();
+        tableOffers = new javax.swing.JTable(tableModel);
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableProducts = new javax.swing.JTable();
+        tableProducts = new javax.swing.JTable(tableModel2);
         label_background = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
@@ -83,16 +115,16 @@ public class ClientPrincipal extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(110, 190, 68));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("COMBOS Y PROMOCIONES");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 850, 40));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, 320, 850, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque_2.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 340, 50));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 340, 50));
 
         jLabel3.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(110, 190, 68));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("PRODUCTOS INDIVIDUALES");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 850, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, 130, 850, 40));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(110, 190, 68));
@@ -101,21 +133,24 @@ public class ClientPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 450, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque_2.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 340, 50));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 340, 50));
 
-        btnAddToCart.setBackground(new java.awt.Color(53, 57, 65));
-        btnAddToCart.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnAddToCart.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddToCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_cart.png"))); // NOI18N
-        btnAddToCart.setText("Agregar al Carrito");
-        btnAddToCart.setToolTipText("Ver Producto");
-        btnAddToCart.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(btnAddToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 200, 40));
+        btnAddToCartProduct.setBackground(new java.awt.Color(53, 57, 65));
+        btnAddToCartProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnAddToCartProduct.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddToCartProduct.setText("Agregar al Carrito");
+        btnAddToCartProduct.setToolTipText("Ver Producto");
+        btnAddToCartProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAddToCartProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddToCartProductActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAddToCartProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 200, 40));
 
         btnCart.setBackground(new java.awt.Color(53, 57, 65));
         btnCart.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnCart.setForeground(new java.awt.Color(255, 255, 255));
-        btnCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_cart.png"))); // NOI18N
         btnCart.setToolTipText("Ver El Carrito");
         btnCart.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 50, 40));
@@ -134,6 +169,20 @@ public class ClientPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(btnQuestions, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 40, 40));
 
+        btnAddToCartPromo.setBackground(new java.awt.Color(53, 57, 65));
+        btnAddToCartPromo.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnAddToCartPromo.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddToCartPromo.setText("Agregar al Carrito");
+        btnAddToCartPromo.setToolTipText("Ver Producto");
+        btnAddToCartPromo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAddToCartPromo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddToCartPromoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAddToCartPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 200, 40));
+
+        /*
         tableOffers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -142,10 +191,12 @@ public class ClientPrincipal extends javax.swing.JFrame {
                 "Codigo", "Nombre", "Precio"
             }
         ));
+        */
         jScrollPane2.setViewportView(tableOffers);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 670, 110));
 
+        /*
         tableProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -154,6 +205,7 @@ public class ClientPrincipal extends javax.swing.JFrame {
                 "Codigo", "Nombre", "Precio"
             }
         ));
+        */
         jScrollPane1.setViewportView(tableProducts);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 670, 110));
@@ -180,6 +232,26 @@ public class ClientPrincipal extends javax.swing.JFrame {
     private void btnQuestionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestionsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnQuestionsActionPerformed
+
+    private void btnAddToCartProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartProductActionPerformed
+        // TODO add your handling code here:
+        uiController.getCurrentClient().addToCart(
+                MainController.getInstance().getProductController().getInventory().get(
+                        this.tableProducts.getSelectedRow()
+                )
+        );
+        uiController.showDialog("Producto agregado", "Producto agregado", this);
+    }//GEN-LAST:event_btnAddToCartProductActionPerformed
+
+    private void btnAddToCartPromoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartPromoActionPerformed
+        // TODO add your handling code here:
+        uiController.getCurrentClient().addToCart(
+                MainController.getInstance().getProductController().getPromos().get(
+                        this.tableOffers.getSelectedRow()
+                )
+        );
+        uiController.showDialog("Promo agregada", "Promo agregada", this);
+    }//GEN-LAST:event_btnAddToCartPromoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,7 +296,8 @@ public class ClientPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddToCart;
+    private javax.swing.JButton btnAddToCartProduct;
+    private javax.swing.JButton btnAddToCartPromo;
     public javax.swing.JButton btnBack;
     private javax.swing.JButton btnCart;
     public javax.swing.JButton btnQuestions;
