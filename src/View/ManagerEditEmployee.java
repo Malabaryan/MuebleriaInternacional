@@ -59,7 +59,6 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtSalary = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         label_Opaque = new javax.swing.JLabel();
@@ -211,7 +210,6 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, 30));
 
         btnCancel.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnCancel.setForeground(new java.awt.Color(53, 57, 65));
@@ -299,7 +297,6 @@ public class ManagerEditEmployee extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnStats;
     private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

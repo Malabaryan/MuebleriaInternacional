@@ -59,7 +59,6 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         txtSalary = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         btnBack = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
         label_Opaque = new javax.swing.JLabel();
@@ -211,7 +210,6 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Salario:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, 30));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, 30));
 
         btnBack.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(53, 57, 65));
@@ -298,7 +296,6 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
     private javax.swing.JButton btnProduct;
     private javax.swing.JButton btnStats;
     private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
