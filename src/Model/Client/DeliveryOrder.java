@@ -25,5 +25,19 @@ public class DeliveryOrder {
     public void finishDelivery(Evaluation pEvaluation){
         this.evaluation = pEvaluation;
     }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public Date getSolitudeDate() {
+        return solitudeDate;
+    }
+
+    public Evaluation getEvaluation() {
+        return evaluation;
+    }
+    
+    
     
 }

@@ -14,8 +14,8 @@ import java.util.Queue;
  * @author Bryan Hernandez
  */
 public class DeliveryQueue {
-    private Queue<Order> orders;
-    private ArrayList<Order> backOrders;
+    private Queue<DeliveryOrder> orders;
+    private ArrayList<DeliveryOrder> backOrders;
     
 
     public DeliveryQueue() {
@@ -23,11 +23,12 @@ public class DeliveryQueue {
         backOrders = new ArrayList();
     }
     
-    public Order sendNextDeliveryOrder(){
+    public DeliveryOrder sendNextDeliveryOrder(Evaluation eval){
+        this.orders.peek().finishDelivery(eval);
         return this.orders.poll();
     }
 
-    public void addOrder(Order order, boolean exist){
+    public void addOrder(DeliveryOrder order, boolean exist){
         if(exist){
             orders.add(order);
         }
@@ -35,5 +36,15 @@ public class DeliveryQueue {
             backOrders.add(order);
         }
     }
+
+    public Queue<DeliveryOrder> getOrders() {
+        return orders;
+    }
+
+    public ArrayList<DeliveryOrder> getBackOrders() {
+        return backOrders;
+    }
+    
+    
     
 }

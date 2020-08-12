@@ -5,6 +5,7 @@
  */
 package Model.Client;
 
+import Controller.MainController;
 import Model.Products.Product;
 import java.util.ArrayList;
 
@@ -29,14 +30,10 @@ public class ShoppingCart {
     }
     
     public int getCost(){
-        int cost = 0;
-        if(!products.isEmpty()){
-            for(Product p: products){
-                cost = cost + p.getCost();
-            }
-        }
-        return  cost;
+        return MainController.getInstance().getClientController().getCost(products);
     }
+    
+    
 
     public ArrayList<Product> getProducts() {
         return products;

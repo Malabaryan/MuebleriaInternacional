@@ -15,6 +15,7 @@ import Model.Products.Promo;
 import View.ClientConfirmCart;
 import View.ClientPrincipal;
 import View.ClientRegister;
+import View.ManagerBacklog;
 import View.ManagerCreateStore;
 import View.ManagerEmployees;
 import View.ManagerOffers;
@@ -140,7 +141,7 @@ public class MainPrueba {
         
         
         MainController.getInstance().getUiController().setCurrentClient(cliente);
-        MainController.getInstance().getUiController().showWindow(ClientPrincipal.class);
+        MainController.getInstance().getUiController().showWindow(ManagerBacklog.class);
     }
     
 }

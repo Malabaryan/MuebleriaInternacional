@@ -7,7 +7,9 @@ package Controller;
 
 import Model.Admin.Employee;
 import Model.Client.Client;
+import Model.Client.DeliveryOrder;
 import Model.Client.DeliveryQueue;
+import Model.Client.Evaluation;
 import Model.Client.Order;
 import Model.Client.ShoppingCart;
 import Model.Location;
@@ -49,13 +51,13 @@ public class ClientController {
     public void addNewOrder(ShoppingCart cart, Employee employee, Client client, boolean deliveryNeeded){
         orders.add(new Order(cart, employee, client));
         if(deliveryNeeded){
-            this.deliveryQueue.addOrder(new Order(cart, employee, client), deliveryNeeded);
+            this.deliveryQueue.addOrder(new DeliveryOrder(orders.get(orders.size()-1)),true);
         }
         /* Add from ProductController.sellProducts() to reduce the inventory*/
     }
     
-    public Order sendNextDeliveryOrder(){
-        return this.deliveryQueue.sendNextDeliveryOrder();
+    public DeliveryOrder sendNextDeliveryOrder(Evaluation eval){
+        return this.deliveryQueue.sendNextDeliveryOrder(eval);
     }
     
     public void addProductToCart(Product product){
@@ -84,6 +86,16 @@ public class ClientController {
 
     public Client getCurrentClient() {
         return currentClient;
+    }
+    
+    public int getCost(ArrayList<Product> productsList){
+        int cost = 0;
+        if(!productsList.isEmpty()){
+            for(Product p: productsList){
+                cost = cost + p.getCost();
+            }
+        }
+        return  cost;
     }
     
     

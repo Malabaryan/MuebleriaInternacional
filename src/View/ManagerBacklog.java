@@ -5,8 +5,12 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
+import Model.Client.DeliveryOrder;
+import Model.Products.Product;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,8 +19,23 @@ import javax.swing.ImageIcon;
 public class ManagerBacklog extends javax.swing.JFrame {
 
     private UIController uiController;
+    private DefaultTableModel tableModel;
     
     public ManagerBacklog(UIController pUiController) {
+        uiController = pUiController;
+        String col[] = {"Pedido","Cliente","Precio"};
+        tableModel = new DefaultTableModel(col, 0);
+        
+        int cont = 0;
+        for(DeliveryOrder p: MainController.getInstance().getClientController().getDeliveryQueue().getOrders()){
+            Object[] objs = {
+                p.getOrder().getProductsNames(),
+                p.getOrder().getClient().getName(),
+                MainController.getInstance().getClientController().getCost(p.getOrder().getProducts())};
+            tableModel.addRow(objs);
+            cont++;
+        }
+        
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -37,11 +56,10 @@ public class ManagerBacklog extends javax.swing.JFrame {
         btnProduct = new javax.swing.JButton();
         btnEmployee = new javax.swing.JButton();
         btnStats = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         btnExit = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable(tableModel);
         btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -90,10 +108,6 @@ public class ManagerBacklog extends javax.swing.JFrame {
         btnStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btnStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 90, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Madera", "Tela", "Cuero", "Hierro", "Metal", "Plastico", "Espuma", "Algodon" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 130, 30));
-
         btnExit.setFont(new java.awt.Font("Corbel", 1, 13)); // NOI18N
         btnExit.setForeground(new java.awt.Color(113, 117, 125));
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit.png"))); // NOI18N
@@ -114,6 +128,7 @@ public class ManagerBacklog extends javax.swing.JFrame {
         jLabel4.setText("Pedidos en Espera");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 130, 250, -1));
 
+        /*
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -122,6 +137,7 @@ public class ManagerBacklog extends javax.swing.JFrame {
                 "Pedido", "Cliente", "Precio"
             }
         ));
+        */
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 170, 660, 260));
@@ -131,8 +147,8 @@ public class ManagerBacklog extends javax.swing.JFrame {
         btnCancel.setForeground(new java.awt.Color(53, 57, 65));
         btnCancel.setText("Volver");
         btnCancel.setToolTipText("Ver Producto");
-        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, 100, 30));
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("Corbel", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(53, 57, 65));
@@ -155,10 +171,15 @@ public class ManagerBacklog extends javax.swing.JFrame {
         btnOrderMaterials.setBackground(new java.awt.Color(53, 57, 65));
         btnOrderMaterials.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnOrderMaterials.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderMaterials.setText("Solicitar");
+        btnOrderMaterials.setText("Enviar");
         btnOrderMaterials.setToolTipText("Editar Producto");
         btnOrderMaterials.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(btnOrderMaterials, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 100, 30));
+        btnOrderMaterials.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderMaterialsActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnOrderMaterials, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 100, 30));
 
         label_background.setForeground(new java.awt.Color(53, 57, 65));
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager_background.png"))); // NOI18N
@@ -187,6 +208,13 @@ public class ManagerBacklog extends javax.swing.JFrame {
         uiController.showWindow(ManagerMenu.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnOrderMaterialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMaterialsActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ClientCalification.class);
+        this.setVisible(false);
+        this.uiController.showDialog("Producto enviado", "El primer pedido ha sido enviado con éxito.", this);
+    }//GEN-LAST:event_btnOrderMaterialsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,7 +262,6 @@ public class ManagerBacklog extends javax.swing.JFrame {
     private javax.swing.JButton btnOrderMaterials;
     public javax.swing.JButton btnProduct;
     public javax.swing.JButton btnStats;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

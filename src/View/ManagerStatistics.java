@@ -54,7 +54,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnInventory.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
         btnInventory.setForeground(new java.awt.Color(255, 255, 255));
         btnInventory.setText("Inventario");
-        btnInventory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInventory.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInventory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnInventoryMouseEntered(evt);
@@ -65,7 +65,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnOffers.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
         btnOffers.setForeground(new java.awt.Color(255, 255, 255));
         btnOffers.setText("Promociones");
-        btnOffers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOffers.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnOffers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnOffersMouseEntered(evt);
@@ -156,10 +156,15 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnInventory1.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
         btnInventory1.setForeground(new java.awt.Color(255, 255, 255));
         btnInventory1.setText("Ventas");
-        btnInventory1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInventory1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInventory1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnInventory1MouseEntered(evt);
+            }
+        });
+        btnInventory1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInventory1ActionPerformed(evt);
             }
         });
         jPanel1.add(btnInventory1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 240, 40));
@@ -168,7 +173,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnOffers1.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
         btnOffers1.setForeground(new java.awt.Color(255, 255, 255));
         btnOffers1.setText("Ganancias");
-        btnOffers1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOffers1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnOffers1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnOffers1MouseEntered(evt);
@@ -191,7 +196,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnInventory2.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
         btnInventory2.setForeground(new java.awt.Color(255, 255, 255));
         btnInventory2.setText("Inventario");
-        btnInventory2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInventory2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInventory2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnInventory2MouseEntered(evt);
@@ -259,7 +264,15 @@ public class ManagerStatistics extends javax.swing.JFrame {
 
     private void btnInventory2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventory2MouseEntered
         // TODO add your handling code here:
+        uiController.showWindow(ManagerStatisticsProfit.class);
+        this.setVisible(false);
     }//GEN-LAST:event_btnInventory2MouseEntered
+
+    private void btnInventory1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventory1ActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerStatisticsSales.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnInventory1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -26,6 +26,7 @@ public class UIController {
     private ClientPay clientPay;
     private ClientPrincipal clientPrincipal;
     private ClientRegister clientRegister;
+    private ManagerBacklog managerBacklog;
     private ManagerCreateProduct managerCreateProduct;
     private ManagerCreateStore managerCreateStore;
     private ManagerEditEmployee managerEditEmployee;
@@ -110,7 +111,10 @@ public class UIController {
             this.clientRegister = new ClientRegister(this);
             clientRegister.setVisible(true);
         }
-        
+        else if(c.equals(ManagerBacklog.class)){
+            this.managerBacklog = new ManagerBacklog(this);
+            managerBacklog.setVisible(true);
+        }
         else if(c.equals(ManagerCreateProduct.class)){
             this.managerCreateProduct = new ManagerCreateProduct(this);
             managerCreateProduct.setVisible(true);

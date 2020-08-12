@@ -85,6 +85,7 @@ public class AdminController {
     
     public void reportingSalesGeneral(){
         int total = 0;
+        
         for(Order o: MainController.getInstance().getClientController().getOrders()){
             System.out.print("Nombre Cliente: "+o.getClient().getName()+ "\n");
             System.out.print("Costo: "+o.getCost()+ "\n");

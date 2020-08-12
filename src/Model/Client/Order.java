@@ -93,5 +93,13 @@ public class Order {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    public Object getProductsNames() {
+        String s = "";
+        for(Product p: products){
+            s = s + p.getName() + " - ";
+        }
+        return s;
+    }
         
 }

@@ -182,7 +182,10 @@ public class ClientCalification extends javax.swing.JFrame {
             (int)this.spinEsthetic.getValue(), 
             (int)this.spinCompletition.getValue(),
             true);
-        
+        MainController.getInstance().getClientController().sendNextDeliveryOrder(eval);
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+        this.uiController.showDialog("Calificación enviado", "Gracias por utilizar nuestros servicios.", this);
         
     }//GEN-LAST:event_btnSendCalificationActionPerformed
 
