@@ -20,39 +20,26 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Yelson
  */
-public class ClientPrincipal extends javax.swing.JFrame {
+public class ClientConfirmCart extends javax.swing.JFrame {
 
     private UIController uiController;
     private DefaultTableModel tableModel;
-    private DefaultTableModel tableModel2;
     
-    public ClientPrincipal(UIController pUiController) {
+    public ClientConfirmCart(UIController pUiController) {
         uiController = pUiController;
-        String col[] = {"Cod","Nombre","Costo","Deadline"};
+        String col[] = {"Cod","Nombre","Costo"};
         tableModel = new DefaultTableModel(col, 0);
         
         int cont = 0;
-        for(Promo p: MainController.getInstance().getProductController().getPromos()){
+        for(Product p: MainController.getInstance().getClientController().getCurrentClient().getCart().getProducts()){
             Object[] objs = {
                 cont,
                 p.getName(),
-                p.getCost(),
-                p.getDeadline().toString()};
+                p.getCost()};
             tableModel.addRow(objs);
             cont++;
         }
         
-        String col2[] = {"Cod","Nombre","Costo"};
-        tableModel2 = new DefaultTableModel(col2, 0);
-        int cont2 = 0;
-        for(Product p: MainController.getInstance().getProductController().getInventory()){
-            Object[] objs = {
-                cont2,
-                p.getName(),
-                p.getCost()};
-            tableModel2.addRow(objs);
-            cont2++;
-        }
         
         initComponents();
         this.setLocationRelativeTo(null);
@@ -73,19 +60,16 @@ public class ClientPrincipal extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnAddToCartProduct = new javax.swing.JButton();
-        btnCart = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
+        btnConfirm = new javax.swing.JButton();
         btnQuestions = new javax.swing.JButton();
-        btnAddToCartPromo = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tableOffers = new javax.swing.JTable(tableModel);
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableProducts = new javax.swing.JTable(tableModel2);
+        tableProducts = new javax.swing.JTable(tableModel);
         label_background = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
@@ -111,54 +95,61 @@ public class ClientPrincipal extends javax.swing.JFrame {
         btnBack.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 40, 40));
 
-        jLabel2.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(110, 190, 68));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("COMBOS Y PROMOCIONES");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, 320, 850, 40));
+        jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 140, 40));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque_2.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 340, 50));
+        jLabel2.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("TOTAL:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 100, 40));
 
         jLabel3.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(110, 190, 68));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("PRODUCTOS INDIVIDUALES");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, 130, 850, 40));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("PRODUCTOS SELECCIONADOS");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 370, 40));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(110, 190, 68));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("NUESTRO PRODUCTOS");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 450, 40));
+        jLabel4.setText("MI CARRITO");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 470, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque_2.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 340, 50));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 360, 40));
 
-        btnAddToCartProduct.setBackground(new java.awt.Color(53, 57, 65));
-        btnAddToCartProduct.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnAddToCartProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddToCartProduct.setText("Agregar al Carrito");
-        btnAddToCartProduct.setToolTipText("Ver Producto");
-        btnAddToCartProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAddToCartProduct.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setBackground(new java.awt.Color(180, 180, 180));
+        btnCancel.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(53, 57, 65));
+        btnCancel.setText("Cancelar Pedido");
+        btnCancel.setToolTipText("Ver Producto");
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddToCartProductActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAddToCartProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 200, 40));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 170, 40));
 
-        btnCart.setBackground(new java.awt.Color(53, 57, 65));
-        btnCart.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnCart.setForeground(new java.awt.Color(255, 255, 255));
-        btnCart.setToolTipText("Ver El Carrito");
-        btnCart.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnCart.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirm.setBackground(new java.awt.Color(53, 57, 65));
+        btnConfirm.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfirm.setText("Confirmar Pedido");
+        btnConfirm.setToolTipText("Ver Producto");
+        btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCartActionPerformed(evt);
+                btnConfirmActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 50, 40));
+        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 170, 40));
 
         btnQuestions.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
         btnQuestions.setForeground(new java.awt.Color(17, 31, 77));
@@ -174,33 +165,6 @@ public class ClientPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(btnQuestions, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 40, 40));
 
-        btnAddToCartPromo.setBackground(new java.awt.Color(53, 57, 65));
-        btnAddToCartPromo.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnAddToCartPromo.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddToCartPromo.setText("Agregar al Carrito");
-        btnAddToCartPromo.setToolTipText("Ver Producto");
-        btnAddToCartPromo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAddToCartPromo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddToCartPromoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAddToCartPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 200, 40));
-
-        /*
-        tableOffers.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Nombre", "Precio"
-            }
-        ));
-        */
-        jScrollPane2.setViewportView(tableOffers);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 670, 110));
-
         /*
         tableProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -213,7 +177,7 @@ public class ClientPrincipal extends javax.swing.JFrame {
         */
         jScrollPane1.setViewportView(tableProducts);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 670, 110));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 670, 180));
 
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background_client.png"))); // NOI18N
         jPanel1.add(label_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 550));
@@ -238,31 +202,21 @@ public class ClientPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnQuestionsActionPerformed
 
-    private void btnAddToCartProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartProductActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        uiController.getCurrentClient().addToCart(
-                MainController.getInstance().getProductController().getInventory().get(
-                        this.tableProducts.getSelectedRow()
-                )
-        );
-        uiController.showDialog("Producto agregado", "Producto agregado", this);
-    }//GEN-LAST:event_btnAddToCartProductActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void btnAddToCartPromoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartPromoActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-        uiController.getCurrentClient().addToCart(
-                MainController.getInstance().getProductController().getPromos().get(
-                        this.tableOffers.getSelectedRow()
-                )
-        );
-        uiController.showDialog("Promo agregada", "Promo agregada", this);
-    }//GEN-LAST:event_btnAddToCartPromoActionPerformed
-
-    private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
-        // TODO add your handling code here:
-        this.uiController.showWindow(ClientConfirmCart.class);
+        this.uiController.showWindow(ClientPrincipal.class);
         this.setVisible(false);
-    }//GEN-LAST:event_btnCartActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ClientPay.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,14 +235,22 @@ public class ClientPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClientPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientConfirmCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClientPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientConfirmCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClientPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientConfirmCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClientPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientConfirmCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -301,16 +263,15 @@ public class ClientPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClientPrincipal(null).setVisible(true);
+                new ClientConfirmCart(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddToCartProduct;
-    private javax.swing.JButton btnAddToCartPromo;
     public javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCart;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnConfirm;
     public javax.swing.JButton btnQuestions;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -318,12 +279,10 @@ public class ClientPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_background;
-    private javax.swing.JTable tableOffers;
     private javax.swing.JTable tableProducts;
     // End of variables declaration//GEN-END:variables
 }

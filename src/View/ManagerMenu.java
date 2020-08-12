@@ -84,6 +84,11 @@ public class ManagerMenu extends javax.swing.JFrame {
         btnSignOut.setBorderPainted(false);
         btnSignOut.setContentAreaFilled(false);
         btnSignOut.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSignOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignOutActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSignOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 100, -1));
 
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bakground_manager.png"))); // NOI18N
@@ -120,6 +125,12 @@ public class ManagerMenu extends javax.swing.JFrame {
         this.uiController.showWindow(ManagerStatistics.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnStatsActionPerformed
+
+    private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerLogin.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSignOutActionPerformed
 
     /**
      * @param args the command line arguments

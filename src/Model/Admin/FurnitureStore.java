@@ -14,8 +14,11 @@ import Model.Location;
  */
 public class FurnitureStore extends Establishment{
     
-    public FurnitureStore(Location location, Employee manager) {
-        super(location, manager);
-        manager.setStore(this);
+    public FurnitureStore(Location location, Employee manager, String pname) {
+        super(location, manager, pname);
+        //manager.setStore(this);
     }
+    
+    
 }
+

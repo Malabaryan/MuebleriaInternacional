@@ -13,13 +13,15 @@ import java.util.ArrayList;
  * @author ariel
  */
 public class Establishment {
+    private String name;
     private Location location;
     private Employee manager;
     private ArrayList<Employee> employees;
 
-    public Establishment(Location location, Employee manager) {
+    public Establishment(Location location, Employee manager,String pname) {
         this.location = location;
         this.manager = manager;
+        this.name = pname;
     }
     
     public void addEmployee(Employee employee){
@@ -37,5 +39,14 @@ public class Establishment {
     public ArrayList<Employee> getEmployees() {
         return employees;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     
 }

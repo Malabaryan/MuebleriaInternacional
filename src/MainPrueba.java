@@ -12,8 +12,10 @@ import Model.Admin.EmployeeType;
 import Model.Products.Material;
 import Model.Products.Product;
 import Model.Products.Promo;
+import View.ClientConfirmCart;
 import View.ClientPrincipal;
 import View.ClientRegister;
+import View.ManagerCreateStore;
 import View.ManagerEmployees;
 import View.ManagerOffers;
 import View.ManagerProduct;
@@ -57,12 +59,12 @@ public class MainPrueba {
         
         Employee manager = MainController.getInstance().getAdminController().addEmployee(new Employee(c,managerType,900000));
         manager.setPassword("admin");
-        FurnitureStore fs = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager));
+        FurnitureStore fs = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager,"fs1"));
         manager.setStore(fs);
         
         Employee manager2 = MainController.getInstance().getAdminController().addEmployee(new Employee(e,managerType,750000));
         manager2.setPassword("admin");
-        FurnitureStore fs2 = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager2));
+        FurnitureStore fs2 = MainController.getInstance().getAdminController().addFurnitureStore(new FurnitureStore(l,manager2,"fs2"));
         manager2.setStore(fs2);
         
         MainController.getInstance().getAdminController().addEmployee(new Employee(d,salesMan,fs,500000));
