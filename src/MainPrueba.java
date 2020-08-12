@@ -12,6 +12,7 @@ import Model.Admin.EmployeeType;
 import Model.Products.Material;
 import Model.Products.Product;
 import Model.Products.Promo;
+import View.ClientConfirmCart;
 import View.ClientPrincipal;
 import View.ClientRegister;
 import View.ManagerCreateStore;
@@ -139,7 +140,7 @@ public class MainPrueba {
         
         
         MainController.getInstance().getUiController().setCurrentClient(cliente);
-        MainController.getInstance().getUiController().showWindow(ManagerCreateStore.class);
+        MainController.getInstance().getUiController().showWindow(ClientPrincipal.class);
     }
     
 }

@@ -20,7 +20,10 @@ import javax.swing.JPanel;
  */
 public class UIController {
     
+    private ClientCalification clientCalification;
+    private ClientConfirmCart clientConfirmCart;
     private ClientLogin clientLogin;
+    private ClientPay clientPay;
     private ClientPrincipal clientPrincipal;
     private ClientRegister clientRegister;
     private ManagerCreateProduct managerCreateProduct;
@@ -87,9 +90,21 @@ public class UIController {
             this.clientLogin = new ClientLogin(this);
             clientLogin.setVisible(true);
         }
+        else if(c.equals(ClientCalification.class)){
+            this.clientCalification = new ClientCalification(this);
+            clientCalification.setVisible(true);
+        }
+        else if(c.equals(ClientConfirmCart.class)){
+            this.clientConfirmCart = new ClientConfirmCart(this);
+            clientConfirmCart.setVisible(true);
+        }
         else if(c.equals(ClientPrincipal.class)){
             this.clientPrincipal = new ClientPrincipal(this);
             clientPrincipal.setVisible(true);
+        }
+        else if(c.equals(ClientPay.class)){
+            this.clientPay = new ClientPay(this);
+            clientPay.setVisible(true);
         }
         else if(c.equals(ClientRegister.class)){
             this.clientRegister = new ClientRegister(this);

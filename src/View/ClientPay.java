@@ -11,40 +11,32 @@ import Model.CountryList;
 import Model.Location;
 import Model.Person;
 import Model.Products.Product;
-import Model.Products.Promo;
 import java.util.Date;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Yelson
  */
-public class ClientConfirmCart extends javax.swing.JFrame {
+public class ClientPay extends javax.swing.JFrame {
 
     private UIController uiController;
-    private DefaultTableModel tableModel;
+    private DefaultListModel listModel;
     
-    public ClientConfirmCart(UIController pUiController) {
-        uiController = pUiController;
-        String col[] = {"Cod","Nombre","Costo"};
-        tableModel = new DefaultTableModel(col, 0);
+    public ClientPay(UIController pUiController) {
+        listModel = new DefaultListModel();
         
-        int cont = 0;
         for(Product p: MainController.getInstance().getClientController().getCurrentClient().getCart().getProducts()){
-            Object[] objs = {
-                cont,
-                p.getName(),
-                p.getCost()};
-            tableModel.addRow(objs);
-            cont++;
+            listModel.addElement(p.toString());
         }
         
-        
-        initComponents();
+        uiController = pUiController;
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
+        
+        initComponents();
     }
 
     /**
@@ -60,16 +52,16 @@ public class ClientConfirmCart extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        btnConfirm = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        cmbSpeed = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>(listModel);
+        jCheckBox1 = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        btnCancel = new javax.swing.JButton();
-        btnConfirm = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         btnQuestions = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableProducts = new javax.swing.JTable(tableModel);
         label_background = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
@@ -95,49 +87,6 @@ public class ClientConfirmCart extends javax.swing.JFrame {
         btnBack.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 40, 40));
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 140, 40));
-
-        jLabel2.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("TOTAL:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 100, 40));
-
-        jLabel3.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(110, 190, 68));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel3.setText("PRODUCTOS SELECCIONADOS");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 370, 40));
-
-        jLabel4.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(110, 190, 68));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("MI CARRITO");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 470, 40));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque_2.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 360, 40));
-
-        btnCancel.setBackground(new java.awt.Color(180, 180, 180));
-        btnCancel.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
-        btnCancel.setForeground(new java.awt.Color(53, 57, 65));
-        btnCancel.setText("Cancelar Pedido");
-        btnCancel.setToolTipText("Ver Producto");
-        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 170, 40));
-
         btnConfirm.setBackground(new java.awt.Color(53, 57, 65));
         btnConfirm.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
@@ -149,7 +98,54 @@ public class ClientConfirmCart extends javax.swing.JFrame {
                 btnConfirmActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 170, 40));
+        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, 170, -1));
+
+        jLabel5.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(110, 190, 68));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("ARTÍCULOS EN EL CARRITO");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 850, 40));
+
+        cmbSpeed.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        cmbSpeed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tarjeta", "Transferencia", "Efectivo", "Cheque" }));
+        cmbSpeed.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbSpeedItemStateChanged(evt);
+            }
+        });
+        cmbSpeed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSpeedActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmbSpeed, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 100, -1));
+
+        jList1.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 360, 200));
+
+        jCheckBox1.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setText("Servicio Express");
+        jCheckBox1.setBorder(null);
+        jCheckBox1.setContentAreaFilled(false);
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("Método de Pago:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 150, 20));
+
+        jLabel4.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(110, 190, 68));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("CONFIRMAR MÉTODO DE PAGO");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 440, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque_2.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 360, 330));
 
         btnQuestions.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
         btnQuestions.setForeground(new java.awt.Color(17, 31, 77));
@@ -165,20 +161,6 @@ public class ClientConfirmCart extends javax.swing.JFrame {
         });
         jPanel1.add(btnQuestions, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 40, 40));
 
-        /*
-        tableProducts.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Codigo", "Nombre", "Precio"
-            }
-        ));
-        */
-        jScrollPane1.setViewportView(tableProducts);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 670, 180));
-
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background_client.png"))); // NOI18N
         jPanel1.add(label_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 550));
 
@@ -190,9 +172,7 @@ public class ClientConfirmCart extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -202,20 +182,39 @@ public class ClientConfirmCart extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnQuestionsActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void cmbSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSpeedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_cmbSpeedActionPerformed
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+    private void cmbSpeedItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbSpeedItemStateChanged
         // TODO add your handling code here:
-        this.uiController.showWindow(ClientPrincipal.class);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnCancelActionPerformed
+        this.uiController.showDialog("Ventana de Pago", "En esta ventana se mostrará el sistema externo de pagos.", this);
+    
+    }//GEN-LAST:event_cmbSpeedItemStateChanged
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-        this.uiController.showWindow(ClientPay.class);
-        this.setVisible(false);
+        if(this.jCheckBox1.isSelected()){
+            this.uiController.showWindow(ClientPrincipal.class);
+            this.setVisible(false);
+            this.uiController.showDialog("Servicio Express", "Sus productos serán enviados a la dirección guardada.\nMuchas gracias por su pedido.", this);
+            MainController.getInstance().getClientController().addNewOrder(
+                    MainController.getInstance().getClientController().getCurrentClient().getCart(), 
+                    MainController.getInstance().getAdminController().getCurrentManager(), 
+                    MainController.getInstance().getClientController().getCurrentClient(), 
+                    true);
+        }
+        else{
+            this.uiController.showWindow(ClientPrincipal.class);
+            this.setVisible(false);
+            MainController.getInstance().getClientController().addNewOrder(
+                    MainController.getInstance().getClientController().getCurrentClient().getCart(), 
+                    MainController.getInstance().getAdminController().getCurrentManager(), 
+                    MainController.getInstance().getClientController().getCurrentClient(), 
+                    false);
+        }
+        MainController.getInstance().getClientController().getCurrentClient().getCart().emptyCart();
+        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     /**
@@ -235,14 +234,30 @@ public class ClientConfirmCart extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClientConfirmCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClientConfirmCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClientConfirmCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClientConfirmCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -263,26 +278,26 @@ public class ClientConfirmCart extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClientConfirmCart(null).setVisible(true);
+                new ClientPay(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConfirm;
     public javax.swing.JButton btnQuestions;
+    private javax.swing.JComboBox<String> cmbSpeed;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_background;
-    private javax.swing.JTable tableProducts;
     // End of variables declaration//GEN-END:variables
 }

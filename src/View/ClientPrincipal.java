@@ -153,6 +153,11 @@ public class ClientPrincipal extends javax.swing.JFrame {
         btnCart.setForeground(new java.awt.Color(255, 255, 255));
         btnCart.setToolTipText("Ver El Carrito");
         btnCart.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCartActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 50, 40));
 
         btnQuestions.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
@@ -252,6 +257,12 @@ public class ClientPrincipal extends javax.swing.JFrame {
         );
         uiController.showDialog("Promo agregada", "Promo agregada", this);
     }//GEN-LAST:event_btnAddToCartPromoActionPerformed
+
+    private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ClientConfirmCart.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCartActionPerformed
 
     /**
      * @param args the command line arguments
