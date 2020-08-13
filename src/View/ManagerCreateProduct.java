@@ -27,6 +27,7 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
     
     
     public ManagerCreateProduct(UIController pUiController) {
+        uiController = pUiController;
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -253,6 +254,9 @@ public class ManagerCreateProduct extends javax.swing.JFrame {
                 materials.add(MainController.getInstance().getProductController().getMaterial(s));
             }
         }
+        uiController.showWindow(ManagerProduct.class);
+        this.setVisible(false);
+        this.uiController.showDialog("Nuevo Producto", "Nuevo producto creado", this);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed

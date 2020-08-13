@@ -25,7 +25,7 @@ public class ManagerSalaries extends javax.swing.JFrame {
     private DefaultComboBoxModel  listModel;
     
     public ManagerSalaries(UIController pUiController) {
-        
+        uiController = pUiController;
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
@@ -249,6 +249,7 @@ public class ManagerSalaries extends javax.swing.JFrame {
     }
         uiController.showWindow(ManagerMenu.class);
         this.setVisible(false);
+        this.uiController.showDialog("Salarios", "Salario Editado", this);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**

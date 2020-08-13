@@ -40,6 +40,8 @@ public class UIController {
     private ManagerRegisterEmployee managerRegisterEmployee;
     private ManagerSalaries managerSalaries;
     private ManagerStatistics managerStatistics;
+    private ManagerStatisticsProfit managerStatisticsProfit;
+    private ManagerStatisticsSales managerStatisticsSales;
     private ManagerViewOffers managerViewOffers;
     
     private  JDialog dialog;
@@ -160,16 +162,24 @@ public class UIController {
             managerProduct.setVisible(true);
         }
         else if(c.equals(ManagerRegisterEmployee.class)){
-            this.managerProduct = new ManagerProduct(this);
-            managerProduct.setVisible(true);
+            this.managerRegisterEmployee = new ManagerRegisterEmployee(this);
+            managerRegisterEmployee.setVisible(true);
         }
         else if(c.equals(ManagerSalaries.class)){
             this.managerSalaries = new ManagerSalaries(this);
             managerSalaries.setVisible(true);
         }
         else if(c.equals(ManagerStatistics.class)){
-            this.managerProduct = new ManagerProduct(this);
-            managerProduct.setVisible(true);
+            this.managerStatistics = new ManagerStatistics(this);
+            managerStatistics.setVisible(true);
+        }
+        else if(c.equals(ManagerStatisticsProfit.class)){
+            this.managerStatisticsProfit = new ManagerStatisticsProfit(this);
+            managerStatisticsProfit.setVisible(true);
+        }
+        else if(c.equals(ManagerStatisticsSales.class)){
+            this.managerStatisticsSales = new ManagerStatisticsSales(this);
+            managerStatisticsSales.setVisible(true);
         }
         else if(c.equals(ManagerViewOffers.class)){
             this.managerViewOffers = new ManagerViewOffers(this);

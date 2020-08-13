@@ -25,6 +25,7 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
     private DefaultComboBoxModel  listModel;
     
     public ManagerRegisterEmployee(UIController pUiController) {
+        uiController = pUiController;
         listModel = new DefaultComboBoxModel ();
         
         for(EmployeeType p: MainController.getInstance().getAdminController().getEmployeeTypes()){
@@ -69,7 +70,7 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         txtState = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>(listModel);
         jLabel13 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
@@ -216,7 +217,9 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
         txtLastName.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
         jPanel1.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 200, 30));
 
+        /*
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        */
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 200, 30));
 
         jLabel13.setFont(new java.awt.Font("Corbel", 1, 20)); // NOI18N
@@ -296,6 +299,9 @@ public class ManagerRegisterEmployee extends javax.swing.JFrame {
                         MainController.getInstance().getAdminController().getEmployeeType((String)this.jComboBox1.getSelectedItem()), 
                 MainController.getInstance().getAdminController().getCurrentManager().getStore(),
                 (int)this.spinSalario.getValue()));
+        this.uiController.showWindow(ManagerEmployees.class);
+        this.setVisible(false);
+        this.uiController.showDialog("Register Employee", "Empleado registrado", this);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

@@ -17,6 +17,7 @@ public class ManagerStatistics extends javax.swing.JFrame {
     private UIController uiController;
     
     public ManagerStatistics(UIController pUiController) {
+        uiController=pUiController;
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -150,6 +151,11 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         btnInventory1.setBackground(new java.awt.Color(151, 151, 151));
@@ -177,6 +183,11 @@ public class ManagerStatistics extends javax.swing.JFrame {
         btnOffers1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnOffers1MouseEntered(evt);
+            }
+        });
+        btnOffers1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOffers1ActionPerformed(evt);
             }
         });
         jPanel1.add(btnOffers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 240, 40));
@@ -273,6 +284,18 @@ public class ManagerStatistics extends javax.swing.JFrame {
         uiController.showWindow(ManagerStatisticsSales.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnInventory1ActionPerformed
+
+    private void btnOffers1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOffers1ActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerStatisticsProfit.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnOffers1ActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments

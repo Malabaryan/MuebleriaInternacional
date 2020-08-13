@@ -5,7 +5,10 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
+import Model.Admin.FurnitureStore;
+import Model.Products.Product;
 import javax.swing.ImageIcon;
 
 /**
@@ -32,6 +35,7 @@ public class ManagerStatisticsProfit extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         btnMenu = new javax.swing.JButton();
         btnProduct = new javax.swing.JButton();
@@ -42,14 +46,15 @@ public class ManagerStatisticsProfit extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         btnSave = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
@@ -126,6 +131,11 @@ public class ManagerStatisticsProfit extends javax.swing.JFrame {
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
@@ -133,42 +143,23 @@ public class ManagerStatisticsProfit extends javax.swing.JFrame {
         jLabel4.setText("Ganancias");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Cliente", "Fecha", "Costo"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 730, 330));
-
         btnSave.setBackground(new java.awt.Color(53, 57, 65));
         btnSave.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Generar");
         btnSave.setActionCommand("");
         btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Fecha Final:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, 30));
-
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sucursal", "General" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 70, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, 30));
 
         jLabel11.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,12 +169,26 @@ public class ManagerStatisticsProfit extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Fecha Inicial:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, 30));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, 30));
 
         jLabel13.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Producto:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, -1, 30));
+
+        buttonGroup1.add(jCheckBox1);
+        jCheckBox1.setText("Sucursal");
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+
+        buttonGroup1.add(jCheckBox2);
+        jCheckBox2.setText("General");
+        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 660, 290));
 
         jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sucursal", "General" }));
@@ -217,6 +222,49 @@ public class ManagerStatisticsProfit extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        String s = "";
+        if(this.jCheckBox1.isSelected()){
+            for(Product p: MainController.getInstance().getProductController().getInventory()){
+            s+=p.getName() + "\n";
+            s+= MainController.getInstance().getAdminController().profit(
+                (FurnitureStore)MainController.getInstance().getAdminController().getCurrentManager().getStore(), 
+                null, 
+                null, 
+                p, 
+                1000);
+            s+= "\n";
+            }
+        }
+        else{
+            for(FurnitureStore f:MainController.getInstance().getAdminController().getFurnitureStores()){
+                for(Product p: MainController.getInstance().getProductController().getInventory()){
+                    s+=f.getName()  + "\n";
+                    s+=p.getName() + "\n";
+                    s+= MainController.getInstance().getAdminController().profit(
+                        f, 
+                        null, 
+                        null, 
+                        p, 
+                        1000);
+                    s+= "\n";
+                    }
+            }
+        }
+        
+        
+        this.jTextArea1.setText(
+        s);
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -247,7 +295,7 @@ public class ManagerStatisticsProfit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerStatistics(null).setVisible(true);
+                new ManagerStatisticsProfit(null).setVisible(true);
             }
         });
     }
@@ -259,7 +307,9 @@ public class ManagerStatisticsProfit extends javax.swing.JFrame {
     private javax.swing.JButton btnProduct;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnStats;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -271,8 +321,8 @@ public class ManagerStatisticsProfit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel label_background;
     // End of variables declaration//GEN-END:variables
 }

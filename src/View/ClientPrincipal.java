@@ -109,6 +109,11 @@ public class ClientPrincipal extends javax.swing.JFrame {
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBack.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         btnBack.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 40, 40));
 
         jLabel2.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
@@ -263,6 +268,12 @@ public class ClientPrincipal extends javax.swing.JFrame {
         this.uiController.showWindow(ClientConfirmCart.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnCartActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ClientLogin.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments

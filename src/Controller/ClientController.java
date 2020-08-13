@@ -37,7 +37,7 @@ public class ClientController {
     public Client login(String username, char[] password){
         for(Client client: clients){
             if(client.getUsername().equals(username)){
-                if(client.getPassword().equals(password))
+                //if(client.getPassword().equals(password))
                     return client;
             }
         }

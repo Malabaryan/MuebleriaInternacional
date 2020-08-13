@@ -444,6 +444,9 @@
             </Property>
           </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;&gt;(listModel)"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="*/"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="/*"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
           <Constraints>

@@ -30,7 +30,7 @@ public class ManagerOffers extends javax.swing.JFrame {
     private DefaultListModel listModel;
     
     public ManagerOffers(UIController pUiController) {
-        
+        uiController = pUiController;
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
         this.setIconImage(image.getImage());
@@ -286,12 +286,13 @@ public class ManagerOffers extends javax.swing.JFrame {
                         this.txtName.getText())
                  );
         System.out.println("Promo agregada");
-        
+        uiController.showWindow(ManagerProduct.class);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
-        uiController.showWindow(ManagerMenu.class);
+        uiController.showWindow(ManagerProduct.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
 

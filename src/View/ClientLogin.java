@@ -72,6 +72,11 @@ public class ClientLogin extends javax.swing.JFrame {
         btnManager.setBorderPainted(false);
         btnManager.setContentAreaFilled(false);
         btnManager.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnManager.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagerActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         btnRegister.setBackground(new java.awt.Color(180, 180, 180));
@@ -176,6 +181,12 @@ public class ClientLogin extends javax.swing.JFrame {
         this.uiController.showWindow(ClientRegister.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagerActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerLogin.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnManagerActionPerformed
 
     /**
      * @param args the command line arguments

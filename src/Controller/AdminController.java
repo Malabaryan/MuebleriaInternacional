@@ -60,48 +60,53 @@ public class AdminController {
         return empl;
     }
     
-    public Employee addEmployee(Employee empl, WorkShop store){
+   /* public Employee addEmployee(Employee empl, WorkShop store){
         empl.setWorkshop(store);
         employees.add(empl);
         return empl;
-    }
+    }*/
     
-    public void reportingSalesFurniture(Employee e){
+    public String reportingSalesFurniture(Employee e){
         int total = 0;
+        String text = "";
         for(Order o: MainController.getInstance().getClientController().getOrders()){
             if(o.getShop().equals(e.getStore())){
-                System.out.print("Nombre Cliente: "+o.getClient().getName()+ "\n");
-                System.out.print("Costo: "+o.getCost()+ "\n");
+                text += ("Nombre Cliente: "+o.getClient().getName()+ "\n");
+                text += ("Costo: "+o.getCost()+ "\n");
                 total = total + o.getCost();
-                System.out.print("Fecha: "+o.getDate().toString()+ "\n");
+                text += ("Fecha: "+o.getDate().toString()+ "\n");
                 for(Product p:o.getProducts()){
-                    System.out.print("Nombre: "+p.getName());
-                    System.out.print(" Costo: "+p.getCost()+ "\n");
+                    text += ("Nombre: "+p.getName());
+                    text += (" Costo: "+p.getCost()+ "\n");
                 }
             }
         }
-        System.out.print("Total: "+total+"\n");
+        text += ("Total: "+total+"\n");
+        return text;
     }
     
-    public void reportingSalesGeneral(){
+    
+    public String reportingSalesGeneral(){
         int total = 0;
-        
+        String text = "";
         for(Order o: MainController.getInstance().getClientController().getOrders()){
-            System.out.print("Nombre Cliente: "+o.getClient().getName()+ "\n");
-            System.out.print("Costo: "+o.getCost()+ "\n");
+            text += ("Nombre Cliente: "+o.getClient().getName()+ "\n");
+            text += ("Costo: "+o.getCost()+ "\n");
             total = total + o.getCost();
-            System.out.print("Fecha: "+o.getDate().toString()+ "\n");
+            text += ("Fecha: "+o.getDate().toString()+ "\n");
             for(Product p:o.getProducts()){
-                System.out.print("Nombre: "+p.getName());
-                System.out.print(" Costo: "+p.getCost()+ "\n");
+                text += ("Nombre: "+p.getName());
+                text += (" Costo: "+p.getCost()+ "\n");
             }
             
         }
-        System.out.print("Total: "+total+"\n");
+        text += ("Total: "+total+"\n");
+        return text;
     }
     
-    public void profit(FurnitureStore fstore, Date dateI, Date dateF, Product product,int expenses){
+    public String profit(FurnitureStore fstore, Date dateI, Date dateF, Product product,int expenses){
         int total = 0;
+        String text = "";
         for(Order o: MainController.getInstance().getClientController().getOrders()){
             if(fstore == null){
                 if(dateI == null && dateF==null){
@@ -162,10 +167,11 @@ public class AdminController {
                 }
             }
         }
-        System.out.print("Ventas: "+total+"\n");
-        System.out.print("Gastos: "+expenses+"\n");
+        text += ("Ventas: "+total+"\n");
+        text += ("Gastos: "+expenses+"\n");
         total=total-expenses;
-        System.out.print("Total: "+total+"\n");
+        text += ("Total: "+total+"\n");
+        return text;
     }
 
     public ArrayList<FurnitureStore> getFurnitureStores() {

@@ -13,14 +13,17 @@ import Model.Products.Material;
 import Model.Products.Product;
 import Model.Products.Promo;
 import View.ClientConfirmCart;
+import View.ClientLogin;
 import View.ClientPrincipal;
 import View.ClientRegister;
 import View.ManagerBacklog;
 import View.ManagerCreateStore;
 import View.ManagerEmployees;
+import View.ManagerLogin;
 import View.ManagerOffers;
 import View.ManagerProduct;
 import View.ManagerSalaries;
+import View.ManagerStatistics;
 import View.ManagerViewOffers;
 import java.util.ArrayList;
 import java.util.Date;
@@ -141,7 +144,8 @@ public class MainPrueba {
         
         
         MainController.getInstance().getUiController().setCurrentClient(cliente);
-        MainController.getInstance().getUiController().showWindow(ManagerBacklog.class);
+        MainController.getInstance().getAdminController().setCurrentManager(manager);
+        MainController.getInstance().getUiController().showWindow(ClientLogin.class);
     }
     
 }

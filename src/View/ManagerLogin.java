@@ -19,6 +19,7 @@ public class ManagerLogin extends javax.swing.JFrame {
     private UIController uiController;
     
     public ManagerLogin(UIController pUiController) {
+        uiController = pUiController;
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -55,7 +56,12 @@ public class ManagerLogin extends javax.swing.JFrame {
         btnClient.setBorder(null);
         btnClient.setBorderPainted(false);
         btnClient.setContentAreaFilled(false);
-        btnClient.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClient.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
@@ -85,7 +91,7 @@ public class ManagerLogin extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Corbel", 1, 22)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Ingresar");
-        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -134,6 +140,12 @@ public class ManagerLogin extends javax.swing.JFrame {
            
         
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ClientLogin.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnClientActionPerformed
 
     /**
      * @param args the command line arguments

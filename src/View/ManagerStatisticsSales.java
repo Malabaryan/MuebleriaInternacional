@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.MainController;
 import Controller.UIController;
 import javax.swing.ImageIcon;
 
@@ -17,6 +18,7 @@ public class ManagerStatisticsSales extends javax.swing.JFrame {
     private UIController uiController;
     
     public ManagerStatisticsSales(UIController pUiController) {
+        uiController = pUiController;
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -32,6 +34,7 @@ public class ManagerStatisticsSales extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         btnMenu = new javax.swing.JButton();
         btnProduct = new javax.swing.JButton();
@@ -43,10 +46,11 @@ public class ManagerStatisticsSales extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        btnSave = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        btnGenerar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        checkGeneral = new javax.swing.JCheckBox();
+        checkSucursal = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         label_background = new javax.swing.JLabel();
 
@@ -122,6 +126,11 @@ public class ManagerStatisticsSales extends javax.swing.JFrame {
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
         btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 40, -1));
 
         jLabel4.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
@@ -134,37 +143,33 @@ public class ManagerStatisticsSales extends javax.swing.JFrame {
         jLabel10.setText("Tipo:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, 30));
 
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sucursal", "General" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 100, 30));
-
-        btnSave.setBackground(new java.awt.Color(53, 57, 65));
-        btnSave.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("Generar");
-        btnSave.setActionCommand("");
-        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 140, -1));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Cliente", "Fecha", "Costo"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        btnGenerar.setBackground(new java.awt.Color(53, 57, 65));
+        btnGenerar.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerar.setText("Generar");
+        btnGenerar.setActionCommand("");
+        btnGenerar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jPanel1.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 140, -1));
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 730, 330));
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 670, 290));
+
+        buttonGroup1.add(checkGeneral);
+        checkGeneral.setSelected(true);
+        checkGeneral.setText("General");
+        jPanel1.add(checkGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 90, -1));
+
+        buttonGroup1.add(checkSucursal);
+        checkSucursal.setText("Sucursal");
+        jPanel1.add(checkSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 90, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/opaque.png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 710, 380));
@@ -193,6 +198,29 @@ public class ManagerStatisticsSales extends javax.swing.JFrame {
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductActionPerformed
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        // TODO add your handling code here:
+        if(this.checkGeneral.isSelected()){
+            this.jTextArea1.setText(
+        MainController.getInstance().getAdminController().reportingSalesGeneral()
+        );
+        }
+        else{
+            this.jTextArea1.setText(
+        MainController.getInstance().getAdminController().reportingSalesFurniture(
+                MainController.getInstance().getAdminController().getCurrentManager()
+        )
+        );
+        }
+        
+    }//GEN-LAST:event_btnGenerarActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        uiController.showWindow(ManagerMenu.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,7 +252,7 @@ public class ManagerStatisticsSales extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagerStatistics(null).setVisible(true);
+                new ManagerStatisticsSales(null).setVisible(true);
             }
         });
     }
@@ -232,11 +260,13 @@ public class ManagerStatisticsSales extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEmployee;
     public javax.swing.JButton btnExit;
+    private javax.swing.JButton btnGenerar;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnProduct;
-    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnStats;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JCheckBox checkGeneral;
+    private javax.swing.JCheckBox checkSucursal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -244,8 +274,8 @@ public class ManagerStatisticsSales extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel label_background;
     // End of variables declaration//GEN-END:variables
 }

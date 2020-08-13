@@ -208,6 +208,7 @@ public class ClientConfirmCart extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        MainController.getInstance().getClientController().getCurrentClient().getCart().emptyCart();
         this.uiController.showWindow(ClientPrincipal.class);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelActionPerformed

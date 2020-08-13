@@ -17,6 +17,7 @@ public class ManagerMenu extends javax.swing.JFrame {
     private UIController uiController;
     
     public ManagerMenu(UIController pUiController) {
+        uiController = pUiController;
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src/images/icon.png");
@@ -37,6 +38,8 @@ public class ManagerMenu extends javax.swing.JFrame {
         btnProducts = new javax.swing.JButton();
         btnStats = new javax.swing.JButton();
         btnSignOut = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         label_background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,6 +94,22 @@ public class ManagerMenu extends javax.swing.JFrame {
         });
         jPanel1.add(btnSignOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 100, -1));
 
+        jButton2.setText("Create Store");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 190, -1));
+
+        jButton1.setText("Backlog");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 190, -1));
+
         label_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bakground_manager.png"))); // NOI18N
         jPanel1.add(label_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 550));
 
@@ -132,6 +151,18 @@ public class ManagerMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnSignOutActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerBacklog.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.uiController.showWindow(ManagerCreateStore.class);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,6 +203,8 @@ public class ManagerMenu extends javax.swing.JFrame {
     public javax.swing.JButton btnProducts;
     public javax.swing.JButton btnSignOut;
     public javax.swing.JButton btnStats;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_background;
     // End of variables declaration//GEN-END:variables
